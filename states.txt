@@ -206,7 +206,7 @@ mindbarrier	203	1																																									bladeshield											
 shadow_mastery	204			1																																																																						0
 sigil	205			1																																																																						0
 psychicward	206	1																																									psychicward																															0
-bind_demon	207																																										warlockdemonground	warlockdemontorso							19						70	130																0
+bind_demon	207																												1	1				1									warlockdemonground	warlockdemontorso							19						70	130																0
 consume	208	9																																									warlockconsume																															0
 advancedstash	209																																																																									0
 healthlink	210																																										healthlink																															0
@@ -226,6 +226,7 @@ coldenchant	223											1									1																											coldenchant		ski
 talicfirepierce	224					1																	1																				talicfirepierce																															0
 madawclightpierce	225					1																		1																			madawclightpierce																															0
 korliccoldpierce	226					1																			1																		korliccoldpierce																															0
-bind_demon_underling	227																																																		19						70	130																0
+bind_demon_underling	227																												1	1				1																	19						70	130																0
 herald	228																																										herald																															0
-apocalypse	229																																																																									
+apocalypse	229																																																																									0
+missilelimit	230																																																																									0

@@ -1,0 +1,10 @@
+code	*description
+hpct	Percentage of health points remaining
+diff	"Difficulty the monster was created in (1=normal, 2=nightmare, 3=hell)"
+lvl	Current level of the monster
+elte	"Elite type of the monster (0=normal, 1=unique, 2=champion, 3=super, 4=minion, 5=herald, 6=herald minion)"
+pcl1	The associated MonPet entry's calc1 field value
+pcl2	The associated MonPet entry's calc2 field value
+pcl3	The associated MonPet entry's calc3 field value
+pcl4	The associated MonPet entry's calc4 field value
+pcl5	The associated MonPet entry's calc5 field value
