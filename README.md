@@ -2,7 +2,6 @@
 
 These data files are in Tab-separated values (TSV) format.
 
-For a detailed data file guide, see the file `_diabloiidatafileguide.mht` or browse the sites below.
+If you would like to learn more about this data file, please refer to the official guidelines below, written by the Diablo II development team.
 
-* locbones: https://locbones.github.io/D2R_DataGuide/
-* wolfieeiflow: https://wolfieeiflow.github.io/diabloiidatafileguide/
+* Diablo II: Resurrected Data Guide: https://pinkufairy.github.io/D2R-Excel/
