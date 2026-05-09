@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Game Mode Split - Diablo II: Resurrected Data Guide</title>
+    <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="../style/main.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>Game Mode Split</h1>
+                <p>
+                    Starting in version 3.0, the concept of splitting the data for different game modes was introduced. This means that there are multiple versions of certain data files, with each version being used for a specific game mode. There is no inheritance or anything between the two versions. The split is set up like so:
+                </p>
+                <ul>
+                    <li>Classic\Expansion modes use files in the <code>/excel/base/</code> folder</li>
+                    <li>Reign of the Warlock mode uses files in the <code>/excel/</code> folder</li>
+                </ul>
+                <p>
+                    There are exceptions to this. Some files are shared across all game modes and thus do not need to be split. For these cases, the files in the <code>/excel/</code> folder are always used. These files are:
+                </p>
+                <ul>
+                    <li>sounds.txt</li>
+                    <li>soundenviron.txt</li>
+                </ul>
+                <p>
+                    It is important to be mindful of a few things due to this change:
+                    <ul>
+                        <li>Indices should match across game modes. For example if in Classic/Expansion mode, a unique item's index in uniqueitems.txt needs to be the same index in the Reign of the Warlock mode's uniqueitems.txt. If the index corresponds to different items, then there will be issues if a character is upgraded from Classic/Expanion to Reign of the Warlock.</li>
+                        <li>When making changes, consider what game modes they should go in. For example, if a change is made to the Reign of the Warlock game mode, ask if it should also be made in Classic/Expansion.</li>
+                    </ul>
+                </p>
+                <p>
+
+                </p>
+            </div>
+
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">Game Mode Split</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="../data/siteIndex.js"></script>
+    <script src="../data/search.js"></script>
+    <script src="../script/siteSidebar.js"></script>
+    <script>
+        populateSiteSidebar("..", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

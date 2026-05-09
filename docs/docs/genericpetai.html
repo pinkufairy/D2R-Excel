@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Generic Pet AI - Diablo II: Resurrected Data Guide</title>
+    <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/file.css" /> <!-- For bittable use -->
+</head>
+<body>
+    <script src="../script/file.js"></script> <!-- For bittable use -->
+
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>Generic Pet AI</h1>
+                <p>
+                    The "Generic Pet AI" is a monster AI that is intended to be used for a player character's pets. It provides a more responsive experience to the existing pet AIs while improving customizability.
+                </p>
+                <p>
+                    Note that there is still some of that "Diablo 2 Feel TM", which is both on purpose and a result of the engine. Much of it was based on the existing shadow master and hireable AIs.
+                </p>
+                <p>
+                    Modders: Any cases not in the vanilla game will not have been tested, so certain functionalities might not work. Also, while it is intended to be used with pets, there should be nothing stopping it from being used for normal monsters (this case was not tested, however).
+                </p>
+            </div>
+
+            <div id="params" class="page-sidebar-target">
+                <h2>Params</h2>
+                <p>
+                    These params can be customized in <a href="../files/monstats.html#aip#" target="_blank" class="reference-link">monstats.txt#aip#</a>
+                    <ul>
+                        <li><a href="#aip1" id="aip1">aip1</a> Leash Distance: Integer. Distance that the pet should stop what they are doing and leash (move) to the boss. See <a href="#following">Following</a>.</li>
+                        <li><a href="#aip1(N)" id="aip1(N)">aip1(N)</a> Warp Distance: Integer. Distance that causes the pet to warp to the boss. See <a href="#following">Following</a>.</li>
+                        <li><a href="#aip1(H)" id="aip1(H)">aip1(H)</a> Close Distance Velocity Bonus: Integer. Percent bonus to the pet's velocity when the "Close Distance" follow case is chosen. See <a href="#following">Following</a>.</li>
+                        <br>
+                        <li><a href="#aip2" id="aip2">aip2</a> Ambient Wander Chance: Integer. Chance that the monster will move if the "Ambient" follow case is chosen. See <a href="#following">Following</a>.</li>
+                        <li><a href="#aip2(N)" id="aip2(N)">aip2(N)</a> Swarm Cutoff: Integer. If greater than 0, the amount of opted-in pets that have to be targeting a target for it to be de-prioritized. See <a href="#swarming">Swarming</a>.</li>
+                        <li><a href="#aip2(H)" id="aip2(H)">aip2(H)</a> Behavior Flags: Integer Flags. Bit flags that enable behaviors. See <a href="#behavior-flags">Behavior Flags</a>.</li>
+                        <br>
+                        <li><a href="#aip3" id="aip3">aip3</a> Skill Gather Type: Integer, corresponds to an enum. Method used for gathering skills. See <a href="#gather-skills">Gathering Skills</a>.</li>
+                        <li><a href="#aip3(N)" id="aip3(N)">aip3(N)</a> Allow Skill Bonuses: Boolean (0 is false, 1 is true). If item skill level bonuses are factored in. See <a href="#gather-skills">Gathering Skills</a>.</li>
+                        <li><a href="#aip3(H)" id="aip3(H)">aip3(H)</a> Skill Choose Type: Integer, corresponds to an enum. Method use for choosing a skill to perform. <a href="#performing-skill">Performing a Skill</a>.</li>
+                        <br>
+                        <li><a href="#aip4" id="aip4">aip4</a> Mode Attack Mode: Integer, corresponds to a monster mode. Monster mode to use for the "mode attack". See <a href="#mode-attacks">Mode Attacks</a>.</li>
+                        <li><a href="#aip4(N)" id="aip4(N)">aip4(N)</a> Mode Attack AI Type: Integer, corresponds to a <a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a>. AI type to use for the "mode attack". See <a href="#mode-attacks">Mode Attacks</a>.</li>
+                        <li><a href="#aip4(H)" id="aip4(H)">aip4(H)</a> Mode Attack Bonus Rating: Integer. Bonus rating to apply to the "mode attack". See <a href="#rating-skills">Rating Skills</a>.</li>
+                        <br>
+                        <li><a href="#aip5" id="aip5">aip5</a> Melee Sweet Spot Min: Integer. Minimum distance for the melee skill "sweet spot". See <a href="#targets">Targets</a>.</li>
+                        <li><a href="#aip5(N)" id="aip5(N)">aip5(N)</a> Melee Sweet Spot Max: Integer. Maximum distance for the melee skill "sweet spot". See <a href="#targets">Targets</a>.</li>
+                        <li><a href="#aip5(H)" id="aip5(H)">aip5(H)</a> Melee Bonus Rating: Integer. Bonus rating to apply to melee-style skills. See <a href="#rating-skills">Rating Skills</a>.</li>
+                        <br>
+                        <li><a href="#aip6" id="aip6">aip6</a> Ranged Sweet Spot Min: Integer. Minimum distance for the ranged skill "sweet spot". See <a href="#targets">Targets</a>.</li>
+                        <li><a href="#aip6(N)" id="aip6(N)">aip6(N)</a> Ranged Sweet Spot Max: Integer. Maximum distance for the ranged skill "sweet spot". See <a href="#targets">Targets</a>.</li>
+                        <li><a href="#aip6(H)" id="aip6(H)">aip6(H)</a> Ranged Bonus Rating: Integer. Bonus rating to apply to ranged-style skills. See <a href="#rating-skills">Rating Skills</a>.</li>
+                        <br>
+                        <li><a href="#aip7" id="aip7">aip7</a> Random Bonus Rating: Integer. Bonus rating to randomly apply to various skill types. See <a href="#rating-skills">Rating Skills</a>.</li>
+                        <li><a href="#aip7(N)" id="aip7(N)">aip7(N)</a> Progressive Bonus Rating: Bonus rating to apply to progressive-style skills when not at max charges. See <a href="#rating-skills">Rating Skills</a>.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="behavior-flags" class="page-sidebar-target">
+                <h2>Behavior Flags</h2>
+                <p>
+                    Some behaviors can be customized using <a href="#aip2(H)">aip2(H)/Behavior Flags</a>. This is an integer value where each bit represents a boolean and is checked using the & operator. For example, if the value equals 5 (binary = 101) then that returns true for both the 4 (binary = 100) and 1 (binary = 1) bit field values.
+                </p>
+                <table class="field-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+                <script>
+                createBittable(document.querySelector(".field-table"), [
+                    "Disable High Priority Targeting. See <a href=\"#high-priority\">High Priority Targets</a>.",
+                    "Always Debuff. Will use debuff skills when aquiring a target. Debuff targets are never persisted. See <a href=\"#targets\">Targets</a>.",
+                ]);
+                </script>
+            </div>
+
+            <div id="following" class="page-sidebar-target">
+                <h2>Following</h2>
+                <p>
+                    The pet chooses to follow the boss if either of the following conditions are met: The distance between it and its boss is greater than <a href="#aip1">aip1/Leash Distance</a> or the pet failed to choose a skill for combat.
+                </p>
+                <p>
+                    The pet then chooses one of the following follow cases and performs it. The conditions are evaluated in order of appearance in the table.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case</th>
+                            <th>Condition</th>
+                            <th>Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Warp</td>
+                            <td>The distance between the pet and its boss is greater than <a href="#aip1(N)">aip1(N)/Warp Distance</a>.</td>
+                            <td>Try to warp to a square just offscreen of the boss's location. Then try to warp to a square in the boss's room. Then try to warp directly onto the boss.</td>
+                        </tr>
+                        <tr>
+                            <td>Close Distance</td>
+                            <td>The distance between the pet and its boss is greater than 10 squares (hardcoded) or the pet and its boss are in different logical rooms (a logical room is basically a tileset).</td>
+                            <td>Always run if the pet has that mode. Apply <a href="#aip1(H)">aip1(H)/Close Distance Velocity Bonus</a> as a percentage bonus to velocity. Try to move to a square near the boss's predicted location. Then try to move to the boss's exact location.</td>
+                        </tr>
+                        <tr>
+                            <td>Follow Cursor</td>
+                            <td>The pet's boss is moving.</td>
+                            <td>Always walk. Try to move to a square near the boss's predicted location, prefering squares in the direction the boss is moving. Then try to move to a square near the boss's exact location. Then try to move between the pet and the boss's exact location. Then try to move to our boss's exact location.</td>
+                        </tr>
+                        <tr>
+                            <td>Boss Warped</td>
+                            <td>The distance between the pet and its boss's last warp location is less than 6 squares (hardcoded).</td>
+                            <td>Always walk. Try to move away from the boss's last warp location. Then try to move away from the boss's exact location.</td>
+                        </tr>
+                        <tr>
+                            <td>Push</td>
+                            <td>The distance between the pet and its boss is less than or equal to 2 squares (hardcoded).</td>
+                            <td>Always walk. Try moving to a random square near the boss. Then try moving away from the boss. Then try moving towards the boss's predicted location.</td>
+                        </tr>
+                        <tr>
+                            <td>Ambient</td>
+                            <td>The pet's <a href="#aip2">aip2/Ambient Wander Chance</a> is greater than 0.</td>
+                            <td>Always walk. Only move if a random percent is less than <a href="#aip2">aip2/Ambient Wander Chance</a>. Try moving to a random square near the boss. Then try moving to the boss's predicted location.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    After choosing a follow case and performing it, an ai update is scheduled for 2 seconds in the future. This differs from other AIs which don't perform an ai update until the end of the path is reached. The result is a more responsive AI.
+                </p>
+            </div>
+
+            <div id="combat" class="page-sidebar-target">
+                <h2>Combat</h2>
+                <p>
+                    The pet chooses violence if the following condition is met: The distance between it and its boss is less than or equal to <a href="#aip1">aip1/Leash Distance</a> and it is not in town.
+                </p>
+            </div>
+
+            <div id="targets" class="page-sidebar-target">
+                <h3>Targets</h3>
+                <p>
+                    If the pet doesn't have a persisted target then it will find a new one. Target finding is a multi-step process. First, the pet will find a set of targets based on the skills it has. Second, the skills then choose a target from that set to use. Third, when a skill is chosen, its target becomes the pet's target. The set of target types is as follows:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Target Type</th>
+                            <th>Condition</th>
+                            <th>Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Melee</td>
+                            <td><a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a> set to Melee, Steal, or Move Attack.</td>
+                            <td>
+                                A target is always chosen, but when comparing two targets, the following conditions are used in order:
+                                <ol>
+                                    <li>Target is in sweet spot and is the boss's target.</li>
+                                    <li>Target is in the sweet spot and is the highest priority target. See <a href="#high-priority">High Priority Targets</a>.</li>
+                                    <li>Target is the closest non-swarmed target. See <a href="#swarm">Swarming</a>.</li>
+                                </ol>
+                                Sweet spot: Distance between the pet and the target is between <a href="#aip5">aip5/Melee Sweet Spot Min</a> and <a href="#aip5(N)">aip5(N)/Melee Sweet Spot Max.</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ranged</td>
+                            <td><a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a> set to Ranged.</td>
+                            <td>
+                                A target is always chosen, but when comparing two targets, the following conditions are used in order:
+                                <ol>
+                                    <li>Target is in sweet spot and is the boss's target.</li>
+                                    <li>Target is in the sweet spot and is the highest priority target. See <a href="#high-priority">High Priority Targets</a>.</li>
+                                    <li>Target is the closest target in the sweet spot.</li>
+                                </ol>
+                                Sweet spot: Distance between the pet and the target is between <a href="#aip6">aip6/Ranged Sweet Spot Min</a> and <a href="#aip6(N)">aip6(N)/Ranged Sweet Spot Max.</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Area</td>
+                            <td><a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a> set to Summon or Area.</ul></td>
+                            <td>Divide the targetable area into chunks. Target is the closest target in the closest chunk with the most total targets.</td>
+                        </tr>
+                        <tr>
+                            <td>Corpse</td>
+                            <td><a href="../files/skills.html#TargetCorpse" target="_blank" class="reference-link">skills.txt#TargetCorpse</a> is set.</td>
+                            <td>The closest unused corpse to the pet.</td>
+                        </tr>
+                        <tr>
+                            <td>Near Boss</td>
+                            <td><a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a> set to Teleport or Move Attack.</td>
+                            <td>The closest target to the boss.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="swarm" class="page-sidebar-target">
+                <h4>Swarming</h4>
+                <p>
+                    Swarming is an opt-in behavior that loosley manages how many pets can choose a unit as their target. Swarming only takes into account the pets that are using the Generic Pet AI and have <a href="#aip2(N)">aip2(N)/Swarm Cutoff</a> greater than 0. A target is considered swarmed if the amount of pets targeting it is greater than <a href="#aip2(N)">aip2(N)/Swarm Cutoff</a>.
+                </p>
+            </div>
+
+            <div id="high-priority" class="page-sidebar-target">
+                <h4>High Priority Targets</h4>
+                <p>
+                    Non-normal targets can be considered "high priority" and have a higher likelihood of being chosen as a target. This adds the target's elite type from the below table to the value in the target's <a href="../files/monstats.html#threat" target="_blank" class="reference-link">monstats.txt#threat</a> (or 14 if they are a player). This functionality can be disabled by enabling <a href="#aip2(H)">aip2(H)/Disable High Priority Targeting</a>.
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Elite Type</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Normal</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Champion</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Unique</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Super Unique</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Boss or Prime Evil</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Hostile Player</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </p>
+            </div>
+
+            <div id="skills" class="page-sidebar-target">
+                <h3>Skills</h3>
+            </div>
+
+            <div id="gather-skills" class="page-sidebar-target">
+                <h4 id="gather-skills">Gathering Skills</h4>
+                <p>
+                    The set of skills the pet can use is gathered based on the value in <a href="#aip3">aip3/Skill Gather Type</a>. If <a href="#aip3(N)">aip3(N)/Allow Skill Bonuses</a> is set, then level bonuses from items are included.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Gather Type</th>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monstats</td>
+                            <td>0</td>
+                            <td>Gather only the skills set in <a href="../files/monstats.html#Skill#" target="_blank" class="reference-link">monstats.txt#Skill#</a>.</td>
+                        </tr>
+                        <tr>
+                            <td>All Skills</td>
+                            <td>1</td>
+                            <td>Gather all skills non-item skills on the unit. This is for skills added by other logic that are not present in <a href="../files/monstats.html#Skill#" target="_blank" class="reference-link">monstats.txt#Skill#</a>, commonly <a href="../files/skills.html#sumskill#" target="_blank" class="reference-link">skills.txt#sumskill#</a>.</td>
+                        </tr>
+                        <tr>
+                            <td>All Skills with Items</td>
+                            <td>2</td>
+                            <td>Same as "All Skills" except it includes non-charged skills granted by items.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="mode-attacks" class="page-sidebar-target">
+                <h5>Mode Attacks</h5>
+                <p>
+                    A "Mode Attack" is an attack not tied to a skill. They can be added by filling out <a href="#aip4">aip4/Mode Attack Mode</a> with a monster mode and <a href="#aip4(N)">aip4(N)/Mode Attack AI Type</a> with a <a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a>. Only certain aitypes are supported to be mode attacks, see <a href="#rating-skills">Rating Skills</a>.
+                </p>
+            </div>
+            
+            <div id="rating-skills" class="page-sidebar-target">
+                <h4>Rating Skills</h4>
+                <p>
+                    A skill rating is generated for every gathered skill. The base rating is "<code>(<a href="../files/skills.html#reqlevel" target="_blank" class="reference-link">skills.txt#reqlevel</a> / 4) + skill level + <a href="../files/skills.html#aibonus" target="_blank" class="reference-link">skills.txt#aibonus</a></code>" or <a href="#aip4(H)">aip4(H)/Mode Attack Bonus Rating</a> for <a href="#mode-attacks">Mode Attacks</a>. The rest of this section describes all the modifications to that rating.
+                </p>
+                <p>
+                    A skill can get set to "perform the skill now" or "skip" ratings. Internally this sets the skill rating to integer max and min respectively. There are also pre-set "rating boost" values that are mentioned throughout this section. They are:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rating Boost</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>High</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Low</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    If the skill is <a href="../files/skills.html#progressive" target="_blank" class="reference-link">skills.txt#progressive</a> and has max charges, skip it. Otherwise add a rating bonus of <a href="#aip7(N)">aip7(N)/Progressive Bonus Rating</a>.
+                </p>
+                <p>
+                    If the skill is <a href="../files/skills.html#finishing" target="_blank" class="reference-link">skills.txt#finishing</a> and has progressive charges, add a rating bonus of "<code>total charges * (Low rating boost / 2)"</code>. Otherwise subtract a Medium rating boost.
+                </p>
+                <p>
+                    Modify the rating by the amount of resistance the target has to <a href="../files/skills.html#EType" target="_blank" class="reference-link">skills.txt#EType</a>.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resist Value</th>
+                            <th>Rating Boost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>>= 100</td>
+                            <td>-High</td>
+                        </tr>
+                        <tr>
+                            <td>>= 66</td>
+                            <td>-Medium</td>
+                        </tr>
+                        <tr>
+                            <td>>= 33</td>
+                            <td>-Low</td>
+                        </tr>
+                        <tr>
+                            <td>&lt= -33</td>
+                            <td>+Low</td>
+                        </tr>
+                        <tr>
+                            <td>&lt= -66</td>
+                            <td>+Medium</td>
+                        </tr>
+                        <tr>
+                            <td>&lt= -100</td>
+                            <td>+High</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Modify the rating based on the skill's <a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a>:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>AI Type</th>
+                            <th>Target Type</th>
+                            <th>Behavior</th>
+                            <th>Mode Attack</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Buff</td>
+                            <td>None</td>
+                            <td>Can only be chosen when finding a new target. Find an allied target that doesn't have <a href="../files/skills.html#aurastate" target="_blank" class="reference-link">skills.txt#aurastate</a> or any other states in its <a href="../files/states.html#group" target="_blank" class="reference-link">states.html#group</a> active. First check the pet. Then if <a href="../files/skills.html#TargetAlly" target="_blank" class="reference-link">skills.txt#TargetAlly</a> is set check allied players, starting with the pet's boss. Then check all of the boss's pets if <a href="../files/skills.html#TargetPet" target="_blank" class="reference-link">skills.txt#TargetPet</a> is set. Perform the skill now if a target is found.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Debuff</td>
+                            <td>None</td>
+                            <td>Skip if the pet doesn't have or is just aquiring a target. If the target doesn't have <a href="../files/skills.html#auratargetstate" target="_blank" class="reference-link">skills.txt#auratargetstate</a> or any other states in its <a href="../files/states.html#group" target="_blank" class="reference-link">states.html#group</a> active, perform the skill now. Otherwise skip.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Summon</td>
+                            <td>Area</td>
+                            <td>Skip if the pet's monster class is equal to <a href="../files/skills.html#summon" target="_blank" class="reference-link">skills.txt#summon</a> or its pet type is equal to <a href="../files/skills.html#pettype" target="_blank" class="reference-link">skills.txt#pettype</a> to prevent summoning itself. Skip if there are <a href="../files/skills.html#petmax" target="_blank" class="reference-link">skills.txt#petmax</a> amount of <a href="../files/skills.html#pettype" target="_blank" class="reference-link">skills.txt#pettype</a> pets, otherwise subtract a Medium rating boost if the amount of pets is half the max.<br>If there are less than three targets on screen, subtract a Medium rating boost, otherwise add a rating bonus of "<code>(total targets - 3) * (Low rating boost / 2)</code>". If there's a target in melee range, subtract a Medium rating boost.<br>Add a random bonus rating up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Melee</td>
+                            <td>Melee</td>
+                            <td>If the target is within "<code><a href="#aip5(N)">aip5(N)/Melee Sweet Spot Max</a> / 2</code>", add a Medium rating boost. Add <a href="#aip5(H)">aip5(H)/Melee Bonus Rating</a>.<br>Add a random rating bonus up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Ranged</td>
+                            <td>Ranged</td>
+                            <td>If the target is within "<code><a href="#aip5(N)">aip5(N)/Melee Sweet Spot Max</a> / 2</code>", subtract a Medium rating boost. If there's a target in melee range, subtract a Low rating boost. Add <a href="#aip6(H)">aip6(H)/Ranged Bonus Rating</a>.<br>Add a random rating bonus up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Area Ranged</td>
+                            <td>Area</td>
+                            <td>Same as Ranged.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Aura</td>
+                            <td>None</td>
+                            <td>Skip if the skill is equipped to the right hand, otherwise perform the skill now.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Teleport</td>
+                            <td>Melee,<br>Ranged</td>
+                            <td>When aquiring a target, calculate the rating for both the Melee and Ranged target. Try the Melee target first if the pet prefers melee ("<code><a href="#aip5(H)">aip5(H)/Melee Bonus Rating</a> > <a href="#aip6(H)">aip6(H)/Ranged Bonus Rating</a></code>"), otherwise try the Ranged target first.<br>If health is greater than 66%, try to get closer to the target. If the pet prefers melee, and the distance to the target is greater than "<code><a href="#aip5(N)">aip5(N)/Melee Sweet Spot Max</a> / 2</code>", then add a High rating boost. Otherwise if the pet doesn't prefer melee and the distance is greater than <a href="#aip6(N)">aip6(N)/Ranged Sweet Spot Max</a>, add a High rating boost and target a square halfway between the pet and the target.<br>If health is lower than 66%, try to teleport away. If the pet has a boss, set the target to the boss. Otherwise, set the target to a random square within 20 squares. Add a Low rating boost. If health is less than 33%, add Medium rating boost.<br>Add a random rating bonus up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Heal</td>
+                            <td>None</td>
+                            <td>Don't skip if health is less than 66%. Can target the boss under the same conditions if <a href="../files/skills.html#TargetAlly" target="_blank" class="reference-link">skills.txt#TargetAlly</a> is set.<br>Add a High rating boost. Add a second one if health is less than 33%.<br>Add a random rating bonus up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Steal</td>
+                            <td>Melee</td>
+                            <td>Skip if the target is a monster and its <a href="../files/monstats.html#Drain" target="_blank" class="reference-link">monstats.txt#Drain</a> is less than 25%. Add a Medium rating boost if health is less than 50%, otherwise add a Low rating boost if health is below 75%. Add the same bonuses as Melee.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Move Attack</td>
+                            <td>Melee,<br>Near Boss</td>
+                            <td>When aquiring a target, use the Near Boss target and add a High rating boost if the boss has less than 4 targets near them and the pet's health is less than 50% or there are more than three targets near the pet. Otherwise use the Melee target.<br>Skip if the target is in melee range. Add a Medium rating boost if the target is outside of <a href="#aip5(N)">aip5(N)/Melee Sweet Spot Max</a>.<br>Add a random rating bonus up to <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Resurrect,<br>Passive</td>
+                            <td>None</td>
+                            <td>Always skip.</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="performing-skill" class="page-sidebar-target">
+                <h4>Performing a Skill</h4>
+                <p>
+                    After all skills are rated, the pet chooses one to perform. How it chooses a skill is determined by <a href="#aip3(H)">aip3(H)/Skill Choose Type</a>.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill Choose Type</th>
+                            <th>Value</th>
+                            <th>Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Highest Rating</td>
+                            <td>0</td>
+                            <td>Try to perform the skill with the highest rating. Continue to the next highest until a skill is performed.<br>Remember that "perform the skill now" skills always have the highest rating. Some randomness can be introduced by using <a href="#aip7">aip7/Random Bonus Rating</a>.</td>
+                        </tr>
+                        <tr>
+                            <td>Roll</td>
+                            <td>1</td>
+                            <td>Perform any "perform the skill now" skills. Otherwise, sum all of the ratings and roll a value between zero and the total. Try to perform the skill on that value. If that fails, try to perform the mode attack or the "attack" skill (the first skill in skills.txt), if either exists.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    When a skill is chosen to be performed, first see if any repositioning is needed. If a repositioning occurs, then persist the skill and target until the next ai update (see <a href="#persist">Persisting Targets and Skills</a>). This is based on the skill's <a href="../files/skills.html#aitype" target="_blank" class="reference-link">skills.txt#aitype</a>:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>AI Type</th>
+                            <th>Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Melee,<br>Steal</td>
+                            <td>If the target is outside of melee range, move towards it. Run if the pet has the run mode and the distance is greater than 6 squares (hardcoded). Skip this skill if pathing failed.</td>
+                        </tr>
+                        <tr>
+                            <td>Ranged,<br>Area Ranged</td>
+                            <td>If the distance to the target is greater than <a href="#aip6(N)">aip6(N)/Ranged Sweet Spot Max</a> or there is no line of sight to the target, move towards the target. Run if the pet has the run mode and the distance is greater than 6 squares (hardcoded).<br>If the distance to the target is less than <a href="#aip6">aip6/Ranged Sweet Spot Min</a>, move away from them.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    If no repositioning is needed, then the skill is performed!
+                </p>
+            </div>
+
+            <div id="persist" class="page-sidebar-target">
+                <h3 id="persist">Persisting Targets and Skills</h3>
+                <p>
+                    After a target is chosen and is an enemy, the pet focuses on it until it is no longer valid (dead, too far away, etc.). The target is saved off so it can persist into the pet's next AI update. Allies are not persisted. <br>The target can stay persisted up to 5 (hardcoded) times, upon expiry a full search is issued to reselect the target with the highest priority.
+                </p>
+                <p>
+                    Skills can also be persisted. If a repositioning occurs the skill is saved off so the next AI update can try to use it again. Also, if the skill was just performed and has <a href="../files/skills.html#repeat" target="_blank" class="reference-link">skills.txt#repeat</a> set, it can be persisted up to 25 (hardcoded) times.
+                </p>
+            </div>
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">Generic Pet AI</a></li>
+                <li><a href="#params">Params</a></li>
+                <li><a href="#behavior-flags">Behavior Flags</a></li>
+                <li><a href="#following">Following</a></li>
+                <li>
+                    <a href="#combat">Combat</a>
+                    <ul>
+                        <li>
+                            <a href="#targets">Targets</a>
+                            <ul>
+                                <li><a href="#swarm">Swarming</a></li>
+                                <li><a href="#high-priority">High Priority Targets</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#skills">Skills</a>
+                            <ul>
+                                <li>
+                                    <a href="#gather-skills">Gathering Skills</a>
+                                    <ul>
+                                        <li><a href="#mode-attacks">Mode Attacks</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#rating-skills">Rating Skills</a></li>
+                                <li><a href="#performing-skill">Performing a Skill</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#persist">Persisting Targets and Skills</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="../data/siteIndex.js"></script>
+    <script src="../data/search.js"></script>
+    <script src="../script/siteSidebar.js"></script>
+    <script>
+        populateSiteSidebar("..", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

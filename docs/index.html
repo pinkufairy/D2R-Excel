@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Home - Diablo II: Resurrected Data File Guide</title>
+    <link rel="icon" type="image/x-icon" href="./media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="./style/main.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <h1>Home</h1>
+            <p>
+                Welcome to the Diablo II: Resurrected Data Guide!
+            </p>
+            <h2>Quick Links</h2>
+            <ul class="parse-list">
+                <li>$!skills!$</li>
+                <li>$!skilldesc!$</li>
+                <li>$!missiles!$</li>
+                <li>$!monstats!$</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./data/siteIndex.js"></script>
+    <script src="./data/search.js"></script>
+    <script src="./script/siteSidebar.js"></script>
+    <script src="./script/file.js"></script>
+    <script>
+        for (list of document.querySelectorAll(".parse-list")) {
+            for (entry of list.querySelectorAll("li")) {
+                entry.innerHTML = parseJSONText(entry.innerHTML, null, "./files/");
+            }
+        }
+
+        populateSiteSidebar(".", siteIndex);
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

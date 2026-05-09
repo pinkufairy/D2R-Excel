@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Changelog - Diablo II: Resurrected Data File Guide</title>
+    <link rel="icon" type="image/x-icon" href="./media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="./style/main.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>Changelog</h1>
+                <p>
+                    List of data relevant changes in each patch. These notes are not guaranteed to be comprehensive.
+                </p>
+            </div>
+
+            <div id="issues" class="page-sidebar-target">
+                <h2>Known Issues</h2>
+                <p>A list of known issues relevant to data and modding.</p>
+                <ul class="parse-list">
+                    <li>For Reign of the Warlock mode games, skills are not included in staff mods unless their $!skills#reqlevel!$ is exactly one of the following: {1, 6, 12, 18, 24, 30}</li>
+                    <li>Monster levels for the Bind Demon skill are restricted to 127 when saving into save data</li>
+                    <li>Non-zero $!desecratedzones#behavior!$ values do not work with $!desecratedzones#difficulty-unique_mod_chance_boosts!$. The functionality does work with $!desecratedzones#herald-unique_mod_chance_boosts!$</li>
+                    <li>$!desecratedzones#difficulty_scale!$ functionality does not work</li>
+                </ul>
+                <p>
+                    Note for modders: Report bugs, regressions in behavior, or crashes to the <a href="https://us.forums.blizzard.com/en/d2r/c/bug-report/" target="_blank">Diablo II: Resurrected bug report forum</a>. Include "[Modding]" in the title of your report. Tips:
+                    <ul>
+                        <li>If possible, include offending rows of data. For example, the cubemain line the issues appears in</li>
+                        <li>For crashes, include detailed repro steps as well as the crash id found in the crash window</li>
+                    </ul>
+                </p>
+                <p>
+                    Reported issues are not guaranteed to get tracked. Tracked issues are not guaranteed to appear on this list. Issues on this list are not guaranteed to have a fix version.
+                </p>
+            </div>
+
+            <div id="3-1-2" class="page-sidebar-target">
+                <h2>3.1.2</h2>
+                <ul class="parse-list">
+                    <li>Marked the new Data Guide as not WIP!</li>
+                    <li>Fixed a regression where $!cubemain!$ recipes that output unique items would have unexpected item levels</li>
+                    <li>Fixed a regression where monster levels were restricted to an int8</li>
+                    <li>Mods missing the "DataVersionBuild.txt" file will now prompt the out of date data prompt on startup. Modders should include this file in their mods to prevent the prompt from appearing. Located at <code>/data/global/DataVersionBuild.txt</code></li>
+                    <li>Updated $!monstats#SplEndDeath!$</li>
+                </ul>
+            </div>
+
+            <div id="3-0-0" class="page-sidebar-target">
+                <h2>3.0.0 (Reign of the Warlock)</h2>
+                <ul class="parse-list">
+                    <li>New WIP format for the Data Guide</li>
+                    <li>Introduced <a href="./docs/game-mode-split.html" target="_blank">Game Mode Split</a></li>
+                    <li>Updates to the calc/BBE system. See <a href="./docs/bbe-calc.html">BBE/Calc Fields</a></li>
+                    <li>New AIs, including one described in <a href="./docs/genericpetai.html">Generic Pet AI</a></li>
+                    <li>New stats</li>
+                    <li>For Reign of the Warlock mode games, staff mods are now calculated based off of $!skills#reqlevel!$ instead of a skill's index</li>
+                    <li>$!armor!$ updates</li>
+                    <ul>
+                        <li>Added $!Armor#DropConditionCalc!$</li>
+                        <li>Added $!Armor#UICatOverride!$</li>
+                    </ul>
+                    <li>$!weapons!$ updates</li>
+                    <ul>
+                        <li>Added $!weapons#DropConditionCalc!$</li>
+                        <li>Added $!weapons#UICatOverride!$</li>
+                    </ul>
+                    <li>$!misc!$ updates</li>
+                    <ul>
+                        <li>Added $!misc#DropConditionCalc!$</li>
+                        <li>Added $!misc#UICatOverride!$</li>
+                        <li>Added $!misc#AdvancedStashStackable!$</li>
+                        <li>Added $!misc#UsageConditionCalc!$</li>
+                        <li>Added $!misc#SkillItemDesecrateZone!$ to $!misc#pSpell!$</li>
+                    </ul>
+                    <li>$!cubemain!$ updates</li>
+                    <ul>
+                        <li>Added the "id" modifier in $!cubemain#input #!$</li>
+                        <li>Updated the "Red Portal" modifier in $!cubemain#output!$</li>
+                    </ul>
+                    <li>$!difficultylevels!$ updates</li>
+                    <ul>
+                        <li>Added $!difficultylevels#ResistFloor!$</li>
+                    </ul>
+                    <li>$!enums!$ updates</li>
+                    <ul>
+                        <li>Updated $!enums#Result Flags!$</li>
+                        <li>Updated $!enums#Hit Flags!$</li>
+                        <li>Updated $!enums#Hit Class!$</li>
+                        <li>$!enums#Server Event Functions!$ updates</li>
+                        <ul>
+                            <li>Updated $!enums#SkillActivateSubskill!$</li>
+                            <li>Added $!enums#WarApplyExecute!$</li>
+                            <li>Added $!enums#WarApplyBloodOathShare!$</li>
+                            <li>Added $!enums#WarApplyHexDebuff!$</li>
+                            <li>Added $!enums#WarApplyPsychicWard!$</li>
+                            <li>Added $!enums#WarApplyHealthLink!$</li>
+                            <li>Added $!enums#WarApplyPurgeExplosion!$</li>
+                            <li>Added $!enums#WarPsychicWardAbsorbDamage!$</li>
+                        </ul>
+                    </ul>
+                    <li>$!experience!$ updates</li>
+                    <ul>
+                        <li>Added $!experience#Warlock!$</li>
+                    </ul>
+                    <li>Removed "hirelingdesc.txt". Functionality moved to $!MonPet!$</li>
+                    <li>$!ItemTypes!$ updates</li>
+                    <ul>
+                        <li>Added $!ItemTypes#UICategory!$</li>
+                        <li>Added $!ItemTypes#RunewordCategory1!$ and $!ItemTypes#RunewordCategory2!$</li>
+                        <li>Added $!ItemTypes#Restricted!$</li>
+                    </ul>
+                    <li>$!LevelGroups!$ updates</li>
+                    <ul>
+                        <li>"Name" renamed to $!LevelGroups#LevelGroupId!$</li>
+                        <li>"Id" removed</li>
+                        <li>"*StringName" renamed to "*Name"</li>
+                        <li>"GroupName" renamed to $!LevelGroups#NameString!$</li>
+                        <li>Added $!LevelGroups#ParentLevelGroupId!$</li>
+                        <li>Added $!LevelGroups#CompleteThreshold!$</li>
+                        <li>Added $!LevelGroups#Effect!$</li>
+                    </ul>
+                    <li>$!Levels!$ updates</li>
+                    <ul>
+                        <li>Added $!Levels#PreventTownPortal!$</li>
+                    </ul>
+                    <li>$!Missiles!$ updates</li>
+                    <ul>
+                        <li>Updated $!Missiles#Range!$ to be a BBE/calc field</li>
+                        <li>Removed "LevRange". Functionality merged into $!Missiles#Range!$ using BBE syntax</li>
+                        <li>Added $!Missiles#Radius!$</li>
+                        <li>Added $!Missiles#CollisionOverlap!$</li>
+                        <li>Added $!Missiles#OnDiedSound!$</li>
+                        <li>Added $!Missiles#MissileWeaponVFX!$</li>
+                        <li>$!Missiles#pCltDoFunc!$ updates</li>
+                        <ul>
+                            <li>Added $!Missiles#WaveTrailMaker!$</li>
+                            <li>Added $!Missiles#RadialMaker!$</li>
+                            <li>Added $!Missiles#WaveWallMaker!$</li>
+                            <li>Added $!Missiles#ProcessTargetAttached!$</li>
+                            <li>Added $!Missiles#ProcessSoaringStrike!$</li>
+                            <li>Added $!Missiles#ProcessMiasmaChains!$</li>
+                        </ul>
+                        <li>$!Missiles#pCltHitFunc!$ updates</li>
+                        <ul>
+                            <li>Added $!Missiles#clt-HitSoaringStrike!$</li>
+                            <li>Added $!Missiles#HitSetTarget!$</li>
+                        </ul>
+                        <li>$!Missiles#pSrvDoFunc!$ updates</li>
+                        <ul>
+                            <li>Added $!Missiles#MissileAttachAndHit!$</li>
+                            <li>Added $!Missiles#MissileMakeWaveTrail!$</li>
+                            <li>Added $!Missiles#MissileDoAbyss!$</li>
+                            <li>Added $!Missiles#MissileRadialMaker!$</li>
+                            <li>Added $!Missiles#MissileDot!$</li>
+                            <li>Added $!Missiles#MissileMakeWaveWall!$</li>
+                            <li>Added $!Missiles#MissileLinkSpawner!$</li>
+                            <li>Added $!Missiles#MissileDoSoaringStrike!$</li>
+                            <li>Added $!Missiles#MissileDoMiasmaChains!$</li>
+                        </ul>
+                        <li>$!Missiles#pSrvHitFunc!$ updates</li>
+                        <ul>
+                            <li>Added $!Missiles#srv-HitSoaringStrike!$</li>
+                            <li>Added $!Missiles#HitChainAndSpawn!$</li>
+                            <li>Added $!Missiles#HitBladeDance!$</li>
+                            <li>Added $!Missiles#HitAndSplatter!$</li>
+                            <li>Added $!Missiles#HitAxeChargedDiscDamage!$</li>
+                        </ul>
+                        <li>$!Missiles#pSrvDmgFunc!$ updates</li>
+                        <ul>
+                            <li>Added $!Missiles#DamageSoaringStrike!$</li>
+                            <li>Added $!Missiles#DamageRingOfFire!$</li>
+                        </ul>
+                    </ul>
+                    <li>$!monstats!$ updates</li>
+                    <ul>
+                        <li>Added $!monstats#CannotHerald!$</li>
+                        <li>Added $!monstats#nopreventmonsterheal!$</li>
+                    </ul>
+                    <li>Added $!MonPet!$</li>
+                    <li>Removed "ObjType.txt". Functionality merged into $!Objects#Token!$</li>
+                    <li>$!Overlay!$ updates</li>
+                    <ul>
+                        <li>Added $!Overlay#WeaponStateFlags!$</li>
+                        <li>Added $!Overlay#WeaponStateGroup!$</li>
+                        <li>Added $!Overlay#StartSound!$</li>
+                    </ul>
+                    <li>$!pettype!$ updates</li>
+                    <ul>
+                        <li>Added $!pettype#pool!$</li>
+                        <li>Added $!pettype#overridename1!$ through $!pettype#overridename4!$</li>
+                        <li>Updated $!pettype#icontype!$</li>
+                    </ul>
+                    <li>$!Properties!$ updates</li>
+                    <ul>
+                        <li>Added $!Properties#uiRangeType!$</li>
+                    </ul>
+                    <li>Added $!PropertyGroups!$</li>
+                    <li>$!Runes!$ updates</li>
+                    <ul>
+                        <li>Added $!Runes#disallowCraftingInLadder!$</li>
+                        <li>Added $!Runes#disallowCraftingInNonLadder!$</li>
+                    </ul>
+                    <li>$!SetItems!$ updates</li>
+                    <ul>
+                        <li>Added $!SetItems#disabled!$</li>
+                        <li>"enabled" renamed to $!SetItems#spawnable!$</li>
+                        <li>Added $!SetItems#DropConditionCalc!$</li>
+                        <li>Added $!SetItems#firstLadderSeason!$</li>
+                        <li>Added $!SetItems#lastLadderSeason!$</li>
+                    </ul>
+                    <li>$!Sets!$ updates</li>
+                    <ul>
+                        <li>Added $!Sets#UIClass!$</li>
+                    </ul>
+                    <li>$!skills!$ updates</li>
+                    <ul>
+                        <li>Added $!skills#auraevent4!$ and $!skills#auraeventfunc4!$</li>
+                        <li>Added $!skills#calc7!$ through $!skills#calc10!$ and comment columns</li>
+                        <li>Added $!skills#Param13!$ through $!skills#Param20!$ and comment columns</li>
+                        <li>Updated $!skills#sumumod!$ to be a BBE/calc field</li>
+                        <li>Added $!skills#requirespettype!$</li>
+                        <li>Added $!skills#requiresweapon!$</li>
+                        <li>Added $!skills#periodicClearAura!$</li>
+                        <li>$!skills#srvstfunc!$ updates</li>
+                        <ul>
+                            <li>Removed "MonStartFrenzy" (index 64). Functionality folded into $!skills#BarStartFrenzy!$</li>
+                            <li>Added $!skills#srv-SkillStartPlayerChannelSkill!$</li>
+                            <li>Added $!skills#srv-WarStartConsume!$</li>
+                            <li>Added $!skills#WarStartHealthLink!$</li>
+                        </ul>
+                        <li>$!skills#srvdofunc!$ updates</li>
+                        <ul>
+                            <li>Removed "MonDoFrenzy" (index 109). Functionality folded into $!skills#BarDoFrenzy!$</li>
+                            <li>Updated $!skills#SorDoBlaze!$</li>
+                            <li>Updated $!skills#NecDoConfuse!$</li>
+                            <li>Added $!skills#WarDoSealDeathExplode!$</li>
+                            <li>Added $!skills#srv-WarDoRingOfFire!$</li>
+                            <li>Added $!skills#WarDoDeathMark!$</li>
+                            <li>Added $!skills#srv-WarDoFlameWave!$</li>
+                            <li>Added $!skills#srv-WarDoSeal!$</li>
+                            <li>Added $!skills#WarDoBindDemon!$</li>
+                            <li>Added $!skills#WarDoConsume!$</li>
+                            <li>Added $!skills#srv-WarDoBloodBoil!$</li>
+                            <li>Added $!skills#srv-WarDoEngorge!$</li>
+                            <li>Added $!skills#WarDoHealthLink!$</li>
+                            <li>Added $!skills#WarDoApocalpyse!$</li>
+                            <li>Added $!skills#srv-WarDoCleave!$</li>
+                            <li>Added $!skills#WarDoRebound!$</li>
+                            <li>Added $!skills#srv-WarDoMirroredBlades!$</li>
+                            <li>Added $!skills#WarDoMiasmaChains!$</li>
+                            <li>Added $!skills#BarDoColossalWhirlwind!$</li>
+                            <li>Added $!skills#MonDoSelfHeal!$</li>
+                            <li>Added $!skills#BarDoColossalLeapAttack!$</li>
+                            <li>Added $!skills#srv-MonDoChargedBoltDisk!$</li>
+                        </ul>
+                        <li>$!skills#cltstfunc!$ updates</li>
+                        <ul>
+                            <li>Added $!skills#clt-WarStartConsume!$</li>
+                            <li>Added $!skills#WarStartMirroredBlades!$</li>
+                            <li>Added $!skills#SkillStartPlayerChannelSkill!$</li>
+                            <li>Added $!skills#WarStartCleave!$</li>
+                            <li>Added $!skills#SkillStartActiveStatePeriodic!$</li>
+                        </ul>
+                        <li>$!skills#cltdofunc!$ updates</li>
+                        <ul>
+                            <li>Added $!skills#WarDoDeathSealExplosion!$</li>
+                            <li>Added $!skills#WarDoDeathSealExplosion!$</li>
+                            <li>Added $!skills#clt-WarDoRingOfFire!$</li>
+                            <li>Added $!skills#clt-WarDoFlameWave!$</li>
+                            <li>Added $!skills#clt-WarDoSeal!$</li>
+                            <li>Added $!skills#clt-WarDoEngorge!$</li>
+                            <li>Added $!skills#clt-WarDoCleave!$</li>
+                            <li>Added $!skills#clt-WarDoMirroredBlades!$</li>
+                            <li>Added $!skills#clt-WarDoBloodBoil!$</li>
+                            <li>Added $!skills#SkillDoPlayerChannelSkill!$</li>
+                            <li>Added $!skills#SkillDoActiveStatePeriodic!$</li>
+                            <li>Added $!skills#clt-MonDoChargedBoltDisk!$</li>
+                            <li>Added $!skills#WarDoEldritchBlastPeriodic!$</li>
+                        </ul>
+                    </ul>
+                    <li>$!states!$ updates</li>
+                    <ul>
+                        <li>Added $!states#vfxweaponstate!$</li>
+                    </ul>
+                    <li>$!TreasureClassEx!$ updates</li>
+                    <ul>
+                        <li>Added $!TreasureClassEx#ConditionCalc!$</li>
+                        <li>Added $!TreasureClassEx#QuestFlag!$</li>
+                        <li>Added $!TreasureClassEx#QuestFlagEx!$</li>
+                    </ul>
+                    <li>$!UniqueItems!$ updates</li>
+                    <ul>
+                        <li>Added $!UniqueItems#disabled!$</li>
+                        <li>"enabled" renamed to $!UniqueItems#spawnable!$</li>
+                        <li>Added $!UniqueItems#DropConditionCalc!$</li>
+                        <li>Updated $!UniqueItems#carry1!$</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">Changelog</a></li>
+                <li><a href="#issues">Known Issues</a></li>
+                <li><a href="#3-1-2">3.1.2</a></li>
+                <li><a href="#3-0-0">3.0.0</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="./data/siteIndex.js"></script>
+    <script src="./data/search.js"></script>
+    <script src="./script/siteSidebar.js"></script>
+    <script src="./script/file.js"></script>
+    <script>
+        for (list of document.querySelectorAll(".parse-list")) {
+            for (entry of list.querySelectorAll("li")) {
+                entry.innerHTML = parseJSONText(entry.innerHTML, null, "./files/");
+            }
+        }
+
+        populateSiteSidebar(".", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

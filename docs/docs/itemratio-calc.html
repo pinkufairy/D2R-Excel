@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Item Ratio Calculations - Diablo II: Resurrected Data Guide</title>
+    <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="../style/main.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>Item Ratio Calculations</h1>
+                <p>
+                    Item Quality is determined by first calculating the roll chance for a specific Quality. Then the game will attempt a random roll for that Item Quality. If that roll fails, then the game will calculate for the next lower Item Quality. The order of Item Quality calculations is the following: Unique > Set > Rare > Magic > High Quality (Superior) > Normal > Low Quality
+                </p>
+                <p>
+                    The following information details how the game uses the Data Fields in its calculations.
+                </p>
+            </div>
+
+            <div id="step-1" class="page-sidebar-target">
+                <h2>Step 1: Calculate the Base Probability</h2>
+                <p>
+                    The first part of the calculations is to obtain the base probability for rolling the item quality with the following formula:
+                </p>
+                <p>
+                    <code>Probability = ( Quality - ( mlvl - ilvl ) / Divisor ) * 128</code>
+                </p>
+                <p>
+                    This probability value is a ratio divisor, meaning that there is a 1 in probability chance of the game choosing that Item Quality, so the lower the probability value, then the better the chance the item will successfully roll that Item Quality. The multiplication with 128 is for decreasing rounding errors. 
+                    The <b>Quality</b> value is the <a href="../files/itemratio.html#Rarity" target="_blank" class="reference-link">itemratio#Rarity</a> Data Field.
+                    The <b>mlvl</b> value is the Monster Level, which depends on the current area level and game difficulty (this can also be the level for the chest drop).
+                    The <b>ilvl</b> value is the Base Item Level (See <a href="../files/armor.html#level" target="_blank" class="reference-link">armor#level</a>, <a href="../files/weapons.html#level" target="_blank" class="reference-link">weapons#level</a>, <a href="../files/misc.html#level" target="_blank" class="reference-link">misc#level</a>, <a href="../files/UniqueItems.html#lvl" target="_blank" class="reference-link">UniqueItems#lvl</a>, or <a href="../files/SetItems.html#lvl" target="_blank" class="reference-link">SetItems#lvl</a>).
+                    The Divisor value is the <a href="../files/itemratio.html#Divisor" target="_blank" class="reference-link">itemratio#Divisor</a> Data Field.
+                </p>
+            </div>
+
+            <div id="step-2" class="page-sidebar-target">
+                <h2>Step 2: Calculate Magic Find</h2>
+                <p>
+                    The game will then obtain the character's magic find bonus from items. If the current calculation is for Unique/Set/Rare Quality items and the magic find item bonus exceeds 110%, then the character's magic find will be modified with diminishing returns:
+                </p>
+                <p>
+                    <code>MagicFind = 100 + MF * dim / (MF + dim)</code>
+                </p>
+                <p>
+                    The MF value is the character's magic find bonus percentage value plus the baseline default 100 value (See the "item_magicbonus" entry in <a href="../files/ItemStatCost.html" target="_blank" class="reference-link">ItemStatCost</a>). The dim value is a special modifier for adding diminishing returns to the magic find bonus, which differs based on the Item Quality being calculated (Unique = 250, Set = 500, Rare = 600)
+                </p>
+                <p>
+                    After calculating the proper magic find value, the probability value is modified with the following formula:
+                </p>
+                <p>
+                    <code>Probability = Probability * 100 / MagicFind</code>
+                </p>
+                <p>
+                    This will reduce the Probability value, giving the Item Quality a higher chance to be successfully rolled.
+                </p>
+            </div>
+
+            <div id="step-3" class="page-sidebar-target">
+                <h2>Step 3: Calculate Probability with Treasure Class</h2>
+                <p>
+                    After calculating the baseline probability with the magic find bonus, the game will then compare this value with the minimum value for the Item Quality to cap it from reducing any further (See <a href="../files/itemratio.html#Min" target="_blank" class="reference-link">itemratio#Min</a> Data Fields). High Quality (Superior) and Normal Quality do not have a minimum value.
+                </p>
+                <p>
+                    The game will then modify the probability with the value from the related Treasure Class:
+                </p>
+                <p>
+                    <code>Probability = Probability - Probability * TreasureClass / 1024</code>
+                </p>
+                <p>
+                    The TreasureClass value is a modifier for this Item Quality based on the Treasure Class being used (See the <a href="../files/TreasureClassEx.html#Rarity" target="_blank" class="reference-link">TreasureClassEx#Rarity</a> Data Field)
+                </p>
+            </div>
+
+            <div id="step-4" class="page-sidebar-target">
+                <h2>Step 4: Roll for the Item Quality</h2>
+                <p>
+                    Finally, after calculating the overall value of the probability for the Item Quality, the game will then find a random number between 0 and the probability value. If that random value is between 0 and 128, then the item has successfully rolled that specific Item Quality. Otherwise, the calculations will move on to checking for the next lower Item Quality.
+                </p>
+            </div>
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">Item Ratio Calculations</a></li>
+                <li><a href="#step-1">Step 1</a></li>
+                <li><a href="#step-2">Step 2</a></li>
+                <li><a href="#step-3">Step 3</a></li>
+                <li><a href="#step-4">Step 4</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="../data/siteIndex.js"></script>
+    <script src="../data/search.js"></script>
+    <script src="../script/siteSidebar.js"></script>
+    <script>
+        populateSiteSidebar("..", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>BBE/Calc Fields - Diablo II: Resurrected Data Guide</title>
+    <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="../style/main.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>BBE/Calc Fields</h1>
+                <p>
+                    Calc fields, known internally as BBE, are formulae strings that are evaluated at run-time. It is a powerful tool that allows code functions to use custom inputs.
+                </p>
+                <p>
+                    What does BBE stand for? Nobody knows! Some guesses are Binary Bytecode Evaluator, Binary Big Endian, and Big Bad Evaluator.
+                </p>
+            </div>
+
+            <div id="examples" class="page-sidebar-target">
+                <h2>Examples</h2>
+                <p>
+                    For example, this BBE string is how the Zakarum enemies calculate their healing skill percent: "<code>15+5*lvl</code>". This evaluates to 15 plus 5 times the skill level.
+                </p>
+                <p>
+                    Another example, this is how Sorceress Charged Bolts calculates the amount of missiles to spawn: "<code>min(24,ln12)</code>". This takes the minumum value between 24 and the linear function of the skill's parameter 1 and 2 based on skill level.
+                </p>
+                <p>
+                    Lets get crazier, this is how Barbarian Stun calculates its damage synergy: "<code>skill('Bash'.blvl)*par8</code>". This evaluates to the current base skill level of Bash multiplied by Stun's parameter 8.
+                </p>
+                <p>
+                    It can get pretty nuts, like the HP % of Necromancer Clay Golem: "<code>(100+(par1 * (lvl - 1)))*(100+skill('Golem Mastery'.ln12) + (skill('BloodGolem'.blvl)*skill('BloodGolem'.par8)))/100-100</code>." I won't explain that one but trust that it works!
+                </p>
+            </div>
+
+            <div id="operators" class="page-sidebar-target">
+                <h2>Operators</h2>
+                <p>
+                    These common math operators are available in BBE formulae:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>+</td>
+                            <td>Addition</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Subtraction<br>Negative</td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiplication</td>
+                        </tr>
+                        <tr>
+                            <td>/</td>
+                            <td>Division</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>Power</td>
+                        </tr>
+                        <tr>
+                            <td>( and )</td>
+                            <td>Parenthesis</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    These operators can be used as conditions:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>? and :</td>
+                            <td>Ternary. Format is as follows: <code>(condition) ? (if true) : (if false)</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>Less than</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;=</td>
+                            <td>Less than or equal to</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;</td>
+                            <td>Greater than</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;=</td>
+                            <td>Greater than or equal to</td>
+                        </tr>
+                        <tr>
+                            <td>==</td>
+                            <td>Equal to</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Not equal to</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    In BBE, 0 is false and not-0 is true. You can get creative and use * as an "and" operator and + as an "or" operator. For example, "<code>1 * 0 * 1</code>" is always 0, so that's effectively an "and". "<code>1 + 0 + 1</code>" is always 2, so that's effectively an "or".
+                </p>
+            </div>
+
+            <div id="scopes" class="page-sidebar-target">
+                <h2>Scopes and Identifiers</h2>
+                <p>
+                    There are a few scopes of BBE functions. These scopes can have identifiers, which are text that reperesent a value. For example, "blvl" or "hpa1". A full reference of what identifiers are available to a scope can be seen in their corresponding txt file.
+                </p>
+                <p>
+                    When writing a BBE formulae, it is important to know that file you're writing it in, as that will influence the base behavior of that formulae. For example, if I am writing a formula in <a href="../files/skills.html" target="_blank" class="reference-link">skills.txt</a>, the base scope will be a "skill" scope, meaning I can input skill identifiers without calling the "skill" function (described later).
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scope</th>
+                            <th>Identifiers</th>
+                            <th>Base Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Skill</td>
+                            <td><a href="../files/skillcalc.html" target="_blank" class="reference-link">skillcalc.txt</a></td>
+                            <td>Accepts a constant number or a skill identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>Missile</td>
+                            <td><a href="../files/misscalc.html" target="_blank" class="reference-link">misscalc.txt</a></td>
+                            <td>Accepts a constant number or a missile identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>Item</td>
+                            <td>No identifiers</td>
+                            <td>Accepts a constant number.</td>
+                        </tr>
+                        <tr>
+                            <td>Monster</td>
+                            <td>No identifiers</td>
+                            <td>Accepts a constant number.</td>
+                        </tr>
+                        <tr>
+                            <td>Treasure Class</td>
+                            <td>No identifiers</td>
+                            <td>Accepts a constant number.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="functions" class="page-sidebar-target">
+                <h2>Functions</h2>
+                <p>
+                    There are a few functions available to BBE formulae.
+                </p>
+                <p>
+                    Functions might have parameters, and those parameters will be separated by either a comma ',' or a period '.'. If a comma is used, the following paramter can either be a constant (ex. '5') or an identifier (ex. 'lvl'). If a period is used, the following parameter is always treated as a constant. You might be thinking, "thats weird, functions like 'skill' use a period followed by an identifier. This is because some functions have custom parameter handling that forces them to be identifiers. It is best practice to always use the syntax in the "Usage" section below.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Usage</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>min</td>
+                            <td><code>min(a,b)</code></td>
+                            <td>Gets the minimum between two inputs.</td>
+                        </tr>
+                        <tr>
+                            <td>max</td>
+                            <td><code>max(a,b)</code></td>
+                            <td>Gets the maximum between two inputs.</td>
+                        </tr>
+                        <tr>
+                            <td>rand</td>
+                            <td><code>rand(a,b)</code></td>
+                            <td>Gets a random value between two inputs.</td>
+                        </tr>
+                        <tr>
+                            <td>skill</td>
+                            <td><code>skill('Skill Name'.identifier)</code></td>
+                            <td>Gets an identifier for a skill based on the unit's level in that skill.</td>
+                        </tr>
+                        <tr>
+                            <td>miss</td>
+                            <td><code>miss('Missile Name'.identifier)</code></td>
+                            <td>Gets an identifier for a missile.</td>
+                        </tr>
+                        <tr>
+                            <td>stat</td>
+                            <td><code>stat('Stat Name'.parameter)</code></td>
+                            <td>Gets the stat value on the unit. Valid paramters are:<br>"accr": The accrued value between all sources.<br>"base": The base value.<br>"mod": Same as "accr". The intention here might have been the modified value from the base.</td>
+                        </tr>
+                        <tr>
+                            <td>sklvl</td>
+                            <td><code>sklvl('Skill Name'.identifierToGetLevel.identifier)</code></td>
+                            <td>Gets an identifier for a skill at a specified level. The specified level must be an identifier of the base BBE scope.</td>
+                        </tr>
+                        <tr>
+                            <td>sksrc</td>
+                            <td><code>sksrc('Skill Name'.identifier)</code></td>
+                            <td>Gets an identifier for a skill based on the source unit's level in that skill. The source unit is the same unit used for the "skill" function for skill, missile, item, and treasure class scope BBEs. For monster scope BBEs it is a unit that is passed in by the caller, usually the caster of a skill.</td>
+                        </tr>
+                        <tr>
+                            <td>cond</td>
+                            <td><code>cond('Condition Name', parameter(optional))</code></td>
+                            <td>Evaluates a condition, returning either 0 for false or 1 for true. See <a href="#conditions">Conditions</a>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="conditions" class="page-sidebar-target">
+                <h2>Conditions</h2>
+                <p>
+                    As mentioned earlier, one of the functions available is the Condition, or "cond", function. Conditions, like Identifiers, are strings that tie to code. Unlike Identifiers, these always return either 0 for false or 1 for true and may be called from anywhere.
+                </p>
+                <p>
+                    The list of available conditions is as follows:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Condition</th>
+                            <th>Usage</th>
+                            <th>Description</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IsType</td>
+                            <td><code>cond('IsType', param)</code></td>
+                            <td>Check if a unit is a certain type. The unit checked is the main one for the scope.</td>
+                            <td>
+                                <ul>
+                                    <li><code>player</code> - Unit is a player.</li>
+                                    <li><code>monster</code> - Unit is a monster.</li>
+                                    <li><code>object</code> - Unit is an object.</li>
+                                    <li><code>missile</code> - Unit is a missile.</li>
+                                    <li><code>item</code> - Unit is an item.</li>
+                                    <li><code>roomtile</code> - Unit is a roomtile.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IsClass</td>
+                            <td><code>cond('IsClass', param)</code></td>
+                            <td>Check if a unit is a certain class. The unit checked is the main one for the scope.</td>
+                            <td>
+                                <ul>
+                                    <li>Player class code (ex. <code>ama</code>)</li>
+                                    <li>Monster data name (ex. <code>skeleton1</code>)</li>
+                                    <li>Missile data name (ex. <code>arrow</code>)</li>
+                                    <li>Item code (ex. <code>hax</code>)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Desecrated</td>
+                            <td><code>cond('Desecrated')</code></td>
+                            <td>Check if a unit is a considered desecrated (aka terrorized). If the unit is a monster, check if it is desecrated. If the unit is a player, check if it is inside a desecrated level. If the main unit of the scope is a missile or item, we check its source unit instead.</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Difficulty</td>
+                            <td><code>cond('Difficulty', param)</code></td>
+                            <td>Check if the game is set to a specific difficulty level. If the main unit of the scope is a missile or item, we check its source unit (owner) instead.</td>
+                            <td>
+                                <ul>
+                                    <li><code>normal</code> - Game is on Normal difficulty.</li>
+                                    <li><code>nightmare</code> - Game is on Nightmare difficulty.</li>
+                                    <li><code>hell</code> - Game is on Hell difficulty.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MonsterTestElite</td>
+                            <td><code>cond('MonsterTestElite', param)</code></td>
+                            <td>Check if a unit is a certain monster elite type. If the main unit of the scope is a missile or item, we check its source unit instead. If the unit is a player, return false.</td>
+                            <td>
+                                <ul>
+                                    <li><code>unique</code> - Monster is a unique.</li>
+                                    <li><code>champion</code> - Monster is a champion.</li>
+                                    <li><code>super</code> - Monster is a super unique.</li>
+                                    <li><code>minion</code> - Monster is a minion.</li>
+                                    <li><code>herald</code> - Monster is a herald (special desecrated zones monster).</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ItemIsType</td>
+                            <td><code>cond('ItemIsType', param)</code></td>
+                            <td>Check if an item is a certain item type. The unit checked must be an item.</td>
+                            <td>Item type code (ex. <code>shie</code>)</td>
+                        </tr>
+                        <tr>
+                            <td>ItemIsModType</td>
+                            <td><code>cond('ItemIsModType', param)</code></td>
+                            <td>Check if an item is a certain mod type. The unit checked must be an item.</td>
+                            <td>
+                                <ul>
+                                    <li><code>unique</code> - Item is a unique.</li>
+                                    <li><code>set</code> - Item is a set.</li>
+                                    <li><code>rare</code> - Item is rare.</li>
+                                    <li><code>magic</code> - Item is magic.</li>
+                                    <li><code>crafted</code> - Item is crafted.</li>
+                                    <li><code>lowquality</code> - Item is low quality (ex. Cracked, Crude, Damaged, Low Quality).</li>
+                                    <li><code>normal</code> - Item is normal quality.</li>
+                                    <li><code>hiquality</code> - Item is high quality (ex. Superior).</li>
+                                    <li><code>tempered</code> - Item is tempered (unused crafting mechanism).</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">BBE/Calc Fields</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#operators">Operators</a></li>
+                <li><a href="#scopes">Scopes and Identifiers</a></li>
+                <li><a href="#functions">Functions</a></li>
+                <li><a href="#conditions">Conditions</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="../data/siteIndex.js"></script>
+    <script src="../data/search.js"></script>
+    <script src="../script/siteSidebar.js"></script>
+    <script>
+        populateSiteSidebar("..", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

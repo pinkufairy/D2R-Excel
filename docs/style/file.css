@@ -1,0 +1,155 @@
+/* File */
+.content hr {
+    margin-top: 1.5rem;
+    color: #8c7c49;
+}
+
+/* File Field */
+
+.file-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.field-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.field-divider {
+    border-top:1px solid #8c7c49; 
+    align-items: stretch;
+    left: 50%;
+}
+
+/* Json Field */
+
+.json-divider {
+    border-left:1px solid #8c7c49; 
+    align-items: stretch;
+    margin-right: 1rem;
+}
+
+.json-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.json-properties .field-divider {
+    display: none;
+}
+
+/* Name */
+
+.field h4,h3 {
+    margin: 0;
+}
+
+.field h3 {
+    text-wrap: nowrap;
+}
+
+.field-name {
+    font-weight: bold;
+    padding: 0;
+}
+
+.field-name:hover,.field-alt-name:hover {
+    text-decoration: none;
+}
+
+.field-label {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.field-alt-names {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    /*max-width: 15rem;*/
+    font-size: small;
+}
+
+/* Type */
+
+.field-type-text {
+    font-size: small;
+    color: #afafaf;
+}
+
+.field-type-tooltip-icon {
+    cursor: pointer;
+}
+
+.field-type-tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    margin-left: 5px;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    font-size: small;
+}
+
+.field-type-tooltip-icon:hover .field-type-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Description */
+
+.field-description {
+    margin-top: 0.5rem;
+}
+
+/* Table */
+
+.field-table-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+/* Bit Table */
+
+.field-bittable-input {
+    width: 6.5em;
+}
+
+/* Append Field */
+.field-appendfield {
+    margin-top: 1rem;
+}
+
+.field-appendfield summary {
+    color: #B4AC92;
+    text-decoration: none;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.field-appendfield summary:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.field-bittable-input::-webkit-outer-spin-button,
+.field-bittable-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+/* Firefox */
+.field-bittable-input[type=number] {
+    -moz-appearance: textfield;
+}

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>About - Diablo II: Resurrected Data File Guide</title>
+    <link rel="icon" type="image/x-icon" href="./media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/file.css" />
+</head>
+<body>
+    <script src="./script/file.js"></script> <!-- For example use -->
+
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>About</h1>
+                <p>
+                    The Data Guide is an html-format documentation of all-things data in Diablo II: Resurrected. It is used by both developers and community modders. The guide displays the documentation as html files. Simply click on them to open them in your web browser.
+                </p>
+            </div>
+
+            <div id="html" class="page-sidebar-target">
+                <h3>Generated .html files</h3>
+                <p>
+                    In the <code>/files/</code> folder are .html files for every page to display in the guide. These are generated automatically using scripts and consume the .js files in the <code>/data/files/</code> folder.
+                </p>
+                <p>
+                    You might notice that these files load the .js using script tags instead of file loading (aka a CORS request). This is because browsers no longer let you run CORS requests without a server host. To allow users to just open each .html file directly, we load everything we need explicitly using script tags. Read more <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp">here</a>.
+                </p>
+            </div>
+
+            <div id="js" class="page-sidebar-target">
+                <h3>.js files</h3>
+                <p>
+                    In the <code>/data/files/</code> folder are .js files for every data file the game consumes and more. These .js files contain a json object that stores the documentation.
+                </p>
+            </div>
+
+            <div id="adding" class="page-sidebar-target">
+                <h3>Adding a new file or field</h3>
+                <ol>
+                    <li>
+                        Add your file or field to c++ code.
+                    </li>
+                    <li>
+                        Run "Update Bins" in the Launcher. This will generate a new <code>/data/DataGuideFieldExport.json</code> file. This file is an export of what fields the code expects as well as its memory when reading and storing.
+                        <ul>
+                            <li>
+                                Make sure to build Release Assert before doing this so that the code that runs "Update Bins" will know about your change. Otherwise <code>/data/DataGuideFieldExport.json</code> will not be updated.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Run <code>/python/update_fileguide.bat</code>. This will generate the boilerplate for your file or field.
+                        <ul>
+                            <li>
+                                This script requires python 3 as well as "py -3" to be set up in your system's PATH. If this is not the case you can manually run the script using <code>/python/update_fileguide.py</code> with the args <code>-a all -data [path to /data/ folder] -html [path to /files/ folder] -p</code>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        If you're adding a file:
+                        <ol>
+                            <li>
+                                The corresponding .js file has been created by the script and placed in the <code>/data/files/</code> folder.
+                            </li>
+                            <li>
+                                Manually add your file to the side index in <code>/data/siteIndex.js</code>.
+                            </li>
+                            <li>
+                                Fill out the .js file.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        If you're adding a field:
+                        <ol>
+                            <li>
+                                The field has been added to the corresponding .js file in the <code>/data/files/</code> folder.
+                            </li>
+                            <li>
+                                Locate the field in the .js file, move it to its correct location, and fill it out.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        Afterwards, run the python script from step 2 again, using the same arguments.
+                        <ul>
+                            <li>
+                                This will ensure the search index is updated.
+                            </li>
+                            <li>
+                                Check for any failed validation in the output. If there is some, fix it then repeat the command until there are no validation errors.
+                            </li>
+                            <li>
+                                To run just the validation, run <code>/python/validate_fileguide.bat</code>. This is only recommended if you are just changing descriptions since changing many things, like field names, require the full update to run to update things like the search index.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Add a note to the <a href="./changelog.html" target="_blank">changelog</a>.
+                    </li>
+                    <li>
+                        You're good to submit!
+                    </li>
+                </ol>
+            </div>
+
+            <div id="editing" class="page-sidebar-target">
+                <h3>Editing an existing file or field</h3>
+                <ol>
+                    <li>
+                        Find the corresponding .js file in the <code>/data/files/</code> folder.
+                    </li>
+                    <li>
+                        Edit what you need to in the file.
+                    </li>
+                    <li>
+                        Run <code>/python/update_fileguide.bat</code>. This will ensure things like the search index is up to date.
+                        <ul>
+                            <li>
+                                This script requires python 3 as well as "py -3" to be set up in your system's PATH. If this is not the case you can manually run the script using <code>/python/update_fileguide.py</code> with the args <code>-a all -data [path to /data/ folder] -html [path to /files/ folder] -p</code>
+                            </li>
+                            <li>
+                                Check for any failed validation in the output. If there is some, fix it then repeat the command until there are no validation errors.
+                            </li>
+                            <li>
+                                To run just the validation, run <code>/python/validate_fileguide.bat</code>. This is only recommended if you are just changing descriptions since changing many things, like field names, require the full update to run to update things like the search index.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Add a note to the <a href="./changelog.html" target="_blank">changelog</a>.
+                    </li>
+                    <li>
+                        You're good to submit!
+                    </li>
+                </ol>
+            </div>
+
+            <div id="removing" class="page-sidebar-target">
+                <h3>Removing an existing file or field</h3>
+                <ol>
+                    <li>
+                        Remove your file or field from c++ code.
+                    </li>
+                    <li>
+                        Run "Update Bins" in the Launcher. This will generate a new <code>/data/DataGuideFieldExport.json</code> file. This file is an export of what fields the code expects.
+                        <ul>
+                            <li>
+                                Make sure to build Release Assert before doing this so that the code that runs "Update Bins" will know about your change. Otherwise <code>/data/DataGuideFieldExport.json</code> will not be updated.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        If you're removing a file:
+                        <ol>
+                            <li>
+                                The corresponding .js file can be found in the <code>/data/files/</code> folder. Mark the file for deletion in perforce.
+                            </li>
+                            <li>
+                                The corresponding .html file can be found in the <code>/files/</code> folder. Mark the file for deletion in perforce.
+                            </li>
+                            <li>
+                                Remove your file from the side index in <code>/data/siteIndex.js</code>.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        If you're removing a field:
+                        <ol>
+                            <li>
+                                The corresponding .js file can be found in the <code>/data/files/</code> folder. Delete the field from the file. Make sure to not leave any trailing commas.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        Run <code>/python/update_fileguide.bat</code>. This will update the search index with your removals.
+                        <ul>
+                            <li>
+                                This script requires python 3 as well as "py -3" to be set up in your system's PATH. If this is not the case you can manually run the script using <code>/python/update_fileguide.py</code> with the args <code>-a all -data [path to /data/ folder] -html [path to /files/ folder] -p</code>
+                            </li>
+                            <li>
+                                Check for any failed validation in the output. If there is some, fix it then repeat the command until there are no validation errors.
+                            </li>
+                            <li>
+                                To run just the validation, run <code>/python/validate_fileguide.bat</code>. This is only recommended if you are just changing descriptions since changing many things, like field names, require the full update to run to update things like the search index.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Add a note to the <a href="./changelog.html" target="_blank">changelog</a>.
+                    </li>
+                    <li>
+                        You're good to submit!
+                    </li>
+                </ol>
+            </div>
+
+            <div id="reference-links" class="page-sidebar-target">
+                <h3>Reference links</h3>
+                <p>
+                    In almost all areas that accept text to display, like a file's "overview" or a field's "description", a reference link may be placed. This is a shorthand for creating an html link to another page or element. All links are opened in a new tab. This is useful for linking to other files and fields throughout the data guide. The format is as follows:
+                    <ul>
+                        <li>
+                            <code>$!page!$</code> - Links to another page.
+                        </li>
+                        <li>
+                            <code>$!page#element!$</code> - Links to a specific element in another page.
+                        </li>
+                        <li>
+                            <code>$!#element!$</code> - Links to a specific element in the current page.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Note: You do not need to place the referenced file in <a href=#reference-files>referenceFiles</a> for these links to work.
+                </p>
+            </div>
+
+            <div id="considerations" class="page-sidebar-target">
+                <h3>Considerations</h3>
+                <p>
+                    This fileguide is shipped with the game in game data. It is important to consider a few things:
+                </p>
+                <ul>
+                    <li>
+                        Everything in this data guide is public, from a field's description to comments in the python code.
+                    </li>
+                    <li>
+                        Media can bloat the size of websites. Don't add any, like images, unless absolutely necessary.
+                    </li>
+                </ul>
+            </div>
+
+            <template id="field-template">
+                <div class="field page-sidebar-target">
+                    <div class="field-alt-name-targets"></div>
+                    <div class="field-rows">
+                        <div class="field-row">
+                            <div class="field-label">
+                                <a class="field-name" href=""><h3>Name</h3></a>
+                                <div class="field-type">
+                                    <span class="field-type-text"></span>
+                                    <span class="field-type-tooltip-icon">
+                                        &#9432
+                                        <span class="field-type-tooltip-text"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field-alt-names"></div>
+                        </div>
+                        <div class="field-divider"></div>
+                        <div class="field-row">
+                            <div class="field-description"></div>
+                            <table class="field-table">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="field-appendfield"></div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template id="json-field-template">
+                <div>
+                    <div class="json-field"></div>
+                    <div class="json-divider">
+                        <div class="json-properties"></div>
+                    </div>
+                </div>
+            </template>
+
+            <template id="appendfield-template">
+                <details>
+                    <summary class="appendfield-summary"></summary>
+                    <div class="field-description"></div>
+                    <table class="field-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </details>
+            </template>
+
+            <template id="file-template">
+                <h1 class="file-title"></h1>
+                <div class="file-overview"></div>
+                <br>
+                <div class="file-fields"></div>
+            </template>
+            
+            <hr>
+            <div id="file-content">
+
+            </div>
+            <script>
+                let files = [];
+
+                // Create a fake field for the append field example
+                files["exampleFile"] = {
+                    "title": "exampleFile",
+                    "fields": [
+                        {
+                            "name": "Append field example",
+                            "description": "This is an example of an append field",
+                        }
+                    ]
+                }
+
+                files["about"] = {
+                    "title": "File Structure",
+                    "overview": "An overview of the json structure of a file",
+                    "fields": [
+                        {
+                            "name": "File",
+                            "description": "The root object of a file",
+                            "type": {
+                                "type": "object"
+                            },
+                            "fields": [
+                                {
+                                    "name": "title",
+                                    "description": "Title of the file to display. Usually matches the name of the game's corresponding data file.",
+                                    "type": {
+                                        "type": "text",
+                                    }
+                                },
+                                {
+                                    "name": "overview",
+                                    "description": "Overview of the file to display.",
+                                    "type": {
+                                        "type": "text",
+                                    }
+                                },
+                                {
+                                    "name": "referenceFiles",
+                                    "description": "List of file keys to be loading alongside this one. Required to use appendFiles or appendField functionality. If you are using a <a href=\"#reference-links\">reference link</a> or using a <a href=\"#type\">type</a> reference, you don't need to place the file here.",
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "text",
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "appendFiles",
+                                    "description": "List of files to be displayed alongsiide this one. The file key is required to be in referenceFiles. For example, this can be used to reduce duplicate fields between data files that share the same format, like the armor, weapons, and misc data files.",
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "text",
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "noHtml",
+                                    "description": "If true, no corresponding .html file will be generated for this file. Useful for files that are soley meant to be used as appendFiles.",
+                                    "type": {
+                                        "type": "boolean",
+                                    }
+                                },
+                                {
+                                    "name": "notSearchable",
+                                    "description": "If true, the fields in this file will not be populated into the search index.",
+                                    "type": {
+                                        "type": "boolean",
+                                    }
+                                },
+                                {
+                                    "name": "guideOnly",
+                                    "description": "If true, this file is marked as guide only and does not have a corresponding game data equivalent.",
+                                    "type": {
+                                        "type": "boolean",
+                                    }
+                                },
+                                {
+                                    "name": "codeDependency",
+                                    "description": "The name of a game data file (no file extension) to point to. This game data file is used as a dependency for generating and validating this file. Only is used if guideOnly is true.",
+                                    "type": {
+                                        "type": "text",
+                                    }
+                                },
+                                {
+                                    "name": "ignoreFields",
+                                    "description": "List of code field names to ignore when generating and validating this file.",
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "text",
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "fields",
+                                    "id": "file-fields",
+                                    "description": "List of fields to display.",
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "object",
+                                            "file": "about",
+                                            "field": "Field"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Field",
+                            "description": "The object that defines a field",
+                            "type": {
+                                "type": "object"
+                            },
+                            "fields": [
+                                {
+                                    "name": "name",
+                                    "description": "Name of the field. This usually matches the name of the field in the matching game data file.",
+                                    "type": {
+                                        "type": "text",
+                                    }
+                                },
+                                {
+                                    "name": "id",
+                                    "description": "Override the fields html id with this. Useful in json file documentation where fields can share names.",
+                                    "type": {
+                                        "type": "text"
+                                    }
+                                },
+                                {
+                                    "name": "altNames",
+                                    "altNames": [
+                                        "ex1",
+                                        "ex2",
+                                        "ex3"
+                                    ],
+                                    "description": `List of alternate names for this field. Usually matches individual game data field names for a condensed field.
+                                        <br><br>
+                                        Example: A series of fields exist with the names "ex1", "ex2", and "ex3" that all do similar things. We can condense all these down into a single field using altNames.
+                                        <pre><code>{
+    "name": "ex#",
+    "altNames": [
+        "ex1",
+        "ex2",
+        "ex3"
+    ]
+}</code></pre>
+                                        See above for how it displays.`,
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "text"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "description",
+                                    "description": "Description of what this field does.",
+                                    "type": {
+                                        "type": "text",
+                                    }
+                                },
+                                {
+                                    "name": "type",
+                                    "description": "An object containing information on the type of data the code expects from this field. Most of these fields are automatically created and filled out by the python scripts, however certain types have fields that need to be manually filled in.",
+                                    "type": {
+                                        "type": "object",
+                                    },
+                                    "fields": [
+                                        {
+                                            "name": "type",
+                                            "id": "type-type",
+                                            "description" : "What type of data the code expects. Most of these types are what we export from c++. Some are just for json.",
+                                            "type": {
+                                                "type": "text"
+                                            },
+                                            "table": [
+                                                [
+                                                    "Type",
+                                                    "Parameters",
+                                                    "Description"
+                                                ],
+                                                [
+                                                    "int<br>int or<br>float",
+                                                    "$!#memSize!$",
+                                                    "Numbers"
+                                                ],
+                                                [
+                                                    "text",
+                                                    "$!#dataLength!$<br>$!#memSize!$",
+                                                    "Strings. Infinite length assumed if the parameters are falsy"
+                                                ],
+                                                [
+                                                    "reference",
+                                                    "$!#dataLength!$<br>$!#memSize!$<br>$!#type-file!$<br>$!#type-field!$",
+                                                    "Reference to another field"
+                                                ],
+                                                [
+                                                    "string",
+                                                    "$!#dataLength!$<br>$!#memSize!$",
+                                                    "Localized string reference"
+                                                ],
+                                                [
+                                                    "boolean<br>inverse boolean",
+                                                    "",
+                                                    "Booleans. If a json field is detected, \"true or false\" is displayed. Otherwise use integers \"0 or 1\""
+                                                ],
+                                                [
+                                                    "parse",
+                                                    "$!#type-description!$",
+                                                    "Custom type, often used for calc/BBE fields. Describe what c++ does in the $!#type-description!$"
+                                                ],
+                                                [
+                                                    "comment",
+                                                    "",
+                                                    "Comment (unused by code)"
+                                                ],
+                                                [
+                                                    "object",
+                                                    "$!#type-file!$<br>$!#type-field!$",
+                                                    "An object field, used for json files. Optionally uses the parameters to reference a specific field."
+                                                ],
+                                                [
+                                                    "array",
+                                                    "$!#arrayType!$",
+                                                    "Arrays. Must define the type the array accepts in $!#arrayType!$. Can nest these too."
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "name": "dataLength",
+                                            "description" : "Maximum \"data\" that is accepted. Usually means how many characters are allowed.",
+                                            "type": {
+                                                "type": "int",
+                                                "memSize": "32"
+                                            }
+                                        },
+                                        {
+                                            "name": "memSize",
+                                            "description" : "The size of the c++ variable in code that this field is stored in after it is read.",
+                                            "type": {
+                                                "type": "int",
+                                                "memSize": "32"
+                                            }
+                                        },
+                                        {
+                                            "name": "description",
+                                            "id": "type-description",
+                                            "description" : "Text description that is used by certain types. For example, \"parse\" type fields have custom importing functions in code, so this description is to describe what is accepted by those functions.",
+                                            "type": {
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "name": "file",
+                                            "id": "type-file",
+                                            "description" : "File key that is used by certain types. For example, \"reference\" type fields use this to create hyperlinks to another file and field. Note: You do not need to place the referenced file in <a href=#reference-files>referenceFiles</a> for these links to work.",
+                                            "type": {
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "name": "field",
+                                            "id": "type-field",
+                                            "description" : "Field name or altName that is used by certain types. For example, \"reference\" type fields use this to create hyperlinks to another file and field.",
+                                            "type": {
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "name": "arrayType",
+                                            "description" : "If the $!#type!$ is an \"array\", use this object for what type the array accepts.",
+                                            "type": {
+                                                "type": "object",
+                                                "file": "about",
+                                                "field": "type"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "appendField",
+                                    "description": `An object that defines a specific field to display here. Useful for displaying information so people don't have to open a second tab to look at the other field. The appendField always starts minimized. If the field is in a separate file, it is required to be in this files referenceFiles. Requires the following fields:
+                                        <pre><code>"appendField": {
+    "file": "exampleFile",
+    "field": "Append field example"
+}</code></pre>
+                                    See below for how this displays`,
+                                    "type": {
+                                        "type": "Object",
+                                    },
+                                    "appendField": {
+                                        "file": "exampleFile",
+                                        "field": "Append field example"
+                                    },
+                                    "fields": [
+                                        {
+                                            "name": "file",
+                                            "id": "append-field-file",
+                                            "description": "Key to the file the appendField is located in.",
+                                            "type": {
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "name": "field",
+                                            "id": "append-field-field",
+                                            "description": "Name of the field to append.",
+                                            "type": {
+                                                "type": "text"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "table",
+                                    "description": `Array of arrays that defines a table to display. The first array represents rows and the second one columns. The entry can then be one of two things:
+                                        <ol>
+                                            <li>
+                                                Text
+                                            </li>
+                                            <li>
+                                                An object that defines text and an id. The id is assigned to the html field so it can be hyperlinked to. A link button is also added. Requires the following fields:
+                                                <ul>
+                                                    <li>
+                                                        id: string id to assign to the entry
+                                                    </li>
+                                                    <li>
+                                                        text: text to display for the entry
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                        <pre><code>{
+    "table": [
+        [
+            "Column 1 Name",
+            "Column 2 Name"
+        ],
+        [
+            "Row 1 Column 1",
+            "Row 1 Column 2"
+        ],
+        [
+            {
+                "id": "table-id-ex",
+                "text": "Row 2 Column 1 Id"
+            },
+            "Row 2 Column 1"
+        ]
+    ]
+}</code></pre>
+                                        See below for how this displays`,
+                                    "type": {
+                                        "type": "Array of array of text or objects",
+                                    },
+                                    "table": [
+                                        [
+                                            "Column 1 Name",
+                                            "Column 2 Name"
+                                        ],
+                                        [
+                                            "Row 1 Column 1",
+                                            "Row 1 Column 2"
+                                        ],
+                                        [
+                                            {
+                                                "id": "table-id-ex",
+                                                "text": "Row 2 Column 1 Id"
+                                            },
+                                            "Row 2 Column 1"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "name": "bittable",
+                                    "description": `Array that defines a bittable to display. Some fields used by the game are integers where each bit represents a flag that can be toggled. The bittable field is a breakdown and tool to help author these fields.
+                                        <pre><code>{
+    "bittable": [
+        "Entry 1",
+        "Entry 2",
+        "Entry 3"
+    ]
+}</code></pre>
+                                        Some fields can get pretty wacky with this, so some more complicated formats are also supported, replacing the string entries with objects. The following example demonstrates the ability to possible values, each with their own set of choices, in one bittable.
+                                        <pre><code>"bittable": [
+    {
+        "text": "None",
+        "decimal": 0
+    },
+    {
+        "header": true,
+        "text": "Header 1",
+        "radiogroup": "header-1",
+        "radiogroupmask": 15
+    },
+    {
+        "text": "Entry 1",
+        "decimal": 1,
+        "radiogroup": "header-1"
+    },
+    {
+        "text": "Entry 2",
+        "decimal": 2,
+        "radiogroup": "header-1"
+    },
+    {
+        "text": "Entry 3",
+        "decimal": 3,
+        "radiogroup": "header-1"
+    },
+    {
+        "header": true,
+        "text": "Header 2",
+        "radiogroup": "header-2",
+        "radiogroupmask": 240
+    },
+    {
+        "text": "Entry 4",
+        "decimal": 16,
+        "radiogroup": "header-2"
+    },
+    {
+        "text": "Entry 5",
+        "decimal": 32,
+        "radiogroup": "header-2"
+    },
+    {
+        "text": "Entry 6",
+        "decimal": 48,
+        "radiogroup": "header-2"
+    }
+]</code></pre>
+                                        See below for how these display`,
+                                    "type": {
+                                        "type": "Array of text or objects",
+                                    },
+                                    "bittable": [
+                                        "Entry 1",
+                                        "Entry 2",
+                                        "Entry 3"
+                                    ]
+                                },
+                                {
+                                    "name": "fields",
+                                    "id": "field-fields",
+                                    "description": "List of sub-fields to display under this field. This can be used for json file documentation.",
+                                    "type": {
+                                        "type": "array",
+                                        "arrayType": {
+                                            "type": "object",
+                                            "file": "about",
+                                            "field": "Field"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                };
+                populateFile(files["about"]);
+
+                // Create a second bittable example
+                let bittable2 = document.createElement("table");
+                bittable2.classList.add("field-table");
+                let bittable2head = document.createElement("thead");
+                let bittable2body = document.createElement("tbody");
+                bittable2.appendChild(bittable2head);
+                bittable2.appendChild(bittable2body);
+
+                createBittable(bittable2, [
+                    {
+                        "text": "None",
+                        "decimal": 0
+                    },
+                    {
+                        "header": true,
+                        "text": "Header 1",
+                        "radiogroup": "header-1",
+                        "radiogroupmask": 15
+                    },
+                    {
+                        "text": "Entry 1",
+                        "decimal": 1,
+                        "radiogroup": "header-1"
+                    },
+                    {
+                        "text": "Entry 2",
+                        "decimal": 2,
+                        "radiogroup": "header-1"
+                    },
+                    {
+                        "text": "Entry 3",
+                        "decimal": 3,
+                        "radiogroup": "header-1"
+                    },
+                    {
+                        "header": true,
+                        "text": "Header 2",
+                        "radiogroup": "header-2",
+                        "radiogroupmask": 240
+                    },
+                    {
+                        "text": "Entry 4",
+                        "decimal": 16,
+                        "radiogroup": "header-2"
+                    },
+                    {
+                        "text": "Entry 5",
+                        "decimal": 32,
+                        "radiogroup": "header-2"
+                    },
+                    {
+                        "text": "Entry 6",
+                        "decimal": 48,
+                        "radiogroup": "header-2"
+                    }
+                ]);
+
+                const bittableParent = document.querySelector("#bittable").querySelector(".field-table").parentElement;
+                bittableParent.appendChild(bittable2);
+            </script>
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="#html">Generated .html files</a></li>
+                <li><a href="#js">.js files</a></li>
+                <li><a href="#adding">Adding a new file or field</a></li>
+                <li><a href="#editing">Editing an existing file or field</a></li>
+                <li><a href="#removing">Removing an existing file or field</a></li>
+                <li><a href="#reference-links">Reference links</a></li>
+                <li><a href="#considerations">Considerations</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="./data/siteIndex.js"></script>
+    <script src="./data/search.js"></script>
+    <script src="./script/siteSidebar.js"></script>
+    <script>
+        populateSiteSidebar(".", siteIndex);
+        populatePageSidebar(files["about"], document.querySelector("#page-sidebar ul"));
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>
