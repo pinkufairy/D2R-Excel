@@ -835,7 +835,7 @@ Act 4 - Pits 2 16X16	832	0	1	1	1	0	1	1	16	16	0	0	0	-4	3	Act4/Mesa/MidPit16X16_0.
 Act 4 - Pits 2 16X08	833	0	1	1	1	0	1	1	16	8	0	0	0	-4	3	Act4/Mesa/MidPit16X08_0.ds1	Act4/Mesa/MidPit16X08_1.ds1	Act4/Mesa/MidPit16X08_2.ds1	0	0	0	511
 Act 4 - Pits 2 08X16	834	0	1	1	1	0	1	1	8	16	0	0	0	-4	3	Act4/Mesa/MidPit08X16_0.ds1	Act4/Mesa/MidPit08X16_1.ds1	Act4/Mesa/MidPit08X16_2.ds1	0	0	0	511
 Act 4 - Pits 2 08X08	835	0	1	1	1	0	1	1	8	8	0	0	0	-4	3	Act4/Mesa/MidPit08X08_0.ds1	Act4/Mesa/MidPit08X08_1.ds1	Act4/Mesa/MidPit08X08_2.ds1	0	0	0	511
-Act 4 - Lava X	836	0	1	1	1	1	0	0	24	24	0	0	0	-4	1	Act4/Lava/LavaX.ds1	0	0	0	0	0	2047
+Act 4 - Lava X	836	0	0	1	1	1	0	0	24	24	0	0	0	-4	1	Act4/Lava/LavaX.ds1	0	0	0	0	0	2047
 Act 4 - Lava W	837	0	1	1	1	1	0	0	24	24	0	0	0	-4	2	Act4/Lava/LavaW.ds1	Act4/Lava/LavaW2.ds1	0	0	0	0	2047
 Act 4 - Lava E	838	0	1	1	1	1	0	0	24	24	0	0	0	-4	2	Act4/Lava/LavaE.ds1	Act4/Lava/LavaE2.ds1	0	0	0	0	2047
 Act 4 - Lava EW	839	0	1	1	1	1	0	0	24	24	0	0	0	-4	2	Act4/Lava/LavaEW.ds1	Act4/Lava/LavaEW2.ds1	0	0	0	0	2047
