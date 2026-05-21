@@ -354,7 +354,7 @@ files["skills"] = {
                         "id": "BarStartBash",
                         "text": "BarStartBash"
                     },
-                    "$!#aurastate!$<br>$!#calc1!$<br>$!#calc2!$<br>$!#calc3!$<br>$!#calc4!$<br>$!#calc4!$<br>$!#calc4!$<br>$!#ResultFlags!$<br>$!#HitFlags!$<br>$!#HitClass!$",
+                    "$!#aurastate!$<br>$!#calc1!$<br>$!#calc2!$<br>$!#calc3!$<br>$!#calc4!$<br>$!#ResultFlags!$<br>$!#HitFlags!$<br>$!#HitClass!$",
                     "Validate the target enemy and attack it. Use $!#calc1!$ to control the physical damage percent increase. Use $!#calc2!$ to control the flat damage increase. Use $!#calc3!$ to control the attack speed bonus. Use $!#calc4!$ to control the percent of damage converted to elemental, if the $!#EType!$ field is used. Apply $!#ResultFlags!$, $!#HitFlags!$ and $!#HitClass!$. Applies $!#aurastate!$ and all $!#aurastat#!$ to self."
                 ],
                 [
@@ -638,9 +638,12 @@ files["skills"] = {
                 ],
                 [
                     "64",
-                    "",
-                    "",
-                    "Do nothing"
+                    {
+                        "id": "srv-WarStartBindDemon",
+                        "text": "WarStartBindDemon"
+                    },
+                    "$!#aurastate!$",
+                    "Check if a monster is bindeable. Require $!#aurastate!$ to be valid. Require target to be bad aligned monster, not a herald or herald minion, and not a mercenary. Require the monster to have a $!MonPet!$ entry and a valid $!MonPet#bindchancecalc!$. Require $!MonPet#calc2!$ to evaluate to non-zero. Run $!#srv-SkillStartPlayerChannelSkill!$."
                 ],
                 [
                     "65",
@@ -2139,7 +2142,7 @@ files["skills"] = {
                         "text": "WarDoBindDemon"
                     },
                     "$!#aurastate!$<br>$!#aurastat#!$<br>$!#auraevent#!$<br>$!#passivestat#!$<br>$!#pettype!$<br>$!#petmax!$<br>$!#sumskill#!$<br>$!#sumumod!$<br>$!#sumoverlay!$<br>$!#calc1!$<br>$!#calc2!$<br>$!#calc3!$<br>$!#calc4!$<br>$!#calc5!$<br>$!#calc6!$",
-                    "Convert an existing monster to a pet. Test the monster can be converted, has an entry in $!MonPet!$, and roll against $!MonPet#bindchancecalc!$. On a success convert the target to a $!#pettype!$ pet, limited by $!#petmax!$. Use $!#calc2!$, $!#calc3!$, $!#calc4!$, and $!#calc5!$ as monster mods to apply. Set the monsters level to min(player level, monster level). Use $!#calc6!$ to determine HP regen behavior, with 0 being the monsters default HP regen behavior (no regen for elites), 1 disabling HP regen, and 2 always enabling HP regen. Apply $!#aurastate!$, all $!#aurastat#!$, all $!#auraevent#!$, all $!#passivestat#!$, all $!#sumskill#!$, $!#sumumod!$, and $!#sumoverlay!$ to the monster. Use $!#calc1!$ as additional percent max life. Add any equipment from $!monequip!$."
+                    "Convert an existing monster to a pet. Test the monster can be converted, has an entry in $!MonPet!$, and roll against $!MonPet#bindchancecalc!$. On a success convert the target to a $!#pettype!$ pet, limited by $!#petmax!$. Use $!#calc2!$, $!#calc3!$, $!#calc4!$, and $!#calc5!$ as monster mods to apply. The mods use alternate auras and curses. Set the monsters level to min(player level, monster level). Use $!#calc6!$ to determine HP regen behavior, with 0 being the monsters default HP regen behavior (no regen for elites), 1 disabling HP regen, and 2 always enabling HP regen. Apply $!#aurastate!$, all $!#aurastat#!$, all $!#auraevent#!$, all $!#passivestat#!$, all $!#sumskill#!$, $!#sumumod!$, and $!#sumoverlay!$ to the monster. Use $!#calc1!$ as additional percent max life. Add any equipment from $!monequip!$. Apply any $!MonPet#BoundStat#!$."
                 ],
                 [
                     "159",
@@ -2210,8 +2213,8 @@ files["skills"] = {
                         "id": "srv-WarDoMirroredBlades",
                         "text": "WarDoMirroredBlades (Server)"
                     },
-                    "$!#srvmissilea!$<br>$!#decquant!$<br>$!#lob!$<br>$!#calc1!$<br>$!#calc5!$<br>$!#calc6!$<br>$!#calc7!$<br>$!#calc8!$<br>$!#calc9!$<br>$!#Param12!$",
-                    "Attack multiple times at once, supporting melee weapons, missile weapons, and normal missiles. Use $!#calc5!$ as the total amount of attacks to perform or missiles to create.<br>\u00b7 For melee weapons, run $!#BarStartBash!$ for each attack, but don't apply the attack rate speed up. The first attack consumes durability and uses full weapon damage. Any attacks after do not consume durability, have weapon damage modified by $!#calc6!$ percent, and the Crushing Blow base divisor is replaced by $!#calc9!$ for players/mercenaries and $!#calc7!$ for everything else.<br>\u00b7 For missile weapons, use the weapon's missile type, including special missiles from stats. Use $!#calc1!$ to control the physical damage percent increase. The first missile consumes durability unless the missile type says otherwise. Any missiles after do not consume durability, have total damage modified by $!#calc6!$ percent (using \"skill_missile_damage_scale\" applied multiplicatively with existing sources), are offset by 1 square from each other (alternating sides), and the Crushing Blow base divisor is replaced by $!#calc9!$ for players/mercenaries and $!#calc8!$ for everything else. Consider each missile created as a separate cast if $!#Param12!$ is true.<br>\u00b7 For normal missiles, use $!#srvmissilea!$. Lob the missiles if $!#lob!$ is set. The first missile consumes durability if $!#decquant!$ is set. Otherwise the same as the missile weapon flow."
+                    "$!#srvmissilea!$<br>$!#decquant!$<br>$!#lob!$<br>$!#calc1!$<br>$!#calc5!$<br>$!#calc6!$<br>$!#calc7!$<br>$!#calc8!$<br>$!#calc9!$<br>$!#Param11!$<br>$!#Param12!$",
+                    "Attack multiple times at once, supporting melee weapons, missile weapons, and normal missiles. Use $!#calc5!$ as the total amount of attacks to perform or missiles to create.<br>\u00b7 For melee weapons, run $!#BarStartBash!$ for each attack, but don't apply the attack rate speed up. The first attack consumes durability. Any attacks after do not consume durability and the Crushing Blow base divisor is replaced by $!#calc9!$ for players/mercenaries and $!#calc7!$ for everything else. All attacks have their $!#SrcDam!$ modified by $!#calc6!$ percent, unless $!#Param11!$ is true then it only applies to the first attack.<br>\u00b7 For missile weapons, use the weapon's missile type, including special missiles from stats. Use $!#calc1!$ to control the physical damage percent increase. The first missile consumes durability unless the missile type says otherwise. Any missiles after do not consume durability, are offset by 1 square from each other (alternating sides), and the Crushing Blow base divisor is replaced by $!#calc9!$ for players/mercenaries and $!#calc8!$ for everything else. All missiles have total damage modified by $!#calc6!$ percent (using the \"skill_missile_damage_scale\" stat applied multiplicatively with existing sources), unless $!#Param11!$ is true then it only applies to the first missile. Consider each missile created as a separate cast if $!#Param12!$ is true.<br>\u00b7 For normal missiles, use $!#srvmissilea!$. Lob the missiles if $!#lob!$ is set. The first missile consumes durability if $!#decquant!$ is set. Otherwise the same as the missile weapon flow."
                 ],
                 [
                     "167",
@@ -3557,6 +3560,15 @@ files["skills"] = {
                     },
                     "$!#periodic!$",
                     "Starts the provided skill to be applied periodically on the client. Requires skill to be marked as $!#periodic!$."
+                ],
+                [
+                    "61",
+                    {
+                        "id": "clt-WarStartBindDemon",
+                        "text": "WarStartBindDemon"
+                    },
+                    "$!#aurastate!$",
+                    "Check if a monster is bindeable and play a the \"impossible\" sound if not. Require $!#aurastate!$ to be valid. Require target to be bad aligned monster, not a herald or herald minion, and not a mercenary. Require the monster to have a $!MonPet!$ entry and a valid $!MonPet#bindchancecalc!$. Require $!MonPet#calc2!$ to evaluate to non-zero. Run $!#clt-SkillStartPlayerChannelSkill!$."
                 ]
             ]
         },

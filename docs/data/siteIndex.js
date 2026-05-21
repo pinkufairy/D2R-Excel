@@ -349,6 +349,10 @@ const siteIndex = [
                         "path": "/files/monai.html"
                     },
                     {
+                        "name": "moncalc.txt",
+                        "path": "/files/moncalc.html"
+                    },
+                    {
                         "name": "MonMode.txt",
                         "path": "/files/MonMode.html"
                     },

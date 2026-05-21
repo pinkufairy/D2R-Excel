@@ -5,6 +5,7 @@
     <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/tools.css" />
 </head>
 <body>
     <div id="page">
@@ -69,6 +70,10 @@
                         <tr>
                             <td>/</td>
                             <td>Division</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>Remainder</td>
                         </tr>
                         <tr>
                             <td>^</td>
@@ -160,8 +165,8 @@
                         </tr>
                         <tr>
                             <td>Monster</td>
-                            <td>No identifiers</td>
-                            <td>Accepts a constant number.</td>
+                            <td><a href="../files/moncalc.html" target="_blank" class="reference-link">moncalc.txt</a></td>
+                            <td>Accepts a constant number or a monster identifier.</td>
                         </tr>
                         <tr>
                             <td>Treasure Class</td>
@@ -340,9 +345,41 @@
                                 </ul>
                             </td>
                         </tr>
+                        <tr>
+                            <td>MonsterHasMod</td>
+                            <td><code>cond('MonsterHasMod', param)</code></td>
+                            <td>Check if a monster has a specific unique mod.</td>
+                            <td>Reference to a <a href="../files/monumod.html#uniquemod" target="_blank" class="reference-link">monumod#uniquemod</a> (ex. <code>aura</code>)</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div id="tools" class="page-sidebar-target">
+                <h2>Tools</h2>
+                <p>
+                    Tools to help with common calc things.
+                </p>
+
+                <div id="tools-linear" class="page-sidebar-target">
+                    <h3>Linear Function</h3>
+                    <p>
+                        Linear returns as X progresses. Commonly is an identifier in specific scopes. For example, skill scope calcs have <code>ln12</code> as an identifier. Missile scope calcs have <code>sl12</code>.
+                        <div class="linear-calc-tool flex-column" data-xmin="1" data-xmax="60"></div>
+                    </p>
+                </div>
+
+                <div id="tools-diminishing" class="page-sidebar-target">
+                    <h4>Diminishing Function</h4>
+                    <p>
+                        Diminishing returns as X progresses. Commonly is an identifier in specific scopes. For example, skill scope calcs have <code>dm12</code> as an identifier. Missile scope calcs have <code>sd12</code>.
+                        <div class="diminishing-calc-tool flex-column" data-xmin="1" data-xmax="60"></div>
+                    </p>
+                </div>
+            </div>
+
+
+
         </div>
 
         <nav id="page-sidebar" class="sidebar">
@@ -356,14 +393,21 @@
                 <li><a href="#scopes">Scopes and Identifiers</a></li>
                 <li><a href="#functions">Functions</a></li>
                 <li><a href="#conditions">Conditions</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <ul>
+                    <li><a href="#tools-linear">Linear</a></li>
+                    <li><a href="#tools-diminishing">Diminishing</a></li>
+                </ul>
             </ul>
         </nav>
     </div>
 
     <script src="../data/siteIndex.js"></script>
     <script src="../data/search.js"></script>
+    <script src="../script/tools.js"></script>
     <script src="../script/siteSidebar.js"></script>
     <script>
+        generateTools();
         populateSiteSidebar("..", siteIndex);
         fixupPageSidebar();
     </script>

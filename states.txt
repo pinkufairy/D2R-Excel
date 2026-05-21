@@ -217,9 +217,9 @@ warlockdemonground	214					1																																					warlockdemongro
 warlockdemontorso	215					1																																					warlockdemontorso														70	130																0
 skill_channeling	216			1																																																																						0
 hexpurgedebuff	217	7				1	1																																				hexpurgedebuff					curse_hit														Warlock_Skill_Hex_Purge_Hit											4	0
-chroniclebacklight	218																																										chronicle_backlight																															0
-chroniclefootprints	219																																																																									0
-chronicleportal	220																																																	customization_index																								0
+chroniclebacklight	218																											1															chronicle_backlight																															0
+chroniclefootprints	219																											1																																														0
+chronicleportal	220																											1																						customization_index																								0
 eldritchblastperiodic	221								1																																		eldritchblastperiodic																									107						0
 lightningenchant	222											1									1																											lightningenchant		skill_enchant					weap	cred																		0
 coldenchant	223											1									1																											coldenchant		skill_enchant					weap	cred																		0

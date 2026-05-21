@@ -124,6 +124,15 @@ files["Levels"] = {
             }
         },
         {
+            "name": "CompletionTotalRoomsOverride",
+            "description": "If > 0, use this value as the total number of rooms in the level for calculating its level completion percentage. Otherwise, use the total amount of populateable rooms.",
+            "type": {
+                "type": "int",
+                "dataLength": 0,
+                "memSize": 32
+            }
+        },
+        {
             "name": "Depend",
             "description": "Assigns another level to be this area level's depended level, which controls this area level's position and how it starts building its tiles. Uses the $!#Id!$ field. If this equals 0, then ignore this.",
             "type": {

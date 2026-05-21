@@ -67,16 +67,16 @@ Act 2 (H) Junk			1						Act 5 Junk	2	Potion 6	8	Misc 2	4	Ammo	4																	
 Act 3 (H) Junk			1						Act 5 Junk	2	Potion 6	8	Misc 2	4	Ammo	4																						0
 Act 4 (H) Junk			1						Act 5 Junk	2	Potion 6	8	Misc 2	4	Ammo	4																						0
 Act 5 (H) Junk			1						Act 5 Junk	2	Potion 6	8	Misc 2	4	Ammo	4																						0
-Sunder Charms			1					18	PreCrafted Cold Rupture	30	PreCrafted Flame Rift	30	PreCrafted Crack of the Heavens	20	PreCrafted Rotting Fissure	12	PreCrafted Bone Break	6	PreCrafted Black Cleft	3												"cond('MonsterTestElite', herald)*(stat('heraldtier'.accr) >1) "	2	2	1			0
+Sunder Charms			1						PreCrafted Cold Rupture	30	PreCrafted Flame Rift	30	PreCrafted Crack of the Heavens	20	PreCrafted Rotting Fissure	12	PreCrafted Bone Break	6	PreCrafted Black Cleft	3												"cond('MonsterTestElite', herald)"	2	2	1			0
 Herald Charm 1			1						Act 5 (H) Junk	3	"gld,mul=2048"	2																										0
 Herald Charm 2			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 1	2																								0
-Herald Charm 3			1						jew	3	rin	2	Herald Charm 2	5																								0
-Herald Charm 4			1						jew	3	amu	2	Herald Charm 3	7																								0
-Herald Charm 5			1						rin	3	amu	2	Herald Charm 4	12																								0
-Herald Charm 6			1						cm1	3	cm2	2	Herald Charm 5	22																								0
-Herald Charm 7			1						cm1	3	cm3	2	Herald Charm 6	45																								0
-Herald Charm 8			1						cm2	3	cm3	2	Herald Charm 7	90																								0
-Herald Charm 9			1						cm3	3	Sunder Charms	2	Herald Charm 8	180																								0
+Herald Charm 3			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 2	5																								0
+Herald Charm 4			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 3	7																								0
+Herald Charm 5			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 4	12																								0
+Herald Charm 6			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 5	22																								0
+Herald Charm 7			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 6	45																								0
+Herald Charm 8			1						Act 5 (H) Junk	3	"gld,mul=2048"	2	Herald Charm 7	90																								0
+Herald Charm 9			1						"gld,mul=2048"	3	Sunder Charms	2	Herald Charm 8	180																								0
 Herald Charm 10			1						Sunder Charms	3	Herald Charm 9	360																										0
 Act 1 Worldstone Shards 1			1						Chipped Gem	3	Flawed Gem	2																										0
 Act 1 Worldstone Shards 2			1						Chipped Gem	3	Flawed Gem	2	Act 1 Worldstone Shards 1	2																								0
@@ -1287,60 +1287,60 @@ Act 2 (H) Good Desecrated Herald			1						Jewelry C	60	Chipped Gem	4	Flawed Gem	
 Act 3 (H) Good Desecrated Herald			1						Jewelry C	60	Chipped Gem	4	Flawed Gem	10	Normal Gem	14	Flawless Gem	28	Runes 15	18																		0
 Act 4 (H) Good Desecrated Herald			1						Jewelry C	60	Chipped Gem	4	Flawed Gem	10	Normal Gem	14	Flawless Gem	28	Runes 16	18																		0
 Act 5 (H) Good Desecrated Herald			1						Jewelry C	60	Chipped Gem	4	Flawed Gem	10	Normal Gem	14	Flawless Gem	28	Runes 17	18																		0
-Act 1 (H) Herald Item A			1	850	850	850	1024	0	Act 1 (H) Equip A Desecrated Herald	116	Act 1 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 1 (H) Herald Item B			1	850	850	850	1024	0	Act 1 (H) Equip B Desecrated Herald	116	Act 1 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 1 (H) Herald Item C			1	850	850	850	1024	0	Act 1 (H) Equip C Desecrated Herald	116	Act 1 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 2 (H) Herald Item D			1	850	850	850	1024	0	Act 2 (H) Equip A Desecrated Herald	116	Act 2 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 2 (H) Herald Item E			1	850	850	850	1024	0	Act 2 (H) Equip B Desecrated Herald	116	Act 2 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 2 (H) Herald Item F			1	850	850	850	1024	0	Act 2 (H) Equip C Desecrated Herald	116	Act 2 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 3 (H) Herald Item G			1	850	850	850	1024	0	Act 3 (H) Equip A Desecrated Herald	116	Act 3 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 3 (H) Herald Item H			1	850	850	850	1024	0	Act 3 (H) Equip B Desecrated Herald	116	Act 3 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 3 (H) Herald Item I			1	850	850	850	1024	0	Act 3 (H) Equip C Desecrated Herald	116	Act 3 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 4 (H) Herald Item J			1	850	850	850	1024	0	Act 4 (H) Equip A Desecrated Herald	116	Act 4 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 4 (H) Herald Item K			1	850	850	850	1024	0	Act 4 (H) Equip B Desecrated Herald	116	Act 4 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 5 (H) Herald Item L			1	850	850	850	1024	0	Act 5 (H) Equip A Desecrated Herald	116	Act 5 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 5 (H) Herald Item M			1	850	850	850	1024	0	Act 5 (H) Equip B Desecrated Herald	116	Act 5 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 5 (H) Herald Item N			1	850	850	850	1024	0	Act 5 (H) Equip C Desecrated Herald	116	Act 5 (H) Good Desecrated Herald	8	All Acts Terrorize Consumable	5																								0
-Act 1 (H) Herald Item A - 1 Extra			-1	850	850	850	1024	0	Act 1 (H) Herald Item A	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 1 (H) Herald Item B - 1 Extra			-1	850	850	850	1024	0	Act 1 (H) Herald Item B	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 1 (H) Herald Item C - 1 Extra			-1	850	850	850	1024	0	Act 1 (H) Herald Item C	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 2 (H) Herald Item D - 1 Extra			-1	850	850	850	1024	0	Act 2 (H) Herald Item D	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 2 (H) Herald Item E - 1 Extra			-1	850	850	850	1024	0	Act 2 (H) Herald Item E	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 2 (H) Herald Item F - 1 Extra			-1	850	850	850	1024	0	Act 2 (H) Herald Item F	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 3 (H) Herald Item G - 1 Extra			-1	850	850	850	1024	0	Act 3 (H) Herald Item G	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 3 (H) Herald Item H - 1 Extra			-1	850	850	850	1024	0	Act 3 (H) Herald Item H	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 3 (H) Herald Item I - 1 Extra			-1	850	850	850	1024	0	Act 3 (H) Herald Item I	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 4 (H) Herald Item J - 1 Extra			-1	850	850	850	1024	0	Act 4 (H) Herald Item J	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 4 (H) Herald Item K - 1 Extra			-1	850	850	850	1024	0	Act 4 (H) Herald Item K	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 5 (H) Herald Item L - 1 Extra			-1	850	850	850	1024	0	Act 5 (H) Herald Item L	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 5 (H) Herald Item M - 1 Extra			-1	850	850	850	1024	0	Act 5 (H) Herald Item M	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 5 (H) Herald Item N - 1 Extra			-1	850	850	850	1024	0	Act 5 (H) Herald Item N	1																						(stat('heraldtier'.accr)>1) * (stat('heraldtier'.accr) < 4)						0
-Act 1 (H) Herald Item A - 2 Extra			-2	850	850	850	1024	0	Act 1 (H) Herald Item A	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 1 (H) Herald Item B - 2 Extra			-2	850	850	850	1024	0	Act 1 (H) Herald Item B	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 1 (H) Herald Item C - 2 Extra			-2	850	850	850	1024	0	Act 1 (H) Herald Item C	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 2 (H) Herald Item D - 2 Extra			-2	850	850	850	1024	0	Act 2 (H) Herald Item D	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 2 (H) Herald Item E - 2 Extra			-2	850	850	850	1024	0	Act 2 (H) Herald Item E	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 2 (H) Herald Item F - 2 Extra			-2	850	850	850	1024	0	Act 2 (H) Herald Item F	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 3 (H) Herald Item G - 2 Extra			-2	850	850	850	1024	0	Act 3 (H) Herald Item G	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 3 (H) Herald Item H - 2 Extra			-2	850	850	850	1024	0	Act 3 (H) Herald Item H	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 3 (H) Herald Item I - 2 Extra			-2	850	850	850	1024	0	Act 3 (H) Herald Item I	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 4 (H) Herald Item J - 2 Extra			-2	850	850	850	1024	0	Act 4 (H) Herald Item J	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 4 (H) Herald Item K - 2 Extra			-2	850	850	850	1024	0	Act 4 (H) Herald Item K	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 5 (H) Herald Item L - 2 Extra			-2	850	850	850	1024	0	Act 5 (H) Herald Item L	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 5 (H) Herald Item M - 2 Extra			-2	850	850	850	1024	0	Act 5 (H) Herald Item M	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 5 (H) Herald Item N - 2 Extra			-2	850	850	850	1024	0	Act 5 (H) Herald Item N	2																						(stat('heraldtier'.accr) >=4) 						0
-Act 1 (H) Herald A	41	67	-7	989	983	1024	1024	0	Act 1 (H) Herald Item A	2	Herald Charm 10	1	Act 1 (H) Herald Item A - 1 Extra	1	Act 1 (H) Herald Item A - 2 Extra	1	Act 1 (H) Cpot A	2																				0
-Act 1 (H) Herald B	41	68	-7	989	983	1024	1024	0	Act 1 (H) Herald Item B	2	Herald Charm 10	1	Act 1 (H) Herald Item B - 1 Extra	1	Act 1 (H) Herald Item B - 2 Extra	1	Act 1 (H) Cpot B	2																				0
-Act 1 (H) Herald C	41	69	-7	989	983	1024	1024	0	Act 1 (H) Herald Item C	2	Herald Charm 10	1	Act 1 (H) Herald Item C - 1 Extra	1	Act 1 (H) Herald Item C - 2 Extra	1	Act 1 (H) Cpot C	2																				0
-Act 2 (H) Herald A	41	70	-7	989	983	1024	1024	0	Act 2 (H) Herald Item D	2	Herald Charm 10	1	Act 2 (H) Herald Item D - 1 Extra	1	Act 2 (H) Herald Item D - 2 Extra	1	Act 2 (H) Cpot A	2																				0
-Act 2 (H) Herald B	41	71	-7	989	983	1024	1024	0	Act 2 (H) Herald Item E	2	Herald Charm 10	1	Act 2 (H) Herald Item E - 1 Extra	1	Act 2 (H) Herald Item E - 2 Extra	1	Act 2 (H) Cpot B	2																				0
-Act 2 (H) Herald C	41	72	-7	989	983	1024	1024	0	Act 2 (H) Herald Item F	2	Herald Charm 10	1	Act 2 (H) Herald Item F - 1 Extra	1	Act 2 (H) Herald Item F - 2 Extra	1	Act 2 (H) Cpot C	2																				0
-Act 3 (H) Herald A	41	73	-7	989	983	1024	1024	0	Act 3 (H) Herald Item G	2	Herald Charm 10	1	Act 3 (H) Herald Item G - 1 Extra	1	Act 3 (H) Herald Item G - 2 Extra	1	Act 3 (H) Cpot A	2																				0
-Act 3 (H) Herald B	41	75	-7	989	983	1024	1024	0	Act 3 (H) Herald Item H	2	Herald Charm 10	1	Act 3 (H) Herald Item H - 1 Extra	1	Act 3 (H) Herald Item H - 2 Extra	1	Act 3 (H) Cpot B	2																				0
-Act 3 (H) Herald C	41	78	-7	989	983	1024	1024	0	Act 3 (H) Herald Item I	2	Herald Charm 10	1	Act 3 (H) Herald Item I - 1 Extra	1	Act 3 (H) Herald Item I - 2 Extra	1	Act 3 (H) Cpot C	2																				0
-Act 4 (H) Herald A	41	81	-7	989	983	1024	1024	0	Act 4 (H) Herald Item J	2	Herald Charm 10	1	Act 4 (H) Herald Item J - 1 Extra	1	Act 4 (H) Herald Item J - 2 Extra	1	Act 4 (H) Cpot A	2																				0
-Act 4 (H) Herald B	41	84	-7	989	983	1024	1024	0	Act 4 (H) Herald Item K	2	Herald Charm 10	1	Act 4 (H) Herald Item K - 1 Extra	1	Act 4 (H) Herald Item K - 2 Extra	1	Act 4 (H) Cpot B	2																				0
-Act 4 (H) Herald C	41	87	-7	989	983	1024	1024	0	Act 4 (H) Herald Item K	2	Herald Charm 10	1	Act 4 (H) Herald Item K - 1 Extra	1	Act 4 (H) Herald Item K - 2 Extra	1	Act 4 (H) Cpot B	2																				0
-Act 5 (H) Herald A	41	90	-7	989	983	1024	1024	0	Act 5 (H) Herald Item L	2	Herald Charm 10	1	Act 5 (H) Herald Item L - 1 Extra	1	Act 5 (H) Herald Item L - 2 Extra	1	Act 5 (H) Cpot A	2																				0
-Act 5 (H) Herald B	41	93	-7	989	983	1024	1024	0	Act 5 (H) Herald Item M	2	Herald Charm 10	1	Act 5 (H) Herald Item M - 1 Extra	1	Act 5 (H) Herald Item M - 2 Extra	1	Act 5 (H) Cpot B	2																				0
-Act 5 (H) Herald C	41	96	-7	989	983	1024	1024	0	Act 5 (H) Herald Item N	2	Herald Charm 10	1	Act 5 (H) Herald Item N - 1 Extra	1	Act 5 (H) Herald Item N - 2 Extra	1	Act 5 (H) Cpot C	2																				0
+Act 1 (H) Herald Item A			1	800	800	850	1024	0	Act 1 (H) Equip A Desecrated Herald	360	Act 1 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 1 (H) Herald Item B			1	800	800	850	1024	0	Act 1 (H) Equip B Desecrated Herald	360	Act 1 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 1 (H) Herald Item C			1	800	800	850	1024	0	Act 1 (H) Equip C Desecrated Herald	360	Act 1 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 2 (H) Herald Item D			1	800	800	850	1024	0	Act 2 (H) Equip A Desecrated Herald	360	Act 2 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 2 (H) Herald Item E			1	800	800	850	1024	0	Act 2 (H) Equip B Desecrated Herald	360	Act 2 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 2 (H) Herald Item F			1	800	800	850	1024	0	Act 2 (H) Equip C Desecrated Herald	360	Act 2 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 3 (H) Herald Item G			1	800	800	850	1024	0	Act 3 (H) Equip A Desecrated Herald	360	Act 3 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 3 (H) Herald Item H			1	800	800	850	1024	0	Act 3 (H) Equip B Desecrated Herald	360	Act 3 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 3 (H) Herald Item I			1	800	800	850	1024	0	Act 3 (H) Equip C Desecrated Herald	360	Act 3 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 4 (H) Herald Item J			1	800	800	850	1024	0	Act 4 (H) Equip A Desecrated Herald	360	Act 4 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 4 (H) Herald Item K			1	800	800	850	1024	0	Act 4 (H) Equip B Desecrated Herald	360	Act 4 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 5 (H) Herald Item L			1	800	800	850	1024	0	Act 5 (H) Equip A Desecrated Herald	360	Act 5 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 5 (H) Herald Item M			1	800	800	850	1024	0	Act 5 (H) Equip B Desecrated Herald	360	Act 5 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 5 (H) Herald Item N			1	800	800	850	1024	0	Act 5 (H) Equip C Desecrated Herald	360	Act 5 (H) Good Desecrated Herald	30	All Acts Terrorize Consumable	15	Sunder Charms	2																						0
+Act 1 (H) Herald Item A - 1 Extra			-1	800	800	850	1024	0	Act 1 (H) Herald Item A	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 1 (H) Herald Item B - 1 Extra			-1	800	800	850	1024	0	Act 1 (H) Herald Item B	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 1 (H) Herald Item C - 1 Extra			-1	800	800	850	1024	0	Act 1 (H) Herald Item C	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 2 (H) Herald Item D - 1 Extra			-1	800	800	850	1024	0	Act 2 (H) Herald Item D	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 2 (H) Herald Item E - 1 Extra			-1	800	800	850	1024	0	Act 2 (H) Herald Item E	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 2 (H) Herald Item F - 1 Extra			-1	800	800	850	1024	0	Act 2 (H) Herald Item F	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 3 (H) Herald Item G - 1 Extra			-1	800	800	850	1024	0	Act 3 (H) Herald Item G	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 3 (H) Herald Item H - 1 Extra			-1	800	800	850	1024	0	Act 3 (H) Herald Item H	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 3 (H) Herald Item I - 1 Extra			-1	800	800	850	1024	0	Act 3 (H) Herald Item I	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 4 (H) Herald Item J - 1 Extra			-1	800	800	850	1024	0	Act 4 (H) Herald Item J	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 4 (H) Herald Item K - 1 Extra			-1	800	800	850	1024	0	Act 4 (H) Herald Item K	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 5 (H) Herald Item L - 1 Extra			-1	800	800	850	1024	0	Act 5 (H) Herald Item L	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 5 (H) Herald Item M - 1 Extra			-1	800	800	850	1024	0	Act 5 (H) Herald Item M	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 5 (H) Herald Item N - 1 Extra			-1	800	800	850	1024	0	Act 5 (H) Herald Item N	1																						(stat('heraldtier'.accr)>2)*(stat('heraldtier'.accr) <5) 						0
+Act 1 (H) Herald Item A - 2 Extra			-2	800	800	850	1024	0	Act 1 (H) Herald Item A	2																						(stat('heraldtier'.accr) >4) 						0
+Act 1 (H) Herald Item B - 2 Extra			-2	800	800	850	1024	0	Act 1 (H) Herald Item B	2																						(stat('heraldtier'.accr) >4) 						0
+Act 1 (H) Herald Item C - 2 Extra			-2	800	800	850	1024	0	Act 1 (H) Herald Item C	2																						(stat('heraldtier'.accr) >4) 						0
+Act 2 (H) Herald Item D - 2 Extra			-2	800	800	850	1024	0	Act 2 (H) Herald Item D	2																						(stat('heraldtier'.accr) >4) 						0
+Act 2 (H) Herald Item E - 2 Extra			-2	800	800	850	1024	0	Act 2 (H) Herald Item E	2																						(stat('heraldtier'.accr) >4) 						0
+Act 2 (H) Herald Item F - 2 Extra			-2	800	800	850	1024	0	Act 2 (H) Herald Item F	2																						(stat('heraldtier'.accr) >4) 						0
+Act 3 (H) Herald Item G - 2 Extra			-2	800	800	850	1024	0	Act 3 (H) Herald Item G	2																						(stat('heraldtier'.accr) >4) 						0
+Act 3 (H) Herald Item H - 2 Extra			-2	800	800	850	1024	0	Act 3 (H) Herald Item H	2																						(stat('heraldtier'.accr) >4) 						0
+Act 3 (H) Herald Item I - 2 Extra			-2	800	800	850	1024	0	Act 3 (H) Herald Item I	2																						(stat('heraldtier'.accr) >4) 						0
+Act 4 (H) Herald Item J - 2 Extra			-2	800	800	850	1024	0	Act 4 (H) Herald Item J	2																						(stat('heraldtier'.accr) >4) 						0
+Act 4 (H) Herald Item K - 2 Extra			-2	800	800	850	1024	0	Act 4 (H) Herald Item K	2																						(stat('heraldtier'.accr) >4) 						0
+Act 5 (H) Herald Item L - 2 Extra			-2	800	800	850	1024	0	Act 5 (H) Herald Item L	2																						(stat('heraldtier'.accr) >4) 						0
+Act 5 (H) Herald Item M - 2 Extra			-2	800	800	850	1024	0	Act 5 (H) Herald Item M	2																						(stat('heraldtier'.accr) >4) 						0
+Act 5 (H) Herald Item N - 2 Extra			-2	800	800	850	1024	0	Act 5 (H) Herald Item N	2																						(stat('heraldtier'.accr) >4) 						0
+Act 1 (H) Herald A	41	67	-6	800	800	850	1024	0	Act 1 (H) Herald Item A	2	Act 1 (H) Herald Item A - 1 Extra	1	Act 1 (H) Herald Item A - 2 Extra	1	Act 1 (H) Cpot A	2																						0
+Act 1 (H) Herald B	41	68	-6	800	800	850	1024	0	Act 1 (H) Herald Item B	2	Act 1 (H) Herald Item B - 1 Extra	1	Act 1 (H) Herald Item B - 2 Extra	1	Act 1 (H) Cpot B	2																						0
+Act 1 (H) Herald C	41	69	-6	800	800	850	1024	0	Act 1 (H) Herald Item C	2	Act 1 (H) Herald Item C - 1 Extra	1	Act 1 (H) Herald Item C - 2 Extra	1	Act 1 (H) Cpot C	2																						0
+Act 2 (H) Herald A	41	70	-6	800	800	850	1024	0	Act 2 (H) Herald Item D	2	Act 2 (H) Herald Item D - 1 Extra	1	Act 2 (H) Herald Item D - 2 Extra	1	Act 2 (H) Cpot A	2																						0
+Act 2 (H) Herald B	41	71	-6	800	800	850	1024	0	Act 2 (H) Herald Item E	2	Act 2 (H) Herald Item E - 1 Extra	1	Act 2 (H) Herald Item E - 2 Extra	1	Act 2 (H) Cpot B	2																						0
+Act 2 (H) Herald C	41	72	-6	800	800	850	1024	0	Act 2 (H) Herald Item F	2	Act 2 (H) Herald Item F - 1 Extra	1	Act 2 (H) Herald Item F - 2 Extra	1	Act 2 (H) Cpot C	2																						0
+Act 3 (H) Herald A	41	73	-6	800	800	850	1024	0	Act 3 (H) Herald Item G	2	Act 3 (H) Herald Item G - 1 Extra	1	Act 3 (H) Herald Item G - 2 Extra	1	Act 3 (H) Cpot A	2																						0
+Act 3 (H) Herald B	41	75	-6	800	800	850	1024	0	Act 3 (H) Herald Item H	2	Act 3 (H) Herald Item H - 1 Extra	1	Act 3 (H) Herald Item H - 2 Extra	1	Act 3 (H) Cpot B	2																						0
+Act 3 (H) Herald C	41	78	-6	800	800	850	1024	0	Act 3 (H) Herald Item I	2	Act 3 (H) Herald Item I - 1 Extra	1	Act 3 (H) Herald Item I - 2 Extra	1	Act 3 (H) Cpot C	2																						0
+Act 4 (H) Herald A	41	81	-6	800	800	850	1024	0	Act 4 (H) Herald Item J	2	Act 4 (H) Herald Item J - 1 Extra	1	Act 4 (H) Herald Item J - 2 Extra	1	Act 4 (H) Cpot A	2																						0
+Act 4 (H) Herald B	41	84	-6	800	800	850	1024	0	Act 4 (H) Herald Item K	2	Act 4 (H) Herald Item K - 1 Extra	1	Act 4 (H) Herald Item K - 2 Extra	1	Act 4 (H) Cpot B	2																						0
+Act 4 (H) Herald C	41	87	-6	800	800	850	1024	0	Act 4 (H) Herald Item K	2	Act 4 (H) Herald Item K - 1 Extra	1	Act 4 (H) Herald Item K - 2 Extra	1	Act 4 (H) Cpot B	2																						0
+Act 5 (H) Herald A	41	90	-6	800	800	850	1024	0	Act 5 (H) Herald Item L	2	Act 5 (H) Herald Item L - 1 Extra	1	Act 5 (H) Herald Item L - 2 Extra	1	Act 5 (H) Cpot A	2																						0
+Act 5 (H) Herald B	41	93	-6	800	800	850	1024	0	Act 5 (H) Herald Item M	2	Act 5 (H) Herald Item M - 1 Extra	1	Act 5 (H) Herald Item M - 2 Extra	1	Act 5 (H) Cpot B	2																						0
+Act 5 (H) Herald C	41	96	-6	800	800	850	1024	0	Act 5 (H) Herald Item N	2	Act 5 (H) Herald Item N - 1 Extra	1	Act 5 (H) Herald Item N - 2 Extra	1	Act 5 (H) Cpot C	2																						0

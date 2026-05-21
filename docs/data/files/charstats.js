@@ -406,6 +406,26 @@ files["charstats"] = {
                 "file": "enums",
                 "field": "EITEMMODTYPE"
             }
+        },
+        {
+            "name": "TwoHandedOffHandRestrictItemType",
+            "description": "Optional item type to restrict off-hand item to when a two-handed weapon is currently equipped.",
+            "type": {
+                "type": "reference",
+                "dataLength": 4,
+                "memSize": 16,
+                "file": "ItemTypes",
+                "field": "Code"
+            }
+        },
+        {
+            "name": "TwoHandedDamageAsOneHanded",
+            "description": "If greater than 0, use one-handed damage values for two-handed equipped weapons.",
+            "type": {
+                "type": "int",
+                "dataLength": 0,
+                "memSize": 8
+            }
         }
     ]
 }

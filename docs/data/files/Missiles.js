@@ -722,6 +722,15 @@ files["Missiles"] = {
                     },
                     "$!#Param3!$<br>$!#Range!$<br>$!#Radius!$",
                     "Move the missile until it has a collision or exceeds its duration. Once it does, try to attach to a target in its originally calculated $!#Radius!$. Otherwise, attach to the floor, only allowing valid end locations if $!#Param3!$ is 1. Extend the missile's duration back to its originally calculated $!#Range!$. Afterwards, update the missile's position to its target's."
+                ],
+                [
+                    "77",
+                    {
+                        "id": "ProcessHeraldSpawner",
+                        "text": "ProcessHeraldSpawner"
+                    },
+                    "$!#CltCalc1!$<br>$!#CltParam4!$<br>$!#CltParam5!$<br>$!#CltSubMissile2!$<br>$!#CltSubMissile3!$",
+                    "VFX control for herald spawning.<br>Spawn $!#CltSubMissile2!$ missiles as lightning bolts. If this missile was created by the herald system, spawn an amount equal to the herald tier multiplied by $!#CltParam4!$, where the interval of spawning is centered around the midpoint of the missile's range. Otherwise if $!#CltCalc1!$ is > 0, use it for the interval (not centered).<br>Spawn $!#CltSubMissile3!$ as the explosion missile when the missile reaches the $!#CltParam5!$ frame.<br>Run $!#ProcessTowerMist!$.<br>On the first frame, set the missile's collision mask to \"nopath\"."
                 ]
             ]
         },
@@ -1687,8 +1696,8 @@ files["Missiles"] = {
                         "id": "MissileLinkSpawner",
                         "text": "MissileLinkSpawner"
                     },
-                    "$!#SubMissile1!$<br>$!#SrvCalc1!$<br>$!#Param1!$<br>$!#Param2!$<br>$!#Param3!$<br>$!#Param4!$<br>",
-                    "Spawns $!#SubMissile1!$ and attaches a link between the missile and an anchor. $!#SrvCalc1!$ controls the length of the link. $!#Param1!$ is the anchor type: 0->Source, 1->HitTarget, 2->CurrentEnemy, 3->SourceEnemy, 4->Attacker, 5->ClosestEnemy, 6->ClosestEnemyFromTarget, 7->ClosestEnemyFromSource. If $!#Param2!$ is greater than 0, then the link is created as a position on the ground (not attached to a unit). If $!#Param3!$ is greater than 0, then the link is cut when the anchor unit dies. If $!#Param4!$ is greater than 0, then the missile will move and end at the target. Propogate any channeling duty from $!skills#srv-SkillStartPlayerChannelSkill!$ to the created missile."
+                    "$!#SubMissile1!$<br>$!#SrvCalc1!$<br>$!#CltCalc1!$<br>$!#Param1!$<br>$!#Param2!$<br>$!#Param3!$<br>$!#Param4!$<br>$!#Param5!$<br>",
+                    "Spawns $!#SubMissile1!$ and attaches a link between the missile and an anchor.<br>$!#SrvCalc1!$ controls the length of the link.<br>$!#Param1!$ is the anchor type: 0->Source, 1->HitTarget, 2->CurrentEnemy, 3->SourceEnemy, 4->Attacker, 5->ClosestEnemy, 6->ClosestEnemyFromTarget, 7->ClosestEnemyFromSource.<br>If $!#Param2!$ is greater than 0, then the link is created as a position on the ground (not attached to a unit).<br>If $!#Param3!$ is greater than 0, then the link is cut when the anchor unit dies.<br>If $!#Param4!$ is greater than 0, then the missile will move and end at the target.<br>If $!#Param5!$ is greater than 0, then the link is cut when the anchor teleports.<br>$!#CltCalc1!$ is the limit of active missiles at any one time (if zero, then no limit).<br>Propagate any channeling duty from $!skills#srv-SkillStartPlayerChannelSkill!$ to the created missile."
                 ],
                 [
                     "44",
@@ -2035,7 +2044,7 @@ files["Missiles"] = {
                         "text": "HitSoaringStrike (Server)"
                     },
                     "",
-                    "Adjusts the missile for a boomerang effect. If the missile is \"going out\" it always pierces. Start the \"return trip\" back to the source if it reaches its lifetime or hits a wall. Cap the return trip path at 50 squares. If on the return trip, kill the missile if it reaches its lifetime or hits a wall. When the missile pierces and deals damage, apply a next hit delay for the duration of the missile. Reset next hit delays when starting the return trip. Only trigger the \"hextrigger\" event once per missile on hits."
+                    "Adjusts the missile for a boomerang effect. If the missile is \"going out\" it always pierces. Start the \"return trip\" back to the source if it reaches its lifetime or hits a wall. Cap the return trip path at 50 squares. If on the return trip, kill the missile if it reaches its lifetime or hits a wall. Reset next hit delays when starting the return trip by assigning a new cast id."
                 ],
                 [
                     "35",
@@ -2165,9 +2174,12 @@ files["Missiles"] = {
                 ],
                 [
                     "49",
-                    "",
-                    "",
-                    "Do nothing"
+                    {
+                        "id": "HitSpawnHerald",
+                        "text": "HitSpawnHerald"
+                    },
+                    "$!#SHitCalc1!$<br>$!#sHitPar3!$",
+                    "Spawn a herald using one of two methods:<br>1. Queued method. This method is started by the terror zone system. If the missile is still in the region the herald was assigned to, attempt to spawn it. If it fails to spawn, re-queue the herald. Missiles spawned by the herald system have their collision mask set to \"nopath\", deactivate that before spawning.<br>2. Calc method. Use $!#SHitCalc1!$ as the $!monstats!$ index of the herald to spawn. Use $!#sHitPar3!$ as the herald's tier (starts at 1), falling back on the game's current tier if < 0. This method has no protections against failed spawns.<br>Heralds will not spawn if the zone has not been previously terrorized."
                 ],
                 [
                     "50",
@@ -2432,8 +2444,8 @@ files["Missiles"] = {
                         "id": "DamageSoaringStrike",
                         "text": "DamageSoaringStrike"
                     },
-                    "$!#DmgCalc1!$",
-                    "On hit, disable any event triggers. If the missile is in the return trip, optionally applies a pull based on $!#DmgCalc1!$ random chance."
+                    "$!#DmgCalc1!$<br>$!#dParam1!$",
+                    "Add $!#ResultFlags!$ and $!#HitFlags!$ to the damage. Trigger the \"hextrigger\" event, only once for the lifetime of the missile. If $!#dParam1!$ is true, update weapon durability if the missile isn't a mirror created by $!skills#srv-WarDoMirroredBlades!$ and it is the first time this missile deals damage. If the missile is in the return trip marked by $!#srv-HitSoaringStrike!$, optionally applies a pull based on $!#DmgCalc1!$ random chance."
                 ],
                 [
                     "17",

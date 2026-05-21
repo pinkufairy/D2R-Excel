@@ -1,0 +1,22 @@
+/* Helpers */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.tool-number-input {
+    width: 6.5em;
+}
+
+/* Tools */

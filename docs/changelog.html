@@ -28,8 +28,6 @@
                 <ul class="parse-list">
                     <li>For Reign of the Warlock mode games, skills are not included in staff mods unless their $!skills#reqlevel!$ is exactly one of the following: {1, 6, 12, 18, 24, 30}</li>
                     <li>Monster levels for the Bind Demon skill are restricted to 127 when saving into save data</li>
-                    <li>Non-zero $!desecratedzones#behavior!$ values do not work with $!desecratedzones#difficulty-unique_mod_chance_boosts!$. The functionality does work with $!desecratedzones#herald-unique_mod_chance_boosts!$</li>
-                    <li>$!desecratedzones#difficulty_scale!$ functionality does not work</li>
                 </ul>
                 <p>
                     Note for modders: Report bugs, regressions in behavior, or crashes to the <a href="https://us.forums.blizzard.com/en/d2r/c/bug-report/" target="_blank">Diablo II: Resurrected bug report forum</a>. Include "[Modding]" in the title of your report. Tips:
@@ -41,6 +39,67 @@
                 <p>
                     Reported issues are not guaranteed to get tracked. Tracked issues are not guaranteed to appear on this list. Issues on this list are not guaranteed to have a fix version.
                 </p>
+            </div>
+
+            <div id="3-2-0" class="page-sidebar-target">
+                <h2>3.2.0</h2>
+                <ul class="parse-list">
+                    <li><a href="./docs/bbe-calc.html">BBE/Calc Fields</a> updates</li>
+                    <ul>
+                        <li>Added remainder operator "%" support</li>
+                        <li>Added "MonsterHasMod" condition.</li>
+                        <li>Added <a href="./docs/bbe-calc.html#tools">Tools</a> section with tools to help with linear and diminishing calc identifiers.</li>
+                    </ul>
+                    <li>$!charstats!$ updates</li>
+                    <ul>
+                        <li>Added $!charstats#TwoHandedOffHandRestrictItemType!$.</li>
+                        <li>Added $!charstats#TwoHandedDamageAsOneHanded!$.</li>
+                    </ul>
+                    <li>$!desecratedzones!$ updates</li>
+                    <ul>
+                        <li>Fixed an issue where $!desecratedzones#difficulty_scale!$ functionality did not work</li>
+                        <li>Fixed an issue where non-zero $!desecratedzones#behavior!$ values did not work with $!desecratedzones#difficulty-unique_mod_chance_boosts!$</li>
+                        <li>Removed $!desecratedzones!$#max_herald_tokens</li>
+                        <li>Removed $!desecratedzones!$#chance_to_gain_herald_token</li>
+                        <li>Removed $!desecratedzones!$#chance_for_token_to_convert_to_herald</li>
+                        <li>Added $!desecratedzones#zone_data_id!$</li>
+                        <li>Added $!desecratedzones#zone_completion_weight!$</li>
+                        <li>Added $!desecratedzones#herald_base_chance_to_spawn!$</li>
+                        <li>Added $!desecratedzones#zone_chance_slope!$</li>
+                        <li>Added $!desecratedzones#zone_chance_midpoint!$</li>
+                        <li>Added $!desecratedzones#zone_chance_asymptote!$</li>
+                        <li>Added $!desecratedzones#zone_chance_vertical_shift!$</li>
+                    </ul>
+                    <li>$!Levels!$ updates</li>
+                    <ul>
+                        <li>Added $!Levels#CompletionTotalRoomsOverride!$</li>
+                    </ul>
+                    <li>$!Missiles!$ updates</li>
+                    <ul>
+                        <li>Added $!Missiles#ProcessHeraldSpawner!$</li>
+                        <li>Updated $!Missiles#MissileLinkSpawner!$</li>
+                        <li>Updated $!Missiles#srv-HitSoaringStrike!$</li>
+                        <li>Added $!Missiles#HitSpawnHerald!$</li>
+                        <li>Updated $!Missiles#DamageSoaringStrike!$</li>
+                    </ul>
+                    <li>Added $!moncalc!$</li>
+                    <li>$!MonPet!$ updates</li>
+                    <ul>
+                        <li>Added $!MonPet#calc#!$</li>
+                        <li>Added $!MonPet#BoundStat#!$ and $!MonPet#BoundCalc#!$. Updated $!skills#WarDoBindDemon!$ to use them</li>
+                    </ul>
+                    <li>$!monumod!$ updates</li>
+                    <ul>
+                        <li>Added field to define the "curse" mod's chance to cast in $!monumod#constants!$</li>
+                        <li>Added field to define the herald spawning missile in $!monumod#constants!$</li>
+                    </ul>
+                    <li>$!skills!$ updates</li>
+                    <ul>
+                        <li>Added $!skills#srv-WarStartBindDemon!$</li>
+                        <li>Added $!skills#clt-WarStartBindDemon!$</li>
+                        <li>Updated $!skills#WarDoBindDemon!$</li>
+                    </ul>
+                </ul>
             </div>
 
             <div id="3-1-2" class="page-sidebar-target">
@@ -315,6 +374,7 @@
             <ul>
                 <li><a href="">Changelog</a></li>
                 <li><a href="#issues">Known Issues</a></li>
+                <li><a href="#3-2-0">3.2.0</a></li>
                 <li><a href="#3-1-2">3.1.2</a></li>
                 <li><a href="#3-0-0">3.0.0</a></li>
             </ul>

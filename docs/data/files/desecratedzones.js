@@ -371,6 +371,24 @@ files["desecratedzones"] = {
                     }
                 },
                 {
+                    "name": "zone_data_id",
+                    "description": "String id for this level's zone data. All levels with the same zone_data_id share the same zone data, like zone completion percentages.",
+                    "type": {
+                        "type": "text",
+                        "dataLength": 0,
+                        "memSize": 0
+                    }
+                },
+                {
+                    "name": "zone_completion_weight",
+                    "description": "Weight for this level's contribution to the zone's overall completion percentage.",
+                    "type": {
+                        "type": "float",
+                        "dataLength": 0,
+                        "memSize": 32
+                    }
+                },
+                {
                     "name": "difficulties",
                     "id": "level-difficulties",
                     "description": "Difficulty overrides for this level. Falls back to the zone's difficulties if left blank. Individual fields also fall back if left blank.",
@@ -517,15 +535,6 @@ files["desecratedzones"] = {
                     }
                 },
                 {
-                    "name": "max_herald_tokens",
-                    "description": "Max amount of tokens for Herald spawning the game can have at one time.",
-                    "type": {
-                        "type": "int",
-                        "dataLength": 0,
-                        "memSize": 32
-                    }
-                },
-                {
                     "name": "max_herald_tiers",
                     "description": "Max amount of tiers a herald can be. Affects power and reward scaling. Must be at least 1 to allow Heralds to spawn. Tier 1 is the base tier.",
                     "type": {
@@ -638,17 +647,8 @@ files["desecratedzones"] = {
                     }
                 },
                 {
-                    "name": "chance_to_gain_herald_token",
-                    "description": "Chance to gain a Herald token after killing a Desecrated elite or boss monster.",
-                    "type": {
-                        "type": "float",
-                        "dataLength": 0,
-                        "memSize": 32
-                    }
-                },
-                {
-                    "name": "chance_for_token_to_convert_to_herald",
-                    "description": "Chance to convert a token to a Herald when populating a normal monster into a room.",
+                    "name": "herald_base_chance_to_spawn",
+                    "description": "Base chance for the herald to spawn. This is added to the calculated \"zone completion chance\".<br>Zone completion chance is based off of zone completion, which is a factor of how many rooms have been populated in each level in the zone and how many of the total monsters spawned in those rooms have been killed. Any levels that share a $!#zone_data_id!$ are considered to be in the same zone. After a herald spawns, the zone completion percentage is reset.<br>Zone completion is then fed into the following equation:<pre><code>            a\n y = ______________ + k\n          -m(x-x0)\n      1+e^\n</code></pre> where:<br>a = $!#zone_chance_asymptote!$<br>k = $!#zone_chance_vertical_shift!$<br>m = $!#zone_chance_slope!$<br>x0 = $!#zone_chance_midpoint!$<br>x = the zone completion percentage.<br><br>If the chance roll is successful, that herald is assigned to the level that triggered the roll. If the actual monster spawn fails (for example, cannot find a valid location to place a monster), the spawn is re-queued and will activate again when a player enters a different room in the same level.",
                     "type": {
                         "type": "float",
                         "dataLength": 0,
@@ -674,7 +674,7 @@ files["desecratedzones"] = {
                 },
                 {
                     "name": "herald_tiers",
-                    "description": "List of settings for each Herald tier. The entry index corresponds to a tier. Keep in mind 0-indexing, so index 0 corresponds to Herald tier 1 which is the base Herald. It is valid to have less tier settings than max tiers, in this case we use the highest tier setting available. At least one tier setting must be defined.",
+                    "description": "List of settings for each Herald tier. The entry index corresponds to a tier. Keep in mind 0-indexing, so index 0 corresponds to Herald tier 1 which is the base Herald. It is valid to have less tier settings than max tiers, in this case we use the highest tier setting available. At least one tier setting must be defined.<br>The game keeps track of the current herald tier. Each time a herald is spawned, the tier increments by 1, up until the max.",
                     "type": {
                         "type": "array",
                         "arrayType": {
@@ -686,6 +686,42 @@ files["desecratedzones"] = {
                         "memSize": 0
                     },
                     "fields": [
+                        {
+                            "name": "zone_chance_slope",
+                            "description": "Slope used in the zone chance equation. See $!#herald_base_chance_to_spawn!$.",
+                            "type": {
+                                "type": "float",
+                                "dataLength": 0,
+                                "memSize": 32
+                            }
+                        },
+                        {
+                            "name": "zone_chance_midpoint",
+                            "description": "Midpoint used in the zone chance equation. See $!#herald_base_chance_to_spawn!$.",
+                            "type": {
+                                "type": "float",
+                                "dataLength": 0,
+                                "memSize": 32
+                            }
+                        },
+                        {
+                            "name": "zone_chance_asymptote",
+                            "description": "Asymptote used in the zone chance equation. See $!#herald_base_chance_to_spawn!$.",
+                            "type": {
+                                "type": "float",
+                                "dataLength": 0,
+                                "memSize": 32
+                            }
+                        },
+                        {
+                            "name": "zone_chance_vertical_shift",
+                            "description": "Vertical shift used in the zone chance equation. See $!#herald_base_chance_to_spawn!$.",
+                            "type": {
+                                "type": "float",
+                                "dataLength": 0,
+                                "memSize": 32
+                            }
+                        },
                         {
                             "name": "herald_health_boost_percent",
                             "description": "Percent boost to the health of a Herald. Applies after other health boosts, like the normal unique boost.",

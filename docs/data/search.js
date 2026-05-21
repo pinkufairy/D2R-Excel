@@ -1834,6 +1834,14 @@ const search = [
                         "path": "/files/charstats.html#item10quality"
                     }
                 ]
+            },
+            {
+                "name": "TwoHandedOffHandRestrictItemType",
+                "path": "/files/charstats.html#TwoHandedOffHandRestrictItemType"
+            },
+            {
+                "name": "TwoHandedDamageAsOneHanded",
+                "path": "/files/charstats.html#TwoHandedDamageAsOneHanded"
             }
         ]
     },
@@ -2482,6 +2490,14 @@ const search = [
                 "path": "/files/desecratedzones.html#waypoint_level_id"
             },
             {
+                "name": "zone_data_id",
+                "path": "/files/desecratedzones.html#zone_data_id"
+            },
+            {
+                "name": "zone_completion_weight",
+                "path": "/files/desecratedzones.html#zone_completion_weight"
+            },
+            {
                 "name": "difficulties",
                 "path": "/files/desecratedzones.html#level-difficulties"
             },
@@ -2534,10 +2550,6 @@ const search = [
                 "path": "/files/desecratedzones.html#non_ladder_enabled"
             },
             {
-                "name": "max_herald_tokens",
-                "path": "/files/desecratedzones.html#max_herald_tokens"
-            },
-            {
                 "name": "max_herald_tiers",
                 "path": "/files/desecratedzones.html#max_herald_tiers"
             },
@@ -2582,12 +2594,8 @@ const search = [
                 "path": "/files/desecratedzones.html#boost_experience_percent"
             },
             {
-                "name": "chance_to_gain_herald_token",
-                "path": "/files/desecratedzones.html#chance_to_gain_herald_token"
-            },
-            {
-                "name": "chance_for_token_to_convert_to_herald",
-                "path": "/files/desecratedzones.html#chance_for_token_to_convert_to_herald"
+                "name": "herald_base_chance_to_spawn",
+                "path": "/files/desecratedzones.html#herald_base_chance_to_spawn"
             },
             {
                 "name": "unique_mod_chance_boosts",
@@ -2596,6 +2604,22 @@ const search = [
             {
                 "name": "herald_tiers",
                 "path": "/files/desecratedzones.html#herald_tiers"
+            },
+            {
+                "name": "zone_chance_slope",
+                "path": "/files/desecratedzones.html#zone_chance_slope"
+            },
+            {
+                "name": "zone_chance_midpoint",
+                "path": "/files/desecratedzones.html#zone_chance_midpoint"
+            },
+            {
+                "name": "zone_chance_asymptote",
+                "path": "/files/desecratedzones.html#zone_chance_asymptote"
+            },
+            {
+                "name": "zone_chance_vertical_shift",
+                "path": "/files/desecratedzones.html#zone_chance_vertical_shift"
             },
             {
                 "name": "herald_health_boost_percent",
@@ -4698,6 +4722,10 @@ const search = [
             {
                 "name": "OffsetY",
                 "path": "/files/Levels.html#OffsetY"
+            },
+            {
+                "name": "CompletionTotalRoomsOverride",
+                "path": "/files/Levels.html#CompletionTotalRoomsOverride"
             },
             {
                 "name": "Depend",
@@ -7510,6 +7538,10 @@ const search = [
                     {
                         "name": "ProcessMiasmaChains",
                         "path": "/files/Missiles.html#ProcessMiasmaChains"
+                    },
+                    {
+                        "name": "ProcessHeraldSpawner",
+                        "path": "/files/Missiles.html#ProcessHeraldSpawner"
                     }
                 ]
             },
@@ -8092,6 +8124,10 @@ const search = [
                     {
                         "name": "CreateRollingBoulder (Server)",
                         "path": "/files/Missiles.html#srv-CreateRollingBoulder"
+                    },
+                    {
+                        "name": "HitSpawnHerald",
+                        "path": "/files/Missiles.html#HitSpawnHerald"
                     },
                     {
                         "name": "HitPlagueVines",
@@ -8876,6 +8912,16 @@ const search = [
         ]
     },
     {
+        "name": "moncalc.txt",
+        "path": "/files/moncalc.html",
+        "fields": [
+            {
+                "name": "code",
+                "path": "/files/moncalc.html#code"
+            }
+        ]
+    },
+    {
         "name": "monequip.txt",
         "path": "/files/monequip.html",
         "fields": [
@@ -9118,6 +9164,32 @@ const search = [
                 "path": "/files/MonPet.html#hirelingAlternateVoice"
             },
             {
+                "name": "calc#",
+                "path": "/files/MonPet.html#calc#",
+                "subfields": [
+                    {
+                        "name": "calc1",
+                        "path": "/files/MonPet.html#calc1"
+                    },
+                    {
+                        "name": "calc2",
+                        "path": "/files/MonPet.html#calc2"
+                    },
+                    {
+                        "name": "calc3",
+                        "path": "/files/MonPet.html#calc3"
+                    },
+                    {
+                        "name": "calc4",
+                        "path": "/files/MonPet.html#calc4"
+                    },
+                    {
+                        "name": "calc5",
+                        "path": "/files/MonPet.html#calc5"
+                    }
+                ]
+            },
+            {
                 "name": "consumestat#",
                 "path": "/files/MonPet.html#consumestat#",
                 "subfields": [
@@ -9202,6 +9274,58 @@ const search = [
             {
                 "name": "bindchancecalc",
                 "path": "/files/MonPet.html#bindchancecalc"
+            },
+            {
+                "name": "BoundStat#",
+                "path": "/files/MonPet.html#BoundStat#",
+                "subfields": [
+                    {
+                        "name": "BoundStat1",
+                        "path": "/files/MonPet.html#BoundStat1"
+                    },
+                    {
+                        "name": "BoundStat2",
+                        "path": "/files/MonPet.html#BoundStat2"
+                    },
+                    {
+                        "name": "BoundStat3",
+                        "path": "/files/MonPet.html#BoundStat3"
+                    },
+                    {
+                        "name": "BoundStat4",
+                        "path": "/files/MonPet.html#BoundStat4"
+                    },
+                    {
+                        "name": "BoundStat5",
+                        "path": "/files/MonPet.html#BoundStat5"
+                    }
+                ]
+            },
+            {
+                "name": "BoundCalc#",
+                "path": "/files/MonPet.html#BoundCalc#",
+                "subfields": [
+                    {
+                        "name": "BoundCalc1",
+                        "path": "/files/MonPet.html#BoundCalc1"
+                    },
+                    {
+                        "name": "BoundCalc2",
+                        "path": "/files/MonPet.html#BoundCalc2"
+                    },
+                    {
+                        "name": "BoundCalc3",
+                        "path": "/files/MonPet.html#BoundCalc3"
+                    },
+                    {
+                        "name": "BoundCalc4",
+                        "path": "/files/MonPet.html#BoundCalc4"
+                    },
+                    {
+                        "name": "BoundCalc5",
+                        "path": "/files/MonPet.html#BoundCalc5"
+                    }
+                ]
             }
         ]
     },
@@ -15692,6 +15816,10 @@ const search = [
                         "path": "/files/skills.html#MonStartCorpseCycler"
                     },
                     {
+                        "name": "WarStartBindDemon",
+                        "path": "/files/skills.html#srv-WarStartBindDemon"
+                    },
+                    {
                         "name": "StartThrow (Server)",
                         "path": "/files/skills.html#srv-StartThrow"
                     },
@@ -17164,6 +17292,10 @@ const search = [
                     {
                         "name": "SkillStartActiveStatePeriodic",
                         "path": "/files/skills.html#SkillStartActiveStatePeriodic"
+                    },
+                    {
+                        "name": "WarStartBindDemon",
+                        "path": "/files/skills.html#clt-WarStartBindDemon"
                     }
                 ]
             },

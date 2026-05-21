@@ -25,6 +25,23 @@ files["MonPet"] = {
             }
         },
         {
+            "name": "calc#",
+            "altNames": [
+                "calc1",
+                "calc2",
+                "calc3",
+                "calc4",
+                "calc5"
+            ],
+            "description": "Miscellaneous calc fields that can be used as input for other calc fields.",
+            "type": {
+                "type": "parse",
+                "dataLength": 255,
+                "memSize": 0,
+                "description": "Monster scope BBE. See <a href=\"../docs/bbe-calc.html\" target=\"_blank\" class=\"reference-link\">BBE/Calc Fields</a>"
+            }
+        },
+        {
             "name": "consumestat#",
             "altNames": [
                 "consumestat1",
@@ -89,6 +106,41 @@ files["MonPet"] = {
         {
             "name": "bindchancecalc",
             "description": "The calculated chance a monster can be successfully bound when using $!skills#WarDoBindDemon!$.",
+            "type": {
+                "type": "parse",
+                "dataLength": 255,
+                "memSize": 0,
+                "description": "Monster scope BBE. See <a href=\"../docs/bbe-calc.html\" target=\"_blank\" class=\"reference-link\">BBE/Calc Fields</a>"
+            }
+        },
+        {
+            "name": "BoundStat#",
+            "altNames": [
+                "BoundStat1",
+                "BoundStat2",
+                "BoundStat3",
+                "BoundStat4",
+                "BoundStat5"
+            ],
+            "description": "Stat to add when this monster is bound using $!skills#WarDoBindDemon!$. The value defined in $!#BoundCalc#!$ is an override, not a delta.",
+            "type": {
+                "type": "reference",
+                "dataLength": 47,
+                "memSize": 16,
+                "file": "ItemStatCost",
+                "field": "Stat"
+            }
+        },
+        {
+            "name": "BoundCalc#",
+            "altNames": [
+                "BoundCalc1",
+                "BoundCalc2",
+                "BoundCalc3",
+                "BoundCalc4",
+                "BoundCalc5"
+            ],
+            "description": "The value for the associated $!#BoundStat#!$. This is an override, not a delta.",
             "type": {
                 "type": "parse",
                 "dataLength": 255,
