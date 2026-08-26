@@ -25,9 +25,10 @@ Magnetic-Affix4	22	2	move1			5	10	1	balance1			12	24	3	all-stats			3	8	1
 Incendiary-Affix4	23	2	move1			5	10	1	balance1			12	24	3	all-stats			3	8	1																																				
 Breaching-Affix4	24	2	move1			5	10	1	balance1			12	24	3	all-stats			3	8	1																																				
 Mystical-Affix4	25	2	move1			5	10	1	balance1			12	24	3	all-stats			3	8	1																																				
-Virulent-Affix6	32	2	red-mag			5	10	1	red-dmg			5	10	1																																										
-Gelid-Affix6	33	2	red-mag			5	10	1	red-dmg			5	10	1																																										
-Magnetic-Affix6	34	2	red-mag			5	10	1	red-dmg			5	10	1																																										
-Incendiary-Affix6	35	2	red-mag			5	10	1	red-dmg			5	10	1																																										
-Breaching-Affix6	36	2	red-mag			5	10	1	red-dmg			5	10	1																																										
-Mystical-Affix6	37	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Virulent-Affix6	26	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Gelid-Affix6	27	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Magnetic-Affix6	28	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Incendiary-Affix6	29	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Breaching-Affix6	30	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+Mystical-Affix6	31	2	red-mag			5	10	1	red-dmg			5	10	1																																										
+roguesbow-affix1	32	2	skill	Fire Arrow	Fire Arrow	1	3	1	skill	Cold Arrow	Cold Arrow	1	3	1																																										
