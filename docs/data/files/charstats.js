@@ -7,6 +7,9 @@ files["charstats"] = {
         "enums",
         "bodylocs"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the starting stats for each of the classes.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -311,6 +314,13 @@ files["charstats"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EWEAPONCLASS"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EWEAPONCLASS"
+                }
             }
         },
         {
@@ -405,6 +415,13 @@ files["charstats"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EITEMMODTYPE"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EITEMMODTYPE"
+                }
             }
         },
         {

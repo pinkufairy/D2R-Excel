@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["MonProp"] = {
     "title": "MonProp.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls special properties that can be added to a monster, based on the game difficulty.<br>The \"(N)\" text in field names signifies to use that specific value for games in Nightmare difficulty. The \"(H)\" text in field names signifies to use that specific value for games in Hell difficulty.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

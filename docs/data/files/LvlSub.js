@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LvlSub"] = {
     "title": "LvlSub.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls how tiles can be substituted in for other tiles. The game will divide the level into clusters and iterate through these clusters to randomly substitute tiles with different ones for more visual diversity.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -49,21 +52,38 @@ files["LvlSub"] = {
                 "dataLength": 0,
                 "memSize": 32
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
+                    "-1",
+                    "Check Everyone",
+                    "Allow substituting borders for all of the level"
+                ],
+                [
                     "0",
-                    "Single One Only. This allows substituting for 1 border in total"
+                    "Single One Only",
+                    "This allows substituting for 1 border in total"
                 ],
                 [
                     "1",
-                    "One Per Cluster. This allows substituting 1 border for each cluster in the level"
+                    "One Per Cluster",
+                    "This allows substituting 1 border for each cluster in the level"
                 ],
                 [
-                    "Other values",
+                    "2",
+                    "Check Everyone",
                     "Allow substituting borders for all of the level"
                 ]
             ]

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["inventory"] = {
     "title": "inventory.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the grid sizes of the inventory slots for the game's various UI windows.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

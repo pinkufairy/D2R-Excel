@@ -4,6 +4,9 @@
 files["SoundEnviron"] = {
     "title": "SoundEnviron.txt",
     "overview": "This file controls the music and ambient sounds that are played while the player is in the area level.The order of each Sound Environment defined in this file will convey what ID value it has.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "fields": [
         {
             "name": "Handle",
@@ -152,6 +155,14 @@ files["SoundEnviron"] = {
                 "dataLength": 0,
                 "memSize": 32
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -211,6 +222,14 @@ files["SoundEnviron"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 32
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -497,37 +516,37 @@ files["SoundEnviron"] = {
                     "Overwritten values"
                 ],
                 [
-                    "Song"
+                    "$!#Song!$"
                 ],
                 [
-                    "Day Ambience"
+                    "$!#Day Ambience!$"
                 ],
                 [
-                    "HD Day Ambience"
+                    "$!#HD Day Ambience!$"
                 ],
                 [
-                    "Night Ambience"
+                    "$!#Night Ambience!$"
                 ],
                 [
-                    "HD Night Ambience"
+                    "$!#HD Night Ambience!$"
                 ],
                 [
-                    "Day Event"
+                    "$!#Day Event!$"
                 ],
                 [
-                    "HD Day Event"
+                    "$!#HD Day Event!$"
                 ],
                 [
-                    "Night Event"
+                    "$!#Night Event!$"
                 ],
                 [
-                    "HD Night Event"
+                    "$!#HD Night Event!$"
                 ],
                 [
-                    "Event Delay"
+                    "$!#Event Delay!$"
                 ],
                 [
-                    "HD Event Delay"
+                    "$!#HD Event Delay!$"
                 ]
             ]
         }

@@ -7,6 +7,9 @@ files["monequip"] = {
         "bodylocs",
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls how a monster may be created with specific type of inventory equipment items. These equipment items are randomly generated on the monster, based on the specified parameters in this file. This data relies on the $!monstats#inventory!$ field being enabled for the listed monster.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -88,6 +91,13 @@ files["monequip"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EITEMMODTYPE"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EITEMMODTYPE"
+                }
             }
         }
     ]

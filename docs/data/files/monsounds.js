@@ -6,6 +6,9 @@ files["monsounds"] = {
     "referenceFiles": [
         "MonMode"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the sounds that play for each of a monster's actions.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

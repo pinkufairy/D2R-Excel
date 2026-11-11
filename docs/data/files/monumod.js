@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["monumod"] = {
     "title": "monumod.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the different monster modifiers for special monsters, including Unique and Champion monsters.<br>The \"(N)\" text in field names signifies to use that specific value for games in Nightmare difficulty. The \"(H)\" text in field names signifies to use that specific value for games in Hell difficulty.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -67,25 +70,38 @@ files["monumod"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Descriptioin"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
+                    "None",
                     "Ignore this"
                 ],
                 [
                     "1",
+                    "Attack 1",
                     "Monster class must have the Attack 1 mode (checks the $!monstats2#mA1!$ field)"
                 ],
                 [
                     "2",
+                    "Multishot/No Melee",
                     "Monster class cannot be flagged as Melee (checks the $!monstats#isMelee!$ field)<br>Monster class cannot have the No Multishot flag (checks the $!monstats#nomultishot!$ field)"
                 ],
                 [
                     "3",
+                    "Walk",
                     "Monster class must have the Walk mode (checks $!monstats2#mWL!$ field)"
                 ]
             ]

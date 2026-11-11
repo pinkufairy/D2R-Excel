@@ -227,3 +227,7 @@ talicfirepierce	224
 madawclightpierce	225																																																																									
 korliccoldpierce	226																																																																									
 bind_demon_underling	227																																																		19						70	130																0
+herald	228																																										herald																															0
+apocalypse	229																																																																									0
+missilelimit	230																																																																									0
+primeevil_threat	231																																																																									0

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["skillcalc"] = {
     "title": "skillcalc.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "Reference file that defines identifiers for skill scope BBE functions. See <a href=\"../docs/bbe-calc.html\" target=\"_blank\" class=\"reference-link\">BBE/Calc Fields</a>.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

@@ -7,6 +7,9 @@ files["Missiles"] = {
         "enums",
         "ElemTypes"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the different functions for all missiles and their statistics. Missiles are projectiles used throughout the game for attacks, skills, and special effects.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -26,6 +29,14 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -34,7 +45,7 @@ files["Missiles"] = {
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
                     "",
                     "",
                     "Do nothing"
@@ -742,6 +753,14 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1302,6 +1321,14 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1726,6 +1753,14 @@ files["Missiles"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 16
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -2290,6 +2325,14 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -2298,7 +2341,7 @@ files["Missiles"] = {
                     "Description"
                 ],
                 [
-                    "0<br>(or empty)",
+                    "0",
                     "",
                     "",
                     "Default"
@@ -2789,46 +2832,64 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "No collision"
                 ],
                 [
                     "1",
-                    "Player unit collision"
+                    "Player",
+                    "Player unit and missile Barrier collision"
                 ],
                 [
                     "2",
-                    "Monster unit collision"
+                    "Monster",
+                    "Monster unit and missile Barrier collision"
                 ],
                 [
                     "3",
-                    "Player and Monster unit collision"
+                    "Player Monster",
+                    "Player unit, Monster unit, and missile Barrier collision"
                 ],
                 [
                     "4",
+                    "None",
                     "No collision"
                 ],
                 [
                     "5",
-                    "Monster unit collision"
+                    "Monster",
+                    "Monster unit and missile Barrier collision"
                 ],
                 [
                     "6",
-                    "Barrier collision, such as doors"
+                    "Barrier",
+                    "Missile Barrier collision, such as doors"
                 ],
                 [
                     "7",
-                    "Missile collision"
+                    "Missile",
+                    "Missile unit collision"
                 ],
                 [
                     "8",
-                    "Player, Monster, Barrier, and Wall collision"
+                    "Wall",
+                    "Player unit, Monster unit, missile Barrier, and Wall collision"
                 ]
             ]
         },
@@ -3083,6 +3144,14 @@ files["Missiles"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -3090,15 +3159,15 @@ files["Missiles"] = {
                 ],
                 [
                     "0",
-                    "No Transparency"
+                    "None"
                 ],
                 [
                     "1",
-                    "Black Alpha Transparency"
+                    "Black Alpha"
                 ],
                 [
                     "2",
-                    "White Alpha Transparency"
+                    "White Alpha"
                 ]
             ]
         },
@@ -3220,7 +3289,7 @@ files["Missiles"] = {
                 "MinLevDam4",
                 "MinLevDam5"
             ],
-            "description": "Controls the additional minimum physical damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field.",
+            "description": "Controls the additional minimum physical damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -3245,7 +3314,7 @@ files["Missiles"] = {
                 "MaxLevDam4",
                 "MaxLevDam5"
             ],
-            "description": "Controls the additional maximum physical damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field.",
+            "description": "Controls the additional maximum physical damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -3295,7 +3364,7 @@ files["Missiles"] = {
                 "MinELev4",
                 "MinELev5"
             ],
-            "description": "Controls the additional minimum elemental damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number.",
+            "description": "Controls the additional minimum elemental damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -3320,7 +3389,7 @@ files["Missiles"] = {
                 "MaxELev4",
                 "MaxELev5"
             ],
-            "description": "Controls the additional maximum elemental damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field.",
+            "description": "Controls the additional maximum elemental damage dealt by the missile, calculated using the leveling formula between 5 level thresholds of the missile's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,

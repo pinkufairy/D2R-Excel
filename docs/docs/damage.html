@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Damage - Diablo II: Resurrected Data Guide</title>
+    <link rel="icon" type="image/x-icon" href="../media/DiabloII.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/tools.css" />
+</head>
+<body>
+    <div id="page">
+        <nav id="site-sidebar" class="sidebar">
+            <label id="site-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+        </nav>
+
+        <div class="content">
+            <div class="page-sidebar-target">
+                <h1>Damage</h1>
+            </div>
+            <div id="tools" class="page-sidebar-target">
+                <h2>Tools</h2>
+                <p>
+                    Tools to help with common damage things.
+                </p>
+
+                <div id="tools-level-damage" class="page-sidebar-target">
+                    <h4>Level Damage Formula</h4>
+                    <p>
+                        Formula used in many places to calculate damage based on an input level. The formula accepts 5 parameters.
+                        <div class="level-damage-calc-tool flex-column" data-xmin="1" data-xmax="100" data-numinputs="5"></div>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <nav id="page-sidebar" class="sidebar">
+            <label id="page-hamburger" class="hamburger">
+                <input type="checkbox"></input>
+            </label>
+            <ul>
+                <li><a href="">Damage</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <ul>
+                    <li><a href="#tools-level-damage">Level Damage Formula</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="../data/siteIndex.js"></script>
+    <script src="../data/search.js"></script>
+    <script src="../script/tools.js"></script>
+    <script src="../script/siteSidebar.js"></script>
+    <script>
+        generateTools();
+        populateSiteSidebar("..", siteIndex);
+        fixupPageSidebar();
+    </script>
+
+    <footer>
+    </footer>
+</body>
+</html>

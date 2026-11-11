@@ -6,6 +6,9 @@ files["npc"] = {
     "referenceFiles": [
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls how each town NPC manipulates their store prices.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -62,6 +65,13 @@ files["npc"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         },
         {

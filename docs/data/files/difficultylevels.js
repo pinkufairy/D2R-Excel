@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["difficultylevels"] = {
     "title": "difficultylevels.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls global parameters for game rules and how they work between each difficulty mode. Users cannot add new difficulty modes from this file.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

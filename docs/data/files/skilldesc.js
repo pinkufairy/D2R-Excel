@@ -6,6 +6,9 @@ files["skilldesc"] = {
     "referenceFiles": [
         "ElemTypes"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls a skill's tooltip description and how it is displayed on the Skill Tree.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -56,6 +59,14 @@ files["skilldesc"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -63,7 +74,7 @@ files["skilldesc"] = {
                 ],
                 [
                     "0",
-                    "Do not display on the skill tree page"
+                    "None"
                 ],
                 [
                     "1",
@@ -99,6 +110,14 @@ files["skilldesc"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -106,19 +125,19 @@ files["skilldesc"] = {
                 ],
                 [
                     "0",
-                    "Do not display on any skill tree page"
+                    "None"
                 ],
                 [
                     "1",
-                    "Left Column"
+                    "Left"
                 ],
                 [
                     "2",
-                    "Middle Column"
+                    "Middle"
                 ],
                 [
                     "3",
-                    "Right Column"
+                    "Right"
                 ]
             ]
         },
@@ -130,30 +149,42 @@ files["skilldesc"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
                     "Description"
                 ],
                 [
+                    "-1",
+                    "None"
+                ],
+                [
                     "0",
-                    "Common Skill Row"
+                    "Common Skill"
                 ],
                 [
                     "1",
-                    "Skill Tree 1 Row"
+                    "Tree 1"
                 ],
                 [
                     "2",
-                    "Skill Tree 2 Row"
+                    "Tree 2"
                 ],
                 [
                     "3",
-                    "Skill Tree 3 Row"
+                    "Tree 3"
                 ],
                 [
-                    "(Other)",
-                    "Skill will not appear in the Skill Selection UI"
+                    "4",
+                    "None"
                 ]
             ]
         },
@@ -218,6 +249,14 @@ files["skilldesc"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 16
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -354,6 +393,16 @@ files["skilldesc"] = {
                     "26",
                     "$!#ddam calc1!$<br>$!#ddam calc2!$",
                     "Calculates weapon damage and skill damage as two values."
+                ],
+                [
+                    "27",
+                    "$!#descmissile1!$<br>$!#ddam calc1!$<br>$!#ddam calc2!$",
+                    "Calculates skill and missile Damage over Time (DoT) damage. Calculate the skill's elemental damage. Calculate $!#descmissile1!$ elemental damage, using $!#ddam calc1!$ as a multiplier and $!#ddam calc2!$ as a divisor."
+                ],
+                [
+                    "28",
+                    "$!#ddam calc1!$",
+                    "Combine the skill's physical damage and elemental damage with the character's damage. Multiply the final result by $!#ddam calc1!$."
                 ]
             ]
         },
@@ -428,6 +477,14 @@ files["skilldesc"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 16
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

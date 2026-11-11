@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["PropertyGroups"] = {
     "title": "PropertyGroups.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file defines groups of properties to be used when spawning items. (See: $!Properties!$)",
     "fields": [
         {
@@ -21,6 +24,14 @@ files["PropertyGroups"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -82,7 +93,7 @@ files["PropertyGroups"] = {
                 "type": "parse",
                 "dataLength": 255,
                 "memSize": 0,
-                "description": "A number"
+                "description": "A number or references $!skills#skill!$, $!MonType#type!$, or $!states#state!$"
             }
         },
         {
@@ -102,7 +113,7 @@ files["PropertyGroups"] = {
                 "type": "parse",
                 "dataLength": 255,
                 "memSize": 0,
-                "description": "A number"
+                "description": "A number or references $!skills#skill!$, $!MonType#type!$, or $!states#state!$"
             }
         },
         {

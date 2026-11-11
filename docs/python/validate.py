@@ -317,6 +317,29 @@ def validateField(file, field, fieldExports, usedNames):
             if not doesFieldExist(appendFieldFileName, appendFieldFieldName):
                 printErrorField(file, fieldName, f'appendField "{appendFieldFileName}#{appendFieldFieldName}" does not exist.')
 
+    if "d2rExcel" in field:
+        d2rExcel = field["d2rExcel"]
+        if "validation" in d2rExcel:
+            d2rExcelValidation = d2rExcel["validation"]
+            if fieldValidateFieldNotEmpty(file, d2rExcelValidation, f'{fieldName}, d2rExcel', "type"):
+                d2rExcelValidationTypeName = d2rExcelValidation["type"]
+
+                validD2rValidationTypes = ["table", "foreign"]
+                if not d2rExcelValidationTypeName in validD2rValidationTypes:
+                    printErrorField(file, fieldName, f'invalid d2rExcel validation type "{d2rExcelValidationTypeName}".')
+
+                if d2rExcelValidationTypeName == "table":
+                    fieldValidateFieldExists(file, d2rExcelValidation, f'{fieldName}, d2rExcel', "tableModelColumn")
+                    fieldValidateFieldExists(file, d2rExcelValidation, f'{fieldName}, d2rExcel', "tableViewColumn")
+                elif d2rExcelValidationTypeName == "foreign":
+                    foreignHasFile = fieldValidateFieldNotEmpty(file, d2rExcelValidation, f'{fieldName}, d2rExcel', "foreignFile")
+                    foreignHasField = fieldValidateFieldNotEmpty(file, d2rExcelValidation, f'{fieldName}, d2rExcel', "foreignField")
+                    if foreignHasFile and foreignHasField:
+                        foreignFileName = d2rExcelValidation["foreignFile"]
+                        foreignFieldName = d2rExcelValidation["foreignField"]
+                        if not doesFieldExist(foreignFileName, foreignFieldName):
+                            printErrorField(file, fieldName, f'd2rExcel foreign validation "{foreignFileName}#{foreignFieldName}" does not exist.')
+
     if "fields" in field:
         for subField in field["fields"]:
             validateField(file, subField, fieldExports, usedNames)

@@ -232,6 +232,14 @@ files["SharedItems"] = {
         {
             "name": "component",
             "description": "Determines the layer of player animation when the item is equipped. This uses a code referenced from the $!Composit!$ file.",
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -303,7 +311,7 @@ files["SharedItems"] = {
                 ],
                 [
                     "16",
-                    "Do not display anything"
+                    "Nothing"
                 ]
             ],
             "type": {
@@ -351,6 +359,14 @@ files["SharedItems"] = {
         {
             "name": "gemapplytype",
             "description": "Determines which affect from a gem or rune will be applied when it is socketed into this item (See $!gems!$).",
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -574,6 +590,13 @@ files["SharedItems"] = {
             "appendField": {
                 "file": "enums",
                 "field": "ETRANSTYPE"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "ETRANSTYPE"
+                }
             }
         },
         {
@@ -597,6 +620,14 @@ files["SharedItems"] = {
         {
             "name": "quest",
             "description": "Controls what quest class is tied to the item which can enable certain item functionalities for a specific quest. Any value greater than 0 will also mean the item is flagged as a quest item, which can affect how it is displayed in tooltips, how it is traded with other players, its item rarity, and how it cannot be sold to an NPC. If equals 0, then the item will not be flagged as a quest item.",
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1008,6 +1039,13 @@ files["SharedItems"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EITRANSFORMCLASS"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EITRANSFORMCLASS"
+                }
             }
         },
         {
@@ -1021,6 +1059,13 @@ files["SharedItems"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EITRANSFORMCLASS"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EITRANSFORMCLASS"
+                }
             }
         },
         {

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["actinfo"] = {
     "title": "actinfo.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls global Act functionalities including item levels, monster behaviors, and waypoints. This file uses the $!wanderingmon!$ file for a modular list of potential wandering units to spawn.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

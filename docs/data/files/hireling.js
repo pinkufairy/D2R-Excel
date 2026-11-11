@@ -7,6 +7,9 @@ files["hireling"] = {
         "PlayerClass",
         "MonMode"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the unit statistics for player mercenaries and their related functions.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

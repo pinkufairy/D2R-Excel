@@ -4,6 +4,9 @@
 files["shrines"] = {
     "title": "shrines.txt",
     "overview": "This file controls the functionalities of shrine objects found in area levels.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "fields": [
         {
             "name": "Name",
@@ -21,6 +24,14 @@ files["shrines"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

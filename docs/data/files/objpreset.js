@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["objpreset"] = {
     "title": "objpreset.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls which Objects are preloaded in a preset, based on the Act number.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

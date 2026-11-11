@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["SuperUniques"] = {
     "title": "SuperUniques.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file defines the Super Unique monsters and their properties. Super Unique monsters are considered the special boss monsters that have static encounters in the game.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

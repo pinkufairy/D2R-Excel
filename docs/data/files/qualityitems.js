@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["qualityitems"] = {
     "title": "qualityitems.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the groups item modifiers for High Quality (Superior) item types. The game will randomly choose between one of these High Quality groups, if it is allowed for the item type.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

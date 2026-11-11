@@ -8,6 +8,9 @@ files["monstats"] = {
         "MonMode",
         "ElemTypes"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the main functionalities and statistics for every monster in the game. This includes enemy monsters, pets, and NPC units.<br>The \"(N)\" text in field names signifies to use that specific value for games in Nightmare difficulty. The \"(H)\" text in field names signifies to use that specific value for games in Hell difficulty.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -52,6 +55,13 @@ files["monstats"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EMTRANSFORM"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EMTRANSFORM"
+                }
             }
         },
         {
@@ -417,22 +427,34 @@ files["monstats"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
-                    "Evil Alignment - The monster will attack the player"
+                    "Evil",
+                    "The monster will attack the player"
                 ],
                 [
                     "1",
-                    "Good Alignment - The monster will fight with the player and will be in the player's party"
+                    "Good",
+                    "The monster will fight with the player and will be in the player's party"
                 ],
                 [
                     "2",
-                    "Neutral Alignment - The monster will not attack the player and will not be in the player's party"
+                    "Neutral",
+                    "The monster will not attack the player and will not be in the player's party"
                 ]
             ]
         },
@@ -1351,6 +1373,13 @@ files["monstats"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         },
         {
@@ -1364,6 +1393,13 @@ files["monstats"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Checkpoints"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Checkpoints"
+                }
             }
         },
         {
@@ -1374,25 +1410,38 @@ files["monstats"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
-                    "null",
+                    "0",
+                    "Nothing",
                     "Do nothing"
                 ],
                 [
                     "1",
+                    "Minion",
                     "Spawn the monster type from the $!#minion1!$ field after this monster dies"
                 ],
                 [
                     "2",
+                    "Kill Source",
                     "Kill the source unit that is related to this monster. Typically this is a mount type unit that the monster is riding when it dies"
                 ],
                 [
                     "3",
+                    "Delete",
                     "Remove the unit from the game."
                 ]
             ]

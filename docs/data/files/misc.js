@@ -10,6 +10,9 @@ files["misc"] = {
     "appendFiles": [
         "SharedItems"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the functionalities for miscellaneous type items, such as the non-weapons and non-armor items. This file is loaded together with other similar files in the following order: $!weapons!$, $!armor!$, $!misc!$. These combined files form the items structure. Technically these files share the same fields, but some fields are exclusive for specific item types, so they are not displayed in the data files that do not need them. These are the fields exclusive to this file.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -56,12 +59,26 @@ files["misc"] = {
                 "dataLength": 0,
                 "memSize": 32
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
                     "Name",
                     "Parameters",
                     "Description"
+                ],
+                [
+                    "-1",
+                    "",
+                    "",
+                    "Do nothing"
                 ],
                 [
                     "0",
@@ -281,6 +298,14 @@ files["misc"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -288,7 +313,7 @@ files["misc"] = {
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
                     "",
                     "Do nothing"
                 ],
@@ -347,6 +372,13 @@ files["misc"] = {
             "appendField": {
                 "file": "enums",
                 "field": "FONTCOLOR"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "FONTCOLOR"
+                }
             }
         },
         {

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LvlTypes"] = {
     "title": "LvlTypes.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls which files containing tile graphics are used for creating maps. This looks at dt1 files, which contain tile images of the environments foundin the game. Each line in this file defines a Level Type and what files it uses.<br>The order of each Level Type defined in this file will convey what ID value it has, which is referenced by the following files: $!Levels!$, $!LvlPrest!$. The order of these Level Types should not be changed.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

@@ -388,6 +388,24 @@
                                     }
                                 },
                                 {
+                                    "name": "d2rExcel",
+                                    "id": "file-d2rExcel",
+                                    "description": "Integration data for Blizzard's, the custom Excel add-in for editing data tables.",
+                                    "type": {
+                                        "type": "object"
+                                    },
+                                    "fields": [
+                                        {
+                                            "name": "freezeColumns",
+                                            "description": "How many left-side columns should be frozen by default. If a freeze already exists it will not be overridden.",
+                                            "type": {
+                                                "type": "int",
+                                                "memSize": "32"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
                                     "name": "ignoreFields",
                                     "description": "List of code field names to ignore when generating and validating this file.",
                                     "type": {
@@ -615,6 +633,88 @@
                                             "type": {
                                                 "type": "text"
                                             }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "d2rExcel",
+                                    "id": "field-d2rExcel",
+                                    "description": "Integration data for D2RExcel, Blizzard's custom Excel add-in for editing data tables.",
+                                    "type": {
+                                        "type": "object"
+                                    },
+                                    "fields": [
+                                        {
+                                            "name": "validation",
+                                            "description": "Custom cell validation data. If this is excluded then use validation that corresponds to $!#type!$.",
+                                            "type": {
+                                                "type": "object"
+                                            },
+                                            "fields": [
+                                                {
+                                                    "name": "type",
+                                                    "id": "d2rExcel-validation-type",
+                                                    "description": "What type of custom validation is this",
+                                                    "type": {
+                                                        "type": "text"
+                                                    },
+                                                    "table": [
+                                                        [
+                                                            "Type",
+                                                            "Parameters",
+                                                            "Description"
+                                                        ],
+                                                        [
+                                                            "table",
+                                                            "$!#tableModelColumn!$<br>$!#tableViewColumn!$<br>$!#tableStartRow!$",
+                                                            "The cell must contain text in the column index (0-based) specified by the $!#tableModelColumn!$ parameter or be empty. Text in the cell is formatted using the $!#tableViewColumn!$ index (0-based). $!#tableStartRow!$ is the index (0-based) of the row to start the validation range at."
+                                                        ],
+                                                        [
+                                                            "foreign",
+                                                            "$!#foreignFile!$<br>$!#foreignField!$",
+                                                            "Use the validation supplied by a foreign field."
+                                                        ]
+                                                    ]
+                                                },    
+                                                {
+                                                    "name": "tableModelColumn",
+                                                    "description": "Index (0-based) of the column that represents the actual values to be written to disk and loaded by the game.",
+                                                    "type": {
+                                                        "type": "int",
+                                                        "memSize": "32"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "tableViewColumn",
+                                                    "description": "Index (0-based) of the column that represents the text the model values will be transformed into to make them more human-readable. If this index matches $!#tableModelColumn!$ it will be formatted like \"{value}\". If not it will be formatted like \"[{model value}] {view value}\"",
+                                                    "type": {
+                                                        "type": "int",
+                                                        "memSize": "32"
+                                                    }
+                                                },    
+                                                {
+                                                    "name": "tableStartRow",
+                                                    "description": "Optional. Index (0-based) of the row to start the validation range at. Useful for excluding the header from the range.",
+                                                    "type": {
+                                                        "type": "int",
+                                                        "memSize": "32"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "foreignFile",
+                                                    "description": "Key to the file the $!#foreignField!$ is located in.",
+                                                    "type": {
+                                                        "type": "text"
+                                                    }
+                                                },
+                                                {
+                                                    "name": "foreignField",
+                                                    "description": "Name of field to use the validation of.",
+                                                    "type": {
+                                                        "type": "text"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 },

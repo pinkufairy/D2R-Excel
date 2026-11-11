@@ -6,6 +6,9 @@ files["gems"] = {
     "referenceFiles": [
         "colors"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the item modifiers of gems and runes for each item type. This file is used by the following files: $!armor!$, $!weapons!$, $!misc!$.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

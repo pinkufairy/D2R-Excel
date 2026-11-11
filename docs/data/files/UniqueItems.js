@@ -6,6 +6,9 @@ files["UniqueItems"] = {
     "referenceFiles": [
         "colors"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file defines each Unique item and controls their item modifiers. The row order of items should not be changed because it defines their ID value.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["ItemUICategories"] = {
     "title": "ItemUICategories.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file defines the item categories that are used in the loot filter and also the chronicle's unique page. ItemTypes.txt assigns its types to the corresponding categories, and item themselves in armor/weapon/misc files can also override their UI category",
     "fields": [
         {

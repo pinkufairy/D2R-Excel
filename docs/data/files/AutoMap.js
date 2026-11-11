@@ -3,11 +3,27 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["AutoMap"] = {
     "title": "AutoMap.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls how the Automap in game will display the discovered parts of the area level and store this progress in character save files. The Automap is composed of many different image files depicted as small icons to convey what part of the area level is being displayed. This file will assign these image files to their related map cells, which will properly build the Automap as the player explores the area. Not all tiles will have image files assigned to them, and in these cases, those parts of the Automap will remain blank.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
             "name": "LevelName",
             "description": "Uses a string format system to define the Act number and name of the level type. Level types are static defined values that cannot be added. The number at the start of the string defines the Act number, and the word that follows this number defines the level type. This data should stay grouped by level.",
+            "type": {
+                "type": "text",
+                "dataLength": 15,
+                "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "String Code",
@@ -157,16 +173,24 @@ files["AutoMap"] = {
                     "5 Lava",
                     "Level Type 5 Lava"
                 ]
-            ],
-            "type": {
-                "type": "text",
-                "dataLength": 15,
-                "memSize": 0
-            }
+            ]
         },
         {
             "name": "TileName",
             "description": "Uses defined string codes to control the tile orientations on the Automap.",
+            "type": {
+                "type": "text",
+                "dataLength": 7,
+                "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "String Code",
@@ -252,12 +276,7 @@ files["AutoMap"] = {
                     "fi",
                     "Base Front Wall Down"
                 ]
-            ],
-            "type": {
-                "type": "text",
-                "dataLength": 7,
-                "memSize": 0
-            }
+            ]
         },
         {
             "name": "Style",

@@ -15576,12 +15576,12 @@ const search = [
                         "path": "/files/skills.html#srv-StartUnsummon"
                     },
                     {
-                        "name": "AmaStartCheckQuantity",
-                        "path": "/files/skills.html#AmaStartCheckQuantity"
+                        "name": "AmaStartCheckQuantity (Server)",
+                        "path": "/files/skills.html#srv-AmaStartCheckQuantity"
                     },
                     {
-                        "name": "AmaStartJab",
-                        "path": "/files/skills.html#AmaStartJab"
+                        "name": "AmaStartJab (Server)",
+                        "path": "/files/skills.html#srv-AmaStartJab"
                     },
                     {
                         "name": "AmaStartPowerStrike",
@@ -15596,20 +15596,20 @@ const search = [
                         "path": "/files/skills.html#srv-AmaStartStrafe"
                     },
                     {
-                        "name": "AmaStartFend",
-                        "path": "/files/skills.html#AmaStartFend"
+                        "name": "AmaStartFend (Server)",
+                        "path": "/files/skills.html#srv-AmaStartFend"
                     },
                     {
                         "name": "AmaStartLightningStrike",
                         "path": "/files/skills.html#AmaStartLightningStrike"
                     },
                     {
-                        "name": "SorStartInferno",
-                        "path": "/files/skills.html#SorStartInferno"
+                        "name": "SorStartInferno (Server)",
+                        "path": "/files/skills.html#srv-SorStartInferno"
                     },
                     {
-                        "name": "SorStartTelekinesis",
-                        "path": "/files/skills.html#SorStartTelekinesis"
+                        "name": "SorStartTelekinesis (Server)",
+                        "path": "/files/skills.html#srv-SorStartTelekinesis"
                     },
                     {
                         "name": "SorStartThunderStorm",
@@ -17094,28 +17094,28 @@ const search = [
                         "path": "/files/skills.html#AssStartDragonFlight"
                     },
                     {
-                        "name": "AmaStartCheckQuantity (Server)",
-                        "path": "/files/skills.html#srv-AmaStartCheckQuantity"
+                        "name": "AmaStartCheckQuantity (Client)",
+                        "path": "/files/skills.html#clt-AmaStartCheckQuantity"
                     },
                     {
-                        "name": "AmaStartJab (Server)",
-                        "path": "/files/skills.html#srv-AmaStartJab"
+                        "name": "AmaStartJab (Client)",
+                        "path": "/files/skills.html#clt-AmaStartJab"
                     },
                     {
                         "name": "AmaStartStrafe (Client)",
                         "path": "/files/skills.html#clt-AmaStartStrafe"
                     },
                     {
-                        "name": "AmaStartFend (Server)",
-                        "path": "/files/skills.html#srv-AmaStartFend"
+                        "name": "AmaStartFend (Client)",
+                        "path": "/files/skills.html#clt-AmaStartFend"
                     },
                     {
-                        "name": "SorStartInferno (Server)",
-                        "path": "/files/skills.html#srv-SorStartInferno"
+                        "name": "SorStartInferno (Client)",
+                        "path": "/files/skills.html#clt-SorStartInferno"
                     },
                     {
-                        "name": "SorStartTelekinesis (Server)",
-                        "path": "/files/skills.html#srv-SorStartTelekinesis"
+                        "name": "SorStartTelekinesis (Client)",
+                        "path": "/files/skills.html#clt-SorStartTelekinesis"
                     },
                     {
                         "name": "SorStartHydra (Client)",
@@ -17568,7 +17568,7 @@ const search = [
                         "path": "/files/skills.html#clt-MonDoHireFireMissile"
                     },
                     {
-                        "name": "DruDoFirestorm (Server)",
+                        "name": "DruDoFirestorm (Client)",
                         "path": "/files/skills.html#clt-DruDoFirestorm"
                     },
                     {

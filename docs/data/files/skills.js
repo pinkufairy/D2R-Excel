@@ -11,6 +11,9 @@ files["skills"] = {
         "PlrMode",
         "ElemTypes"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls all skill functionalities. Skills are abilities used by all units in the game.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -56,6 +59,14 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -99,8 +110,8 @@ files["skills"] = {
                 [
                     "4",
                     {
-                        "id": "AmaStartCheckQuantity",
-                        "text": "AmaStartCheckQuantity"
+                        "id": "srv-AmaStartCheckQuantity",
+                        "text": "AmaStartCheckQuantity (Server)"
                     },
                     "",
                     "Verify that the caster unit has enough weapon ammunition"
@@ -108,8 +119,8 @@ files["skills"] = {
                 [
                     "5",
                     {
-                        "id": "AmaStartJab",
-                        "text": "AmaStartJab"
+                        "id": "srv-AmaStartJab",
+                        "text": "AmaStartJab (Server)"
                     },
                     "",
                     "Return true."
@@ -144,8 +155,8 @@ files["skills"] = {
                 [
                     "9",
                     {
-                        "id": "AmaStartFend",
-                        "text": "AmaStartFend"
+                        "id": "srv-AmaStartFend",
+                        "text": "AmaStartFend (Server)"
                     },
                     "$!#calc1!$",
                     "Find a valid target to attack in melee and then perform multiple attacks to nearby enemies. Use $!#calc1!$ to control the max targets to attack."
@@ -162,8 +173,8 @@ files["skills"] = {
                 [
                     "11",
                     {
-                        "id": "SorStartInferno",
-                        "text": "SorStartInferno"
+                        "id": "srv-SorStartInferno",
+                        "text": "SorStartInferno (Server)"
                     },
                     "$!#srvmissilea!$<br>$!#calc2!$",
                     "Continuously create missiles while the caster has the \"inferno\" state, and adjust the animations and modes based on the inferno frames. Use $!#calc2!$ to control the monster channel duration."
@@ -171,8 +182,8 @@ files["skills"] = {
                 [
                     "12",
                     {
-                        "id": "SorStartTelekinesis",
-                        "text": "SorStartTelekinesis"
+                        "id": "srv-SorStartTelekinesis",
+                        "text": "SorStartTelekinesis (Server)"
                     },
                     "$!#aurarangecalc!$",
                     "Validate the range distance and the target type"
@@ -708,6 +719,14 @@ files["skills"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 16
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -2271,6 +2290,14 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -2340,6 +2367,14 @@ files["skills"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -2584,6 +2619,13 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Server Event Functions"
+                }
+            },
             "appendField": {
                 "file": "enums",
                 "field": "Server Event Functions"
@@ -2608,7 +2650,7 @@ files["skills"] = {
                 "dataLength": 4,
                 "memSize": 16,
                 "file": "ItemTypes",
-                "field": "ItemType"
+                "field": "Code"
             }
         },
         {
@@ -3008,6 +3050,14 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -3114,8 +3164,8 @@ files["skills"] = {
                 [
                     "11",
                     {
-                        "id": "srv-AmaStartCheckQuantity",
-                        "text": "AmaStartCheckQuantity (Server)"
+                        "id": "clt-AmaStartCheckQuantity",
+                        "text": "AmaStartCheckQuantity (Client)"
                     },
                     "",
                     "Check that the player has enough ammunition for the weapon"
@@ -3123,8 +3173,8 @@ files["skills"] = {
                 [
                     "12",
                     {
-                        "id": "srv-AmaStartJab",
-                        "text": "AmaStartJab (Server)"
+                        "id": "clt-AmaStartJab",
+                        "text": "AmaStartJab (Client)"
                     },
                     "",
                     "Validate the skill and prepare to track the max targets to attack"
@@ -3141,8 +3191,8 @@ files["skills"] = {
                 [
                     "14",
                     {
-                        "id": "srv-AmaStartFend",
-                        "text": "AmaStartFend (Server)"
+                        "id": "clt-AmaStartFend",
+                        "text": "AmaStartFend (Client)"
                     },
                     "$!#calc1!$",
                     "Find at least an initial valid target and prepare to track the max targets to attack"
@@ -3150,8 +3200,8 @@ files["skills"] = {
                 [
                     "15",
                     {
-                        "id": "srv-SorStartInferno",
-                        "text": "SorStartInferno (Server)"
+                        "id": "clt-SorStartInferno",
+                        "text": "SorStartInferno (Client)"
                     },
                     "$!#prgoverlay!$<br>$!#prgsound!$",
                     "Add the overlay and sound if the player does not have the \"inferno\" state. If the player does not have the \"inferno\" state, then add it. Otherwise set the player's animation sequence frame."
@@ -3159,8 +3209,8 @@ files["skills"] = {
                 [
                     "16",
                     {
-                        "id": "srv-SorStartTelekinesis",
-                        "text": "SorStartTelekinesis (Server)"
+                        "id": "clt-SorStartTelekinesis",
+                        "text": "SorStartTelekinesis (Client)"
                     },
                     "$!#aurarangecalc!$",
                     "Check the range of the skill using the $!#aurarangecalc!$ value and ensure there is a valid monster or player to target in the area"
@@ -3580,7 +3630,21 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
+                [
+                    "Code",
+                    "Name",
+                    "Parameters",
+                    "Description"
+                ],
                 [
                     "0",
                     "",
@@ -4185,7 +4249,7 @@ files["skills"] = {
                     "67",
                     {
                         "id": "clt-DruDoFirestorm",
-                        "text": "DruDoFirestorm (Server)"
+                        "text": "DruDoFirestorm (Client)"
                     },
                     "$!#aurastate!$<br>$!#aurastat1!$<br>$!#cltmissilea!$<br>$!#cltmissileb!$<br>$!#cltmissilec!$<br>$!#calc1!$",
                     "Based on the $!#progressive!$ flag, the $!#aurastate!$ field, or the $!#aurastat1!$ field, validate the $!#cltmissilea!$ missile or use the other missiles based on the $!#aurastat1!$ value. Launch a number of selected client missiles, controlled by the $!#calc1!$ value. These missiles has randomized directions and pathing, and they have an increased animation rate."
@@ -4578,6 +4642,14 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -4717,6 +4789,13 @@ files["skills"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Skill Ranges"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Skill Ranges"
+                }
             }
         },
         {
@@ -4727,29 +4806,43 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "Either",
                     "Use the Left or Right Hand weapon"
                 ],
                 [
                     "1",
+                    "Left",
                     "Use the Left Hand weapon"
                 ],
                 [
                     "2",
+                    "Left and/or Right",
                     "Use the Left and/or Right Hand weapon"
                 ],
                 [
                     "3",
+                    "Both",
                     "Always use both weapons"
                 ],
                 [
                     "4",
+                    "Ignore",
                     "Ignore the weapon used"
                 ]
             ]
@@ -4877,6 +4970,14 @@ files["skills"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -5028,34 +5129,49 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "No collision filter"
                 ],
                 [
                     "1",
-                    "Missile Barrier"
+                    "Missile Barrier",
+                    "Missile barriers"
                 ],
                 [
                     "2",
-                    "Player Path - Walls, no pathing, objects, doors, no player pathing"
+                    "Player Path",
+                    "Walls, no pathing, objects, doors, no player pathing"
                 ],
                 [
                     "3",
-                    "Player Monster - Monsters, Players"
+                    "Player Monster",
+                    "Players, monsters"
                 ],
                 [
                     "4",
-                    "Player Flying - Missile barriers, doors"
+                    "Player Flying",
+                    "Missile barriers, doors"
                 ],
                 [
                     "5",
-                    "Radial Barrier - Missile barriers, doors, walls"
+                    "Radial Barrier",
+                    "Missile barriers, doors, walls"
                 ]
             ]
         },
@@ -5102,6 +5218,14 @@ files["skills"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -5280,29 +5404,43 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0 (or empty)",
+                    "Attacker",
                     "Default to targeting the attacker"
                 ],
                 [
                     "1",
+                    "Caster",
                     "Target the caster"
                 ],
                 [
                     "2",
+                    "Random Location",
                     "Target a random location in a radius with a size of 20. Also tests collision."
                 ],
                 [
                     "3",
+                    "Random Corpse",
                     "Target a random nearby corpse"
                 ],
                 [
                     "4",
+                    "Attacker with Fallback",
                     "Target the attacker, and if that attacker is not found then target a previous attacker or the previous attacker's location"
                 ]
             ]
@@ -5444,26 +5582,39 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
-                    "None - The skill cannot be used when the unit has a restricted state"
+                    "None",
+                    "The skill cannot be used when the unit has a restricted state"
                 ],
                 [
                     "1",
-                    "Any - The skill can be used in when the unit has any restricted state"
+                    "Any",
+                    "The skill can be used in when the unit has any restricted state"
                 ],
                 [
                     "2",
-                    "State Only - The skill can only be used when the unit has a restricted state (See $!#State#!$)"
+                    "State Only",
+                    "The skill can only be used when the unit has a restricted state (See $!#State#!$)"
                 ],
                 [
                     "3",
-                    "Pop State - The skill can be used at any time but when used, it will remove the unit's restrict states"
+                    "Pop State",
+                    "The skill can be used at any time but when used, it will remove the unit's restrict states"
                 ]
             ]
         },
@@ -5848,6 +5999,14 @@ files["skills"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 2,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Value",
@@ -5928,7 +6087,7 @@ files["skills"] = {
                 "MinLevDam4",
                 "MinLevDam5"
             ],
-            "description": "Controls the additional minimum physical damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number.",
+            "description": "Controls the additional minimum physical damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -5953,7 +6112,7 @@ files["skills"] = {
                 "MaxLevDam4",
                 "MaxLevDam5"
             ],
-            "description": "Controls the additional maximum physical damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number.",
+            "description": "Controls the additional maximum physical damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -6003,7 +6162,7 @@ files["skills"] = {
                 "EMinLev4",
                 "EMinLev5"
             ],
-            "description": "Controls the additional minimum elemental damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number.",
+            "description": "Controls the additional minimum elemental damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field number. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -6028,7 +6187,7 @@ files["skills"] = {
                 "EMaxLev4",
                 "EMaxLev5"
             ],
-            "description": "Controls the additional maximum elemental damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field.",
+            "description": "Controls the additional maximum elemental damage dealt by the skill, calculated using the leveling formula between 5 level thresholds of the skill's current level. The level thresholds are levels 2-8, 9-16, 17-22, 23-28, 29 and beyond. These 5 level thresholds correlate to each field. See the <a href=\"../docs/damage.html#tools-level-damage\" target=\"_blank\" class=\"reference-link\">Level Damage Formula tool</a>.",
             "type": {
                 "type": "int",
                 "dataLength": 0,
@@ -6085,6 +6244,14 @@ files["skills"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

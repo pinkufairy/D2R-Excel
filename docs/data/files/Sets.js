@@ -6,6 +6,9 @@ files["Sets"] = {
     "referenceFiles": [
         "PlayerClass"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the item modifiers for Set bonus statistics when the player has equipped enough Set Items.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

@@ -6,6 +6,9 @@ files["SetItems"] = {
     "referenceFiles": [
         "colors"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the item modifiers for each Set item in a Set.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -224,21 +227,33 @@ files["SetItems"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
+                    "Ignore",
                     "Additional Set item properties will function like normal item properties, ignoring the Set"
                 ],
                 [
                     "1",
+                    "Index",
                     "Additional Set item properties will be added depending on which specific Set item is equipped. Each Set item has their own index depending on their order in data and the $!#set!$ they belong to. For example, if a Set item is defined first in the list, that that it has the index equal to 1, which means this function will make $!#aprop1a!$ and $!#aprop1b!$ fields only be added to a Set Item when that specific Set item of index 1 is equipped."
                 ],
                 [
                     "2",
+                    "Amount",
                     "Additional Set item properties will be added depending the number of related Set items equipped. For example, if 2 Set items are equipped, then the $!#aprop1a!$, $!#aprop1b!$, $!#aprop2a!$, and $!#aprop2b!$ fields will be added to the Set item."
                 ]
             ]

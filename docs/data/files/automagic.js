@@ -11,6 +11,9 @@ files["automagic"] = {
     "appendFiles": [
         "SharedItemMods"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls what item affixes (groups of item modifiers) are automatically applied to items, regardless of their quality type. These item affixes will not change the quality of the item. An example can be class based items like a paladin shield that can be Normal Quality but still have Paladin skill bonuses without changing the item's name.<br>This file is loaded together with other similar files in the following order: $!MagicSuffix!$, $!MagicPrefix!$, $!automagic!$. These combined files form the Item Mods structure.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": []
 }

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["belts"] = {
     "title": "belts.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the statistics for how belts and their various item slots work. This file relies on the $!armor#belt!$ field. Each belt entry in this file defines a belt type that controls how many slots the belt item provides. Each of these belt types are a possible value that items the $!armor#belt!$ can use. The game uses the 3rd entry is defined as the \"default\" belt, meaning that the player has no belt equipped, and the game will use this entry's stats to determine how to handle the belt slots.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

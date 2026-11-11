@@ -415,6 +415,10 @@ const siteIndex = [
             {
                 "name": "Item Ratio Calculations",
                 "path": "/docs/itemratio-calc.html"
+            },
+            {
+                "name": "Damage",
+                "path": "/docs/damage.html"
             }
         ]
     }

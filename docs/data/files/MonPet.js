@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["MonPet"] = {
     "title": "MonPet.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "Controls data associated with specific monsters when they become a player's pet.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

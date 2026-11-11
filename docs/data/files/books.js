@@ -6,6 +6,9 @@ files["books"] = {
     "referenceFiles": [
         "misc"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls functionalities of book items (also called Tomes). This includes how they interact with their related scroll items.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

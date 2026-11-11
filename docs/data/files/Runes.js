@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["Runes"] = {
     "title": "Runes.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the creation of Rune Words and their various modifiers.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

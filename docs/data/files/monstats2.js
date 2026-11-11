@@ -8,6 +8,9 @@ files["monstats2"] = {
         "HitClass",
         "MonMode"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls additional functionalities and statistics for every monster in the game.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -27,36 +30,44 @@ files["monstats2"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
-                    "Description",
-                    "Code",
+                    "Name",
                     "Description"
                 ],
                 [
+                    "0",
+                    "Both/Error Ice",
+                    "Either attack and unknown missile, possibly monglacialspike"
+                ],
+                [
                     "1",
-                    "icebreaksmall",
-                    "1",
-                    "Low Height"
+                    "Low/Small Ice",
+                    "Use attack 1 and icebreaksmall"
                 ],
                 [
                     "2",
-                    "icebreakmedium",
-                    "2",
-                    "High Height"
+                    "High/Medium Ice",
+                    "Use attack 2 and icebreakmedium"
                 ],
                 [
                     "3",
-                    "icebreaklarge",
-                    "3",
-                    "Both types of Heights"
+                    "Both/Large Ice",
+                    "Either attack and icebreaklarge"
                 ],
                 [
                     "4",
-                    "icebreaksmoke",
-                    "",
-                    ""
+                    "Both/Smoke Ice",
+                    "Either attack and icebreaksmoke"
                 ]
             ]
         },
@@ -98,26 +109,39 @@ files["monstats2"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
-                    "Normal - Basic Monster Pathing"
+                    "Normal",
+                    "Basic Monster Pathing"
                 ],
                 [
                     "1",
-                    "Water - Handle water terrain where units cannot normally walk, but can fly over"
+                    "Water",
+                    "Handle water terrain where units cannot normally walk, but can fly over"
                 ],
                 [
                     "2",
-                    "Preset - Placement handler which considers walls, no pathable areas, objects, doors, items, and other monsters"
+                    "Preset",
+                    "Placement handler which considers walls, no pathable areas, objects, doors, items, and other monsters"
                 ],
                 [
                     "3",
-                    "Force - Override any collision"
+                    "Force",
+                    "Override any collision"
                 ]
             ]
         },
@@ -141,6 +165,13 @@ files["monstats2"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EWEAPONCLASS"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EWEAPONCLASS"
+                }
             }
         },
         {
@@ -871,6 +902,13 @@ files["monstats2"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EMTRANSFORM"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EMTRANSFORM"
+                }
             }
         },
         {

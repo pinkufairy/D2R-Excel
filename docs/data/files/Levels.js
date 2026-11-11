@@ -6,6 +6,9 @@ files["Levels"] = {
     "referenceFiles": [
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 3
+    },
     "overview": "This file controls how the game controls the area levels, including how the level is built, what rules are allowed on the level, and what monsters/objects can spawn on the level.",
     "fields": [
         {
@@ -55,6 +58,13 @@ files["Levels"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         },
         {
@@ -68,6 +78,13 @@ files["Levels"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         },
         {
@@ -149,21 +166,33 @@ files["Levels"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "Disabled",
                     "Teleport is disabled on the area level"
                 ],
                 [
                     "1",
+                    "Enabled",
                     "Teleport is enabled on the area level"
                 ],
                 [
                     "2",
+                    "Collision",
                     "Teleport is enabled on the area level but adheres to the collision of the rooms"
                 ]
             ]
@@ -485,6 +514,13 @@ files["Levels"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quests"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quests"
+                }
             }
         },
         {

@@ -4,6 +4,9 @@
 files["sounds"] = {
     "title": "sounds.txt",
     "overview": "This file controls settings for all sounds in the game.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "fields": [
         {
             "name": "Sound",
@@ -213,30 +216,44 @@ files["sounds"] = {
                 "dataLength": 0,
                 "memSize": 32
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
-                    "Short - falloff range is 60 to 400 pixels"
+                    "Short",
+                    "Falloff range is 60 to 400 pixels"
                 ],
                 [
                     "1",
-                    "Medium - falloff range is 60 to 700 pixels"
+                    "Medium",
+                    "Falloff range is 60 to 700 pixels"
                 ],
                 [
                     "2",
-                    "Large - falloff range is 200 to 1000 pixels"
+                    "Large",
+                    "Falloff range is 200 to 1000 pixels"
                 ],
                 [
                     "3",
-                    "Ambient - falloff range is 400 to 1500 pixels"
+                    "Ambient",
+                    "Falloff range is 400 to 1500 pixels"
                 ],
                 [
                     "4",
-                    "Voice - falloff range is 2000 pixels (no falloff)"
+                    "Voice",
+                    "Falloff range is 2000 pixels (no falloff)"
                 ]
             ]
         },

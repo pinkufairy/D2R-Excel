@@ -6,6 +6,9 @@ files["Overlay"] = {
     "referenceFiles": [
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the overlay graphics related to states, auras, cast animations, curses, and buffs.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -124,6 +127,13 @@ files["Overlay"] = {
             "appendField": {
                 "file": "enums",
                 "field": "ETRANSTYPE"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "ETRANSTYPE"
+                }
             }
         },
         {
@@ -188,21 +198,32 @@ files["Overlay"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
-                    "Quest Progress"
+                    "Name",
+                    "Description"
                 ],
                 [
                     "0",
-                    "null"
+                    "Nothing"
                 ],
                 [
                     "1",
+                    "Green Blood",
                     "Transform the default red blood splatter to green blood"
                 ],
                 [
                     "2",
+                    "Green Palette",
                     "Change the monster palette to green"
                 ]
             ]

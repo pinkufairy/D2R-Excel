@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LvlWarp"] = {
     "title": "LvlWarp.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls how the player is moved to different area levels, such as entrances and exits between different areas. This player transportation of between levels is defined as a Level Warp. Level Warps function as special tiles that are added to the area for controlling the location for where to transport the player.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -106,22 +109,34 @@ files["LvlWarp"] = {
                 "dataLength": 1,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "l",
-                    "Left. If this is selected, then the tile type direction should match this."
+                    "Left",
+                    "If this is selected, then the tile type direction should match this."
                 ],
                 [
                     "r",
-                    "Right. If this is selected, then the tile type direction should match this."
+                    "Right",
+                    "If this is selected, then the tile type direction should match this."
                 ],
                 [
                     "b",
-                    "Both. This can mean that the Level Warp can be reassigned its direction."
+                    "Both",
+                    "This can mean that the Level Warp can be reassigned its direction."
                 ]
             ]
         },

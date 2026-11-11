@@ -6,6 +6,9 @@ files["Properties"] = {
     "referenceFiles": [
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file defines how item modifiers work. It takes a stat defined from $!ItemStatCost!$ and uses a function to handle the stat's \"min\", \"max\" and \"parameter\" values.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -33,6 +36,14 @@ files["Properties"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -350,6 +361,13 @@ files["Properties"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Tooltip Range Type"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Tooltip Range Type"
+                }
             }
         }
     ]

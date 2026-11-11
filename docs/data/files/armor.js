@@ -10,6 +10,9 @@ files["armor"] = {
     "appendFiles": [
         "SharedItems"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the functionalities for armor type items. This file is loaded together with other similar files in the following order: $!weapons!$, $!armor!$, $!misc!$. These combined files form the items structure. Technically these files share the same fields, but some fields are exclusive for specific item types, so they are not displayed in the data files that do not need them. These are the fields exclusive to this file.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -58,6 +61,13 @@ files["armor"] = {
             "appendField": {
                 "file": "enums",
                 "field": "EARMORTYPE"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "EARMORTYPE"
+                }
             }
         }
     ],

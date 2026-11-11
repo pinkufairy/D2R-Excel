@@ -6,6 +6,9 @@ files["cubemain"] = {
     "referenceFiles": [
         "PlayerClass"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the recipes for the Horadric Cubetems structure.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -69,6 +72,14 @@ files["cubemain"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

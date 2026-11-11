@@ -6,6 +6,9 @@ files["objects"] = {
     "referenceFiles": [
         "ObjMode"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the functionalities of all objects found in area levels. The order of each object defined in this file will convey what ID value it has, and thus should not be changed.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -275,13 +278,21 @@ files["objects"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
                     "Description"
                 ],
                 [
-                    "0 (or other #)",
+                    "0",
                     "Center"
                 ],
                 [
@@ -291,6 +302,10 @@ files["objects"] = {
                 [
                     "2",
                     "Left"
+                ],
+                [
+                    "3",
+                    "Center"
                 ]
             ]
         },
@@ -311,6 +326,14 @@ files["objects"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -691,6 +714,14 @@ files["objects"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -1083,6 +1114,14 @@ files["objects"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1148,6 +1187,14 @@ files["objects"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -1554,6 +1601,11 @@ files["objects"] = {
                     "79",
                     "QuestZooInit",
                     "Attempt a random chance based on successfully selecting a \"zoo\" type monster from the entire list of possible monsters (See $!monstats!$). If selected, then send the quest update command to all players, based on the Eve of Destruction quest."
+                ],
+                [
+                    "80",
+                    "ColossalAncientInit",
+                    "Set up the three colossal statues in the correct mode."
                 ]
             ]
         },
@@ -1564,6 +1616,14 @@ files["objects"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -1694,21 +1754,33 @@ files["objects"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "The object will not change its targeting priority"
                 ],
                 [
                     "1",
+                    "Opened",
                     "The object's target priority will equal a corpse only when the object is opened"
                 ],
                 [
                     "2",
+                    "Corpse",
                     "The object's target priority always equals a corpse"
                 ]
             ]

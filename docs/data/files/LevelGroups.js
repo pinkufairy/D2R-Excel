@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LevelGroups"] = {
     "title": "LevelGroups.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls how the game groups levels together. This is mainly used for condensing level names in desecrated (terror) zone messaging",
     "fields": [
         {
@@ -41,6 +44,14 @@ files["LevelGroups"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 32
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

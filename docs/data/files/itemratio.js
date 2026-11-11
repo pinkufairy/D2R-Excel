@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["itemratio"] = {
     "title": "itemratio.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file determines the quality of items when being spawned. After the game determines what Item Type should spawn, it then uses this file to calculate the quality of that item. These Item Quality checks are used for most item drops in the game such as monster drops and chest drops.<br>For a writeup on how these fields are used, see <a href=\"../docs/itemratio-calc.html\" target=\"_blank\" class=\"reference-link\">Item Ratio Calculations</a>.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

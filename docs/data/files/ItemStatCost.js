@@ -7,6 +7,9 @@ files["ItemStatCost"] = {
         "events",
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the functionalities for each possible stat on a unit. These defined stats are used to form modifiers for the $!Properties!$ and $!PropertyGroups!$ files.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -134,6 +137,14 @@ files["ItemStatCost"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -141,7 +152,7 @@ files["ItemStatCost"] = {
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
                     "$!#Add!$<br>$!#Multiply!$",
                     "Buy Cost += [Stat Value] * [$!#Multiply!$] / 1024 + [$!#Add!$]<br>Sell Cost += [Stat Value] * [$!#Multiply!$] / 1024 + [$!#Add!$]<br>Repair Cost += [Stat Value] * [$!#Multiply!$] / 1024 + [$!#Add!$]"
                 ],
@@ -256,6 +267,14 @@ files["ItemStatCost"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -263,7 +282,7 @@ files["ItemStatCost"] = {
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
                     "",
                     "No operator. Just add the stat normally"
                 ],
@@ -433,6 +452,13 @@ files["ItemStatCost"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Server Event Functions"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Server Event Functions"
+                }
             }
         },
         {
@@ -451,6 +477,14 @@ files["ItemStatCost"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 8
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -628,21 +662,33 @@ files["ItemStatCost"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "Do not show the value of the stat"
                 ],
                 [
                     "1",
+                    "Start",
                     "Shows the value of the stat at the start of its description"
                 ],
                 [
                     "2",
+                    "End",
                     "Shows the value of the stat at the end of its description"
                 ]
             ]
@@ -745,21 +791,32 @@ files["ItemStatCost"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
                     "Description"
                 ],
                 [
-                    "0 (or empty",
+                    "0",
+                    "None",
                     "The stat will never appear on the Advanced Stats UI"
                 ],
                 [
                     "1",
+                    "Always",
                     "The stat will always show on the Advanced Stats UI"
                 ],
                 [
                     "2",
+                    "Non-zero",
                     "The stat will only show on the Advanced Stats UI if the value is greater than 0"
                 ]
             ]

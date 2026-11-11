@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["experience"] = {
     "title": "experience.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the experience required for each level by each class.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

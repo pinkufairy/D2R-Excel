@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["monai"] = {
     "title": "monai.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "Reference file that defines AI behaviors that monsters can use.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

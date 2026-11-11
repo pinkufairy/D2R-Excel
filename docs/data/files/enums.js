@@ -14,49 +14,68 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "Any",
                     "Any Quality"
                 ],
                 [
                     "1",
+                    "Low",
                     "Low Quality (Ex: \"Crude\")"
                 ],
                 [
                     "2",
+                    "Normal",
                     "Normal Quality"
                 ],
                 [
                     "3",
+                    "High",
                     "High Quality (Superior)"
                 ],
                 [
                     "4",
+                    "Magic",
                     "Magic Quality (Uses Magic Prefixes and Suffixes)"
                 ],
                 [
                     "5",
+                    "Set",
                     "Set Item"
                 ],
                 [
                     "6",
+                    "Rare",
                     "Rare Quality"
                 ],
                 [
                     "7",
+                    "Unique",
                     "Unique (Predetermined stats)"
                 ],
                 [
                     "8",
+                    "Crafted",
                     "Crafted"
                 ],
                 [
                     "9",
+                    "Tempered",
                     "Tempered"
                 ]
             ]
@@ -68,6 +87,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 1,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -96,46 +123,64 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
-                    "Description"
+                    "Description",
+                    "Notes"
                 ],
                 [
                     "0",
-                    "Transparency at 25%"
+                    "25%",
+                    ""
                 ],
                 [
                     "1",
-                    "Transparency at 50%"
+                    "50%",
+                    ""
                 ],
                 [
                     "2",
-                    "Transparency at 75%"
+                    "75%",
+                    ""
                 ],
                 [
                     "3",
-                    "Black Alpha Transparency"
+                    "Black Alpha",
+                    ""
                 ],
                 [
                     "4",
-                    "White Alpha Transparency"
+                    "White Alpha",
+                    ""
                 ],
                 [
                     "5",
-                    "No Transparency"
+                    "None",
+                    ""
                 ],
                 [
                     "6",
-                    "Dark Transparency (Unused)"
+                    "Dark",
+                    "Unused"
                 ],
                 [
                     "7",
-                    "Highlight Transparency (Used when mousing over the unit)"
+                    "Highlight",
+                    "Used when mousing over the unit"
                 ],
                 [
                     "8",
-                    "Blended"
+                    "Blended",
+                    ""
                 ]
             ]
         },
@@ -147,6 +192,14 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -154,7 +207,7 @@ files["enums"] = {
                 ],
                 [
                     "0",
-                    "No color change"
+                    "None"
                 ],
                 [
                     "1",
@@ -198,50 +251,69 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
-                    "Description"
+                    "Description",
+                    "Notes"
                 ],
                 [
                     "0",
-                    "Cold"
+                    "Cold",
+                    ""
                 ],
                 [
                     "1",
-                    "Poison"
+                    "Poison",
+                    ""
                 ],
                 [
                     "2",
-                    "Level 0"
+                    "Level 0",
+                    ""
                 ],
                 [
                     "3",
-                    "Level 1"
+                    "Level 1",
+                    ""
                 ],
                 [
                     "4",
-                    "Level 2"
+                    "Level 2",
+                    ""
                 ],
                 [
                     "5",
-                    "Level 3"
+                    "Level 3",
+                    ""
                 ],
                 [
                     "6",
-                    "Level 4"
+                    "Level 4",
+                    ""
                 ],
                 [
                     "7",
-                    "Miscellaneous"
+                    "Miscellaneous",
+                    ""
                 ],
                 [
                     "9",
-                    "Random"
+                    "Random",
+                    ""
                 ],
                 [
                     "255",
-                    "Special case handler. If hostile, then select the Cold transform. If not hostile, then select the Poison transform."
+                    "Special",
+                    "If hostile, then select the Cold transform. If not hostile, then select the Poison transform."
                 ]
             ]
         },
@@ -252,6 +324,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -323,6 +403,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -707,6 +795,14 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -738,6 +834,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -901,6 +1005,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -1085,6 +1197,14 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1163,6 +1283,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 2,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [
@@ -1568,6 +1696,14 @@ files["enums"] = {
                 "dataLength": 0,
                 "memSize": 0
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 0,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -1602,6 +1738,14 @@ files["enums"] = {
                 "type": "comment",
                 "dataLength": 0,
                 "memSize": 0
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

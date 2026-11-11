@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["pettype"] = {
     "title": "pettype.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the various statistics for each type of pet from all the classes summon Skills.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -112,25 +115,38 @@ files["pettype"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "Do not display the Pet icon"
                 ],
                 [
                     "1",
+                    "Icon",
                     "Display the Pet icon and do not show the Pet counter"
                 ],
                 [
                     "2",
+                    "Icon and Counter",
                     "Display the Pet icon and show the Pet counter"
                 ],
                 [
                     "3",
+                    "Individual Icon",
                     "Display individual icons for each Pet of this type. Do not show the Pet counter."
                 ]
             ]

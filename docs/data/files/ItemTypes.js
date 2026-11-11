@@ -8,6 +8,9 @@ files["ItemTypes"] = {
         "PlayerClass",
         "StorePage"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the general statistics for each type of item, which is then used for the item type fields in other files.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

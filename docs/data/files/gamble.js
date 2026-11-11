@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["gamble"] = {
     "title": "gamble.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls what Item Types will appear as possible items to purchase in the Gambling UI. Item Types can be added to this list as a potential option for the Gambling system.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

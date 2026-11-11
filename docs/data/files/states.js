@@ -8,6 +8,9 @@ files["states"] = {
         "events",
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file defines the different states used by the game and controls how they function. States are basically passive behaviors applied to units that can apply various effects.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -457,6 +460,14 @@ files["states"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -594,6 +605,14 @@ files["states"] = {
                 "dataLength": 0,
                 "memSize": 16
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
@@ -692,7 +711,7 @@ files["states"] = {
                 "dataLength": 4,
                 "memSize": 16,
                 "file": "ItemTypes",
-                "field": "ItemType"
+                "field": "Code"
             }
         },
         {
@@ -727,98 +746,134 @@ files["states"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "ID",
+                    "Name",
                     "Description"
                 ],
                 [
-                    "0 (or empty)",
+                    "0",
+                    "",
                     "Do nothing"
                 ],
                 [
                     "1",
+                    "Rotate",
                     "First Hue Rotation"
                 ],
                 [
                     "25",
+                    "Rotate and Darken",
                     "First Hue Rotation and Darken"
                 ],
                 [
                     "49",
+                    "Rotate and Lighten",
                     "First Hue Rotation and Lighten"
                 ],
                 [
                     "73",
+                    "Gray",
                     "Color to Grey"
                 ],
                 [
                     "74",
+                    "Black",
                     "Color to Black"
                 ],
                 [
                     "75",
+                    "Rotate no Red",
                     "First No Red Rotation"
                 ],
                 [
                     "100",
+                    "Red",
                     "Color to Red"
                 ],
                 [
                     "101",
+                    "Orange",
                     "Color to Orange"
                 ],
                 [
                     "102",
+                    "Yellow",
                     "Color to Yellow"
                 ],
                 [
                     "103",
+                    "Grass",
                     "Color to Grass"
                 ],
                 [
                     "104",
+                    "Green",
                     "Color to Green<br>(There is a special case to not turn the player unit green)"
                 ],
                 [
                     "105",
+                    "Teal",
                     "Color to Teal"
                 ],
                 [
                     "106",
+                    "Aqua",
                     "Color to Aqua"
                 ],
                 [
                     "107",
+                    "Light Blue",
                     "Color to Light Blue"
                 ],
                 [
                     "108",
+                    "Blue",
                     "Color to Blue"
                 ],
                 [
                     "109",
+                    "Purple",
                     "Color to Purple"
                 ],
                 [
                     "110",
+                    "Magenta",
                     "Color to Magenta"
                 ],
                 [
                     "111",
+                    "Funky Red",
                     "Color to Some Funky Red"
                 ],
                 [
                     "112",
+                    "RGB Red",
                     "Color to RGB Red"
                 ],
                 [
                     "113",
+                    "RGB Green",
                     "Color to RGB Green"
                 ],
                 [
                     "114",
+                    "RGB Blue",
                     "Color to RGB Blue"
+                ],
+                [
+                    "130",
+                    "HD Custom",
+                    "Custom HD handling"
                 ]
             ]
         },
@@ -915,6 +970,13 @@ files["states"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Client Event Functions"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Client Event Functions"
+                }
             }
         },
         {
@@ -969,6 +1031,14 @@ files["states"] = {
                 "type": "int",
                 "dataLength": 0,
                 "memSize": 32
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
             },
             "table": [
                 [

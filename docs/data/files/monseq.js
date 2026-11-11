@@ -6,6 +6,9 @@ files["monseq"] = {
     "referenceFiles": [
         "MonMode"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the sequence table used for specifying events during certain animation frames, such as when using skills. A sequence is divided into multiple lines in this file to define each frame in the animation and to determine which event to use during a specific frame.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -58,29 +61,43 @@ files["monseq"] = {
                 "dataLength": 0,
                 "memSize": 8
             },
+            "d2rExcel": {
+                "validation": {
+                    "type": "table",
+                    "tableModelColumn": 0,
+                    "tableViewColumn": 1,
+                    "tableStartRow": 1
+                }
+            },
             "table": [
                 [
                     "Code",
+                    "Name",
                     "Description"
                 ],
                 [
                     "0",
+                    "None",
                     "No event, do nothing"
                 ],
                 [
                     "1",
+                    "Melee",
                     "Do Melee attack"
                 ],
                 [
                     "2",
+                    "Missile",
                     "Do Missile attack"
                 ],
                 [
                     "3",
+                    "Sound",
                     "Play a sound"
                 ],
                 [
                     "4",
+                    "Skill",
                     "Use a Skill"
                 ]
             ]

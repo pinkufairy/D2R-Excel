@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["RarePrefix"] = {
     "title": "RarePrefix.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the list of strings that are randomly selected to be used as the prefix part of the name when generating Rare items. Rare Prefixes are chosen at random from the list define in the data file. These item affixes will appear at the start of a Rare item's name.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

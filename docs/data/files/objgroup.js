@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["objgroup"] = {
     "title": "objgroup.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls what group of possible Objects to spawn in a part of an area level. The order of each Object Group defined in this file will convey what ID value it has, which is referenced by the $!Levels!$ file. The order of these Object Groups should not be changed.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

@@ -6,6 +6,9 @@ files["MonType"] = {
     "referenceFiles": [
         "ElemTypes"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file handles the classification, naming conventions and element of monsters.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

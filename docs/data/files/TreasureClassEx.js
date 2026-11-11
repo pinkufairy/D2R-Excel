@@ -6,6 +6,9 @@ files["TreasureClassEx"] = {
     "referenceFiles": [
         "enums"
     ],
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the Treasure Class linked to a monster drop. Treasure Classes are groups of item types and their chances of dropping from a monster.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
@@ -221,6 +224,13 @@ files["TreasureClassEx"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         },
         {
@@ -234,6 +244,13 @@ files["TreasureClassEx"] = {
             "appendField": {
                 "file": "enums",
                 "field": "Quest Flags"
+            },
+            "d2rExcel": {
+                "validation": {
+                    "type": "foreign",
+                    "foreignFile": "enums",
+                    "foreignField": "Quest Flags"
+                }
             }
         }
     ]

@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LvlMaze"] = {
     "title": "LvlMaze.txt",
+    "d2rExcel": {
+        "freezeColumns": 1
+    },
     "overview": "This file controls the sizes of the underground area levels. This file uses the levels from $!Levels!$ and specifies the sizes for each room, which can mean how many Level Presets to use to build out the entire randomly generated area.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {

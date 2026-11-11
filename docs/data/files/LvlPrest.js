@@ -3,6 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 files["LvlPrest"] = {
     "title": "LvlPrest.txt",
+    "d2rExcel": {
+        "freezeColumns": 2
+    },
     "overview": "This file controls the values for each Level Preset. A Level Preset is a static area composed of tiles that is used to construct entire area levels found in the game.<br>Any column field name starting with \"*\" is considered a comment field and is not used by the game.",
     "fields": [
         {
